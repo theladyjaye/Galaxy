@@ -1,0 +1,8 @@
+RewriteEngine On
+
+#RewriteCond %{REQUEST_METHOD} ^(DELETE) [NC]
+#RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_METHOD} ^(GET|HEAD|POST|PUT|DELETE) [NC]
+RewriteRule .* sync.php [QSA,L]
+

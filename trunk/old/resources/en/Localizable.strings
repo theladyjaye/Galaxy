@@ -1,0 +1,37 @@
+// General
+
+ApplicationName                 = Project Renegade
+SuccessSettings                 = Your Settings have been successfully updated
+ErrorEmailFormat                = Invalid Email Address
+ErrorEmailMatch                 = Invalid Email Address
+ErrorEmailUnique                = Invalid Email Address (Unique)
+ErrorPasswordFormat             = Invalid Password Format. Password must be between 5-16 characters and only contain letters, numbers or the following: !()^*$#@%&<>?
+ErrorPasswordMatch              = Passwords Do Not Match
+ErrorScreennameFormat           = Invalid Screen Name Format. Screen name must contain no spaces, and be composed of letter, numbers or the following: _
+ErrorScreennameUnique           = Invalid Screen Name (Unique)
+ErrorAuthentication             = Invalid username or password
+NewEmail                        = New Email
+ConfirmEmail                    = Confirm Email
+ConfirmNewEmail                 = Confirm New Email
+Password                        = Password
+ConfirmPassword                 = Confirm Password
+NewPassword                     = New Password
+ConfirmNewPassword              = Confirm New Password
+Photo                           = Photo
+CurrentSettings                 = Current Settings
+ScreenName                      = Screen Name
+Email                           = Email
+Continue                        = Continue
+Applications                    = Applications
+CreateApplication               = Create a New Application
+CurrentApplications             = Active Applications
+ApplicationCreateName           = Application Name
+ApplicationCreateShortName      = Application Short Name
+ExampleApplicationShortName     = 4-20 characters long, no spaces: renegade, renegade7, renegade_7
+ApplicationCreateDomain         = Domain
+ErrorApplicationShortNameUnique = Application short name is current in use.
+ErrorApplicationShortNameFormat = Short name must be between 4 and 20 characters long, be composed of letters and numbers or _ only, and contain no spaces.
+ErrorApplicationNameFormat      = Invalid Application Name.  Application Names but be between 4 and 100 characters long. They cannot start with spaces and can contain only letters or numbers or spaces.
+ErrorDomainNameFormat           = Invalid Domain Name.
+ExampleDomain                   = example.com not www.example.com
+

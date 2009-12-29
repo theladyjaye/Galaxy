@@ -1,0 +1,9 @@
+.form-error
+{
+	color:#cc0000;
+	background-color:#ff9898;
+	min-height:23px;
+	font-weight:bold;
+	margin-bottom:1px;
+	padding:7px 0 0 7px;
+}

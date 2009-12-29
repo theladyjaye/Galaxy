@@ -1,0 +1,15 @@
+1: Log Initialized
+2: HTTP/1.1 200 OK
+
+3: Server: CouchDB/0.11.0b824212 (Erlang OTP/R13B)
+
+4: Etag: "2-adcb6d3e8eb33d015498539d117666f7"
+
+5: Date: Fri, 16 Oct 2009 15:11:16 GMT
+
+6: Content-Type: text/plain;charset=utf-8
+
+7: Content-Length: 95
+
+8: Cache-Control: must-revalidate
+

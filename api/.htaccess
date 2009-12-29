@@ -1,0 +1,4 @@
+<Limit HEAD>
+RewriteEngine On
+RewriteRule .* renegade.php [L]
+</Limit>

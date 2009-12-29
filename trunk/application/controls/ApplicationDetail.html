@@ -1,0 +1,46 @@
+<div class="application" style="border-bottom:1px solid #333333; margin-bottom:7px; padding-bottom:7px;">
+	<h3>{description}</h3>
+	<table border="0" cellspacing="2" cellpadding="2">
+		<!--<tr>
+			<td align="right">Application Id:</td>
+			<td>{applicationId}</td>
+		</tr>
+		-->
+		<tr>
+			<td align="right">Application Instance:</td>
+			<td>{instance}</td>
+		</tr>
+	</table>
+	<h3>Certificate</h3>
+	<table border="0" cellspacing="2" cellpadding="2">
+		<tr>
+			<td align="right">API Key:</td>
+			<td>{api_key}</td>
+		</tr>
+		<tr>
+			<td align="right">API Secret:</td>
+			<td>{api_secret}</td>
+		</tr>
+	</table>
+	<h3>Default Permisisons</h3>
+	<table border="0" cellspacing="2" cellpadding="2">
+		<tr>
+			<td align="right">Channel Default<br>Read Permission:</td>
+			<td valign="top">{permission_read}</td>
+		</tr>
+		<tr>
+			<td align="right">Channel Default<br>Write Permission:</td>
+			<td valign="top">{permission_write}</td>
+		</tr>
+	</table>
+	<h3>Actions</h3>
+	<div class="actions" style="padding-bottom:7px;">
+		<a href="/applications/{_id}/channels">Manage Channels</a><br>
+		<a href="#">Manage Permissions</a><br>
+		<form method="post" action="/actions/application/delete">
+			<input type="submit" value="Delete Application">
+			<input type="hidden" name="inputId" value="{_id}" id="inputId">
+			<input type="hidden" name="inputCertificate" value="{certificate}" id="inputId">
+		</form>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+#signupModal{
+	display:none;
+	position:absolute;
+	background-color:#cccccc;
+	width:200px;
+	padding:10px;
+	top:10px;
+	left:20px;
+}
+
+#signupModal .close{
+	float:right;
+	width:10px;
+}

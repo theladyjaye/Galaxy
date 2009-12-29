@@ -1,0 +1,2 @@
+Welcome to Project Renegade!
+In order to validate your account, please visit: http://renegade/actions/account/verify/{key}

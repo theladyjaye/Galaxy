@@ -1,0 +1,10 @@
+{
+	authentication:
+	{
+		map: function(doc)
+		{
+			
+		}
+	}
+	
+}

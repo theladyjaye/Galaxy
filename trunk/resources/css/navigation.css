@@ -1,0 +1,29 @@
+#navigation
+{
+	background-color:#efefef;
+	min-height:30px;
+	border-bottom:1px solid #cccccc;
+}
+#navigation ul
+{
+	margin:0;
+	padding:7px;
+}
+
+#navigation ul li
+{
+	list-style-type:none;
+	float:left;
+	width:75px;
+}
+
+#subnav{
+	clear:both;
+}
+
+#subnav div{
+	color:#ffffff;
+	height:23px;
+	padding:7px 0 0 7px;
+	font-weight:bold;
+}

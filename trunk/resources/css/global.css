@@ -1,0 +1,28 @@
+body{
+	font-size:11px;
+	font-family:verdana, sans-serif;
+	margin:0;
+	padding:0;
+}
+
+fieldset{
+	border:none;
+	padding:0 0 7px 0;
+}
+fieldset input{
+	margin:0 0 7px 0;
+}
+#content {
+	clear:both;
+	padding:20px 0 0 10px;
+}
+
+#content div, #content p{
+	clear:both;
+	width:500px;
+}
+
+#content div.date{
+	font-style:italic;
+	padding-bottom:5px;
+}

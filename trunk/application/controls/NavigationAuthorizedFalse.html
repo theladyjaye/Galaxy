@@ -1,0 +1,36 @@
+<div id="signupModal">
+	<div id="dialog">
+		<div class="context">
+			Your Account Has Been Created.  Please check your e-mail.
+		</div>
+	</div>
+	<div class="close"><a class="action" href="close">X</a></div>
+	<form id="signupForm" action="/actions/account/create" method="post">
+		<div>Screen Name:</div>
+		<input type="text" size="30" name="inputName" value="" id="inputName">
+		<div>Email:</div>
+		<input type="text" size="30" name="inputEmail" value="" id="inputEmail">
+		<hr>
+		<div>Password:</div>
+		<input type="password" size="30" name="inputPassword" value="" id="inputPassword">
+		<div>Verify Password:</div>
+		<input type="password" size="30" name="inputPasswordVerify" value="" id="inputPasswordVerify">
+		<div><input type="submit" value="signup"></div>
+	</form>
+</div>
+<div id="navigation">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/about">About</a></li>
+		<li><a id="actionSignup" href="signup">Sign Up</a></li>
+	</ul>
+</div>
+<div>
+	<form method="post" action="/actions/account/authorize">
+		<div>Username or Email:</div>
+		<input type="text" size="30" name="inputName" value="" id="inputName">
+		<div>Password:</div>
+		<input type="password" size="30" name="inputPassword" value="" id="inputPassword">
+		<div><input type="submit" value="login"></div>
+	</form>
+</div>
