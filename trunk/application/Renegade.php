@@ -1,29 +1,6 @@
 <?php
 class Renegade
 {
-	const kDatabaseCouchDB      = 1;
-	const kDatabaseTokyoCabinet = 2;
-	const kDatabaseRedis        = 3;
-	
-	const kDatabaseUsers        = 0;
-	const kDatabaseSessions     = 1;
-	const kDatabaseVerification = 2;
-	const kDatabaseApplications = 3;
-	const kDatabaseChannels     = 'renegade';
-	
-	// trying to keep the prefixes all in one place
-	// might make more sense to store them in their individual objects though.
-	// for ease of configuration though they are here for now.
-	const kTypeVerification     = 'verify';
-	const kTypeSession          = 'session';
-	const kTypeUser             = 'user';
-	const kTypeChannel          = 'channel';
-	const kTypeApplication      = 'app';
-	
-	const kSessionKey           = 'Renegade';
-	const kChannelPrefix        = 'renegade/channels';
-	
-	
 	public static function applicationIdForChannelId($id)
 	{
 		$value    = null;

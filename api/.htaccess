@@ -1,4 +1,5 @@
 <Limit HEAD>
 RewriteEngine On
-RewriteRule .* renegade.php [L]
+#RewriteRule .* renegade.php [L]
+RewriteRule .* galaxy.php [L]
 </Limit>

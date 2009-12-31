@@ -1,7 +1,7 @@
 <?php
-// Please note that the API end of things also holds a copy of these, so if you update here, please update there.
+// you should just be able to copy these directly from the main application constants class in trunk/application
 
-class RenegadeConstants
+class GalaxyAPIConstants
 {
 	const kDatabaseCouchDB       = 1;
 	const kDatabaseTokyoCabinet  = 2;
@@ -35,5 +35,11 @@ class RenegadeConstants
 	const kPermissionWrite      = 2;
 	
 	const kSchemeGalaxy         = 'glxy://';
+	
+	
+	// these 2 formats are found in the client library, and not the application UI library
+	const kFormatXML            = 'application/xml';
+	const kFormatJSON           = 'application/json';
+	const kFormatPHP            = 'application/php';
 }
 ?>
