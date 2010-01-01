@@ -16,6 +16,8 @@ class Galaxy
 	const kFormatJSON             = 'application/json';
 	const kFormatPHP              = 'application/php';
 	
+	const kLimitDefault           = 25;
+	
 	const kAuthorizationOAuth     = 'OAuth';
 	const kAuthorizationOAuthWRAP = 'OAuth WRAP'; // not used, noted here because it may be used in the future. keep in mind for applicable code paths
 	const kSchemeGalaxy           = 'glxy://';

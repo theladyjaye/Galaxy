@@ -8,22 +8,29 @@ class GalaxyForum extends GalaxyApplication
 		return $this->channels();
 	}
 	
-	public function posts_list($topic_id)
+	public function message_new(GalaxyForumMessage $message)
 	{
+		$command = new Message();
+		$command->setContent($message->data());
 		
+		$options       = $this->defaultCommandOptions();
+		$options['id'] = $message->context;
+		
+		$response = $this->execute($command, $options);
+		return $response->result;
 	}
 	
-	public function topics_reply()
+	public function messages_list($topic, $page=0, $limit=Galaxy::kLimitDefault)
 	{
-		// POST to a topics endpoint
-	}
-	
-	public function topics_new(GalaxyForumTopic $topic, $channel)
-	{
-		$command = new Topic($channel);
-		$command->setContent(json_encode($topic->data()));
-		$command->setContentType('application/json');
-		$response = $this->execute($command);
+		$command = new TopicMessages();
+		
+		$command->setContent(array('page'    => $page, 
+		                           'limit'   => $limit));
+		
+		$options       = $this->defaultCommandOptions();
+		$options['id'] = $topic;
+		
+		$response = $this->execute($command, $options);
 		return $response->result;
 	}
 	
@@ -32,13 +39,28 @@ class GalaxyForum extends GalaxyApplication
 		// DELETE to topics endpoint
 	}
 	
+	public function topics_new($channel, GalaxyForumTopic $topic)
+	{
+		$command = new Topic();
+		$command->setContent($topic->data());
+		
+		$options       = $this->defaultCommandOptions();
+		$options['id'] = $channel;
+		
+		$response = $this->execute($command, $options);
+		return $response->result;
+	}
 	
-	public function topics_list($id, $limit=25)
+	public function topics_list($channel, $page=0, $limit=Galaxy::kLimitDefault)
 	{
 		$command = new TopicList();
-		$command->setData(array('channel' => $id));
+		$command->setContent(array('page'    => $page, 
+		                           'limit'   => $limit));
 		
-		$response = $this->execute($command);
+		$options       = $this->defaultCommandOptions();
+		$options['id'] = $channel;
+		
+		$response = $this->execute($command, $options);
 		return $response->result;
 	}
 	

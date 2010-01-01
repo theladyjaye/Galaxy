@@ -2,20 +2,26 @@
 
 class Topic extends GalaxyCommand
 {
-	public $method   = GalaxyCommand::kMethodPut;
+	public $method   = GalaxyCommand::kMethodPost;
 	public $endpoint = 'topics';
-	
-	public function __construct($channel)
-	{
-		$this->endpoint .= '/'.$channel;
-	}
-	
 }
 
 class TopicList extends GalaxyCommand
 {
-	public $method = GalaxyCommand::kMethodGet;
+	public $method   = GalaxyCommand::kMethodGet;
 	public $endpoint = 'topics';
+}
+
+class TopicMessages extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodGet;
+	public $endpoint = 'messages';
+}
+
+class Message extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodPost;
+	public $endpoint = 'messages';
 }
 
 ?>

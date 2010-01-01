@@ -1,5 +1,7 @@
 RewriteEngine On
 RewriteBase /
 
-RewriteRule ^topics/new/(.*)$ topics_new.php?id=$1 [QSA,L]
+RewriteRule ^topics/(reply)/(.*)$ topics_new.php?action=$1&id=$2 [QSA,L]
+RewriteRule ^topics/read/(.*)$ topics_read.php?id=$1 [QSA,L]
+RewriteRule ^topics/(new)/(.*)$ topics_new.php?action=$1&id=$2 [QSA,L]
 RewriteRule ^topics/(.*)$ topics_view.php?id=$1 [QSA,L]

@@ -1,21 +1,21 @@
 <?php
 class GalaxyForumTopic
 {
-	private $subject;
-	private $message;
+	private $title;
+	private $body;
 	
-	public static function topicWithSubjectAndMessage($subject, $message)
+	public static function topicWithTitleAndBody($title, $body)
 	{
-		$topic = new GalaxyForumTopic();
-		$topic->subject = $subject;
-		$topic->message = $message;
+		$topic        = new GalaxyForumTopic();
+		$topic->title = $title;
+		$topic->body  = $body;
 		return $topic;
 	}
 	
 	public function data()
 	{
-		return array('subject' => $this->subject,
-		             'message' => $this->message);
+		return array('title' => $this->title,
+		             'body'  => $this->body);
 	}
 }
 ?>

@@ -24,9 +24,9 @@ abstract class GalaxyApplication
 		return $response->result;
 	}
 	
-	protected function execute(GalaxyCommand $command)
+	protected function execute(GalaxyCommand $command, $options=null)
 	{
-		$options    = $this->defaultCommandOptions();
+		$options    = $options ? $options : $this->defaultCommandOptions();
 		$connection = GalaxyConnection::initWithCommandAndOptions($command, $options);
 		$response   = $connection->start();
 		return $response;

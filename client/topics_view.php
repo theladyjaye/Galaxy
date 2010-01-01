@@ -10,7 +10,7 @@ $options  = array('id'     =>'com.galaxy.community',
                   'type'   => Galaxy::kApplicationForum,
                   'format' => Galaxy::kFormatJSON);
 $galaxy   = Galaxy::applicationWithOptions($options);
-$topics   = $galaxy->topics_list($_GET['id']);
+$topics   = json_decode($galaxy->topics_list($_GET['id']));
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -26,6 +26,15 @@ $topics   = $galaxy->topics_list($_GET['id']);
 </head>
 <body>
 	<div><a href="/">&laquo; Back</a></div>
-<div><a href="/topics/new/<?php echo $_GET['id'] ?>">New Topic</a>
+	<div><a href="/topics/new/<?php echo $_GET['id'] ?>">New Topic</a>
+	<hr>
+	<div>
+		<?php foreach($topics as $topic): ?>
+			<div style="padding-bottom:20px">
+				<div><a href="/topics/read/<?php echo $_GET['id']?>.<?php echo $topic->id ?>"><?php echo $topic->title ?></a></div>
+				<div style="font-size:11px;font-style:italic;">(Created From: <?php echo $topic->origin_description ?> on <?php echo date('Y-m-d', $topic->created)  ?>)</div>
+			</div>
+		<?php endforeach;?>
+	</div>
 </body>
 </html>

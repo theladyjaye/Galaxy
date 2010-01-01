@@ -1,6 +1,21 @@
 <?php
 class GalaxyAPI
 {
+	public static function endpoint()
+	{
+		
+		$endpoint     = strtolower($_SERVER['REQUEST_URI']); // will start with a leading /
+		$endpoint     = substr($endpoint, 1);                // remove the leading /
+		$query_string = strpos($endpoint, '?');
+		
+		if($query_string !== false)                          // we have a query string to remove
+		{
+			$endpoint = substr($endpoint, 0, $query_string);
+		}
+		
+		return $endpoint;
+	}
+	
 	public static function databaseForId($id)
 	{
 		$id = str_replace('.', ':', $id);

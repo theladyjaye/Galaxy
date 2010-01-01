@@ -50,7 +50,8 @@ class Application
 				$certificate = new Certificate(Certificate::kContextApplication);
 				$certificate->setData(array('owner'       => $this->owner,
 				                            'instance'    => $this->type,
-				                            'application' => $this->id));
+				                            'application' => $this->id,
+				                            'description' => $this->description));
 		
 				$certificate       = $certificate->toArray();
 				$this->certificate = $certificate;

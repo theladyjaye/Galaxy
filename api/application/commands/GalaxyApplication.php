@@ -1,9 +1,9 @@
 <?php
 abstract class GalaxyApplication
 {
-	public function channels_get($application)
+	public function channels_get(GalaxyContext $context)
 	{
-		$options  = array('default' => GalaxyAPI::databaseForId($application));
+		$options  = array('default' => GalaxyAPI::databaseForId($context->application));
 		$channels = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPIConstants::kDatabaseChannels, $options);
 		$result   = $channels->find();
 		$data     = array();

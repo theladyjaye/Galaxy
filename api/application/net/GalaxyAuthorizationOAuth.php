@@ -1,9 +1,10 @@
 <?php
 class GalaxyAuthorizationOAuth
 {
-	private  $application;
-	private  $instance;
-	private  $oauth;
+	private $application;
+	private $description;
+	private $instance;
+	private $oauth;
 	
 	public function __construct($signature)
 	{
@@ -21,6 +22,8 @@ class GalaxyAuthorizationOAuth
 		{
 			$this->application                     = $certificate['application'];
 			$this->instance                        = $certificate['instance'];
+			$this->description                     = $certificate['description'];
+			
 			$secret                                = $certificate['secret'];
 			$base_string                           = array();
 			$base_string['oauth_consumer_key']     = $this->oauth->oauth_consumer_key;
@@ -36,8 +39,7 @@ class GalaxyAuthorizationOAuth
 				ksort($base_string);
 			}
 			
-			
-			$string    = strtoupper($_SERVER['REQUEST_METHOD'])."&http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']."&".http_build_query($base_string);
+			$string    = strtoupper($_SERVER['REQUEST_METHOD'])."&http://".$_SERVER['SERVER_NAME'].'/'.GalaxyAPI::endpoint()."&".http_build_query($base_string);
 			$string    = urlencode($string);
 			
 			$signature = base64_encode(hash_hmac('sha1', $string, $secret, true));
@@ -54,7 +56,7 @@ class GalaxyAuthorizationOAuth
 	public function __get($key)
 	{
 		$value = null;
-		if($key == 'application' || $key == 'instance')
+		if($key == 'application' || $key == 'instance' || $key == 'description')
 		{
 			$value = $this->{$key};
 		}

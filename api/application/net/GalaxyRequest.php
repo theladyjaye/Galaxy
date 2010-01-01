@@ -33,36 +33,34 @@ class GalaxyRequest
 			$api      = null;
 			$response = null; // GalaxyResponse
 			
-			
 			// At this point we know the user has a valid application
 			// if they are attempting to access a channel, we need to confirm the channel 
 			// permissions, if they are accessing the root of their application, they are good
 			// to go at this point.
-			$realm = $this->process_realm($authorization->realm);
 			
-			if($realm)
+			$context                     = $this->context_for_realm($authorization->realm);
+			$context->origin             = $authorization->application;
+			$context->origin_description = $authorization->description;
+			
+			if($context)
 			{
-				$api  = $this->commandLibraryForType($authorization->instance);
-
+				$api    = $this->commandLibraryForType($authorization->instance);
+				
+				// format: command_method e.g., channels_get, topics_post, topics_delete
+				$method = GalaxyAPI::endpoint().'_'.strtolower($_SERVER['REQUEST_METHOD']);
+				
 				if(!$api){
 					GalaxyResponse::unauthorized();
 				}
 				
 				// accessing the application
-				if(!$realm['channel'])
+				if(!$context->channel)
 				{
-					if($realm['application'] == $authorization->application)
+					if($context->application == $authorization->application)
 					{
-						/*
-							TODO Perform the requested action, we need a more robust way to handle the request URI 
-							especially in the case of /command/option/option... etc.
-						*/
-						
-						// format: command_method e.g., channels_get
-						$method = strtolower(substr($_SERVER['REQUEST_URI'], 1)).'_'.strtolower($_SERVER['REQUEST_METHOD']);
 						if(method_exists($api, $method))
 						{
-							$response = $api->$method($realm['application']);
+							$response = $api->$method($context);
 						}
 						
 						echo $response;
@@ -75,11 +73,15 @@ class GalaxyRequest
 				// accessing a channel within the application
 				else
 				{
-					// check the authorization permissions for a channel action. 
+					// check the authorization permissions for a channel action.
 					// GET             = read
 					// POST/PUT/DELETE = write
+					if(method_exists($api, $method))
+					{
+						$response = $api->$method($context);
+					}
 					
-					$response = null;
+					echo $response;
 				}
 				
 			}
@@ -108,27 +110,36 @@ class GalaxyRequest
 		return $api;
 	}
 	
-	private function process_realm($realm)
+	private function context_for_realm($realm)
 	{
 		$value = null;
 		// realm should begin with glxy://
+		
 		if(strpos($realm, GalaxyAPIConstants::kSchemeGalaxy) !== false)
 		{
 			$realm = substr($realm, strlen(GalaxyAPIConstants::kSchemeGalaxy));
-			$value = array('application'=>null, 'channel'=>null);
+			$value = new GalaxyContext();
+			
 			$parts = explode('.', $realm);
 			
-			// com.galaxy.community.announcements -- channel (4 parts)
-			// com.galaxy.community               -- application (3 parts)
-			if(count($realm) == 4)
+			// com.galaxy.community                -- application (3 parts)
+			// com.galaxy.community.channel        -- channel (4 parts)
+			// com.galaxy.community.channel.123456 -- more (5+ parts)
+			
+			if(count($parts) > 4)
 			{
-				$parts                = array_pop($parts);
-				$value['channel']     = $realm;
-				$value['application'] = implode('.', $parts);
+				$value->application = implode('.', array_slice($parts, 0, 3));
+				$value->channel     = implode('.', array_slice($parts, 0, 4));
+				$value->more        = implode('.', array_slice($parts, 4));
+			}
+			else if(count($parts) == 4)
+			{
+				$value->application = implode('.', array_slice($parts, 0, 3));
+				$value->channel     = $realm;
 			}
 			else
 			{
-				$value['application'] = $realm;
+				$value->application = $realm;
 			}
 		}
 		

@@ -27,6 +27,8 @@ class GalaxyAPIConstants
 	const kTypeCertificate      = 'cert';
 	const kTypeApplication      = 'application';
 	const kTypeForum            = 'forum';
+	const kTypeForumTopic       = 'topic';
+	const kTypeForumMessage     = 'message';
 	
 	const kSessionKey           = 'Renegade';
 	const kChannelPrefix        = 'renegade/channels';

@@ -11,12 +11,24 @@ $options  = array('id'     =>'com.galaxy.community',
                   'format' => Galaxy::kFormatJSON);
 $galaxy   = Galaxy::applicationWithOptions($options);
 $channels = json_decode($galaxy->forum_list(), true);
-foreach($channels as $channel)
-{
-	$id          = urlencode($channel['id']);
-	$description = $channel['description'];
-	echo <<<HTML
-	<div><a href="/topics/$id">$description</a></div>
-HTML;
-}
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Forums</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Adam Venturella">
+	<!-- Date: 2009-12-31 -->
+</head>
+<body>
+	<h3>Forums</h3>
+	<?php foreach($channels as $channel): ?>
+	<div style="padding-bottom:10px">
+		<div><a href="/topics/<?php echo $channel['id'] ?>"><?php echo $channel['description'] ?></a></div>
+	</div>
+	<?php endforeach;?>
+</body>
+</html>

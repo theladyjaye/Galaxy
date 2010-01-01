@@ -25,6 +25,8 @@ class GalaxyConnection
 		$endpoint       = $this->prepare_endpoint($command);
 		$content        = null;
 		$header_content = null;
+		$content_type   = null;
+		$content_length = null;
 		
 		if($command->method != GalaxyCommand::kMethodGet && !empty($command->content))
 		{
@@ -41,9 +43,8 @@ class GalaxyConnection
 				$content_length = strlen($content);
 			}
 			
-			$header_content = "\r\nContent-Type: $content_type\r\nContent-Length: $content_length";
-			
-			$content = "\r\n".$content;
+			$content_type   = "Content-Type: $content_type\r\n";
+			$content_length = "Content-Length: $content_length\r\n";
 		}
 
 		// an alternate option is OAuth WRAP. We dont' have any support for it
@@ -65,25 +66,27 @@ class GalaxyConnection
 		
 		
 		// NOTE: We add the leading slash for the action.  Actions should not start with the /
-		return <<<REQUEST
-$command->method /$endpoint HTTP/1.0
-$authorization
-Host: $this->host:$this->port
-User-Agent: $this->agent
-Accept: $format{$header_content}
-Connection: Close
-
-$content
-REQUEST;
+		$request  =  "$command->method /$endpoint HTTP/1.0\r\n";
+		$request .=  "$authorization\r\n";
+		$request .=  "Host: $this->host:$this->port\r\n";
+		$request .=  "User-Agent: $this->agent\r\n";
+		$request .=  "Accept: $format\r\n";
+		$request .=  $content_type;
+		$request .=  $content_length;
+		$request .=  "Connection: Close\r\n";
+		$request .=  "\r\n";
+		$request .=  $content;
+		
+		return $request;
 	}
 	
 	private function prepare_endpoint(GalaxyCommand $command)
 	{
 		$endpoint = $command->endpoint;
 		
-		if(!empty($command->data) && $command->method == GalaxyCommand::kMethodGet)
+		if(!empty($command->content) && $command->method == GalaxyCommand::kMethodGet)
 		{
-			$endpoint = $endpoint.'?'.http_build_query($command->data);
+			$endpoint = $endpoint.'?'.http_build_query($command->content);
 		}
 		
 		return $endpoint;
@@ -92,8 +95,15 @@ REQUEST;
 	public function start()
 	{
 		$request = $this->requestWithCommand($this->command);
-		$data = $this->connect($request);
 		
+		/*echo "<h3>GalaxyClientConnection - request</h3>\n";
+		echo $request."\n\n<hr>";
+		$data = $this->connect($request);
+		echo "<h3>GalaxyClientConnection - response</h3>\n";
+		echo $data;exit;
+		*/
+		
+		$data = $this->connect($request);
 		$response = GalaxyResponse::responseWithData($data);
 		
 		if($response->error)
