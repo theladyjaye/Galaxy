@@ -21,8 +21,31 @@ class GalaxyConnection
 	
 	final public function requestWithCommand($command)
 	{
-		$format        = $this->options['format'];
+		$format         = $this->options['format'];
+		$endpoint       = $this->prepare_endpoint($command);
+		$content        = null;
+		$header_content = null;
 		
+		if($command->method != GalaxyCommand::kMethodGet && !empty($command->content))
+		{
+			if(is_array($command->content))
+			{
+				$content        = http_build_query($command->content);
+				$content_type   = 'application/x-www-form-urlencoded';
+				$content_length = strlen($content);
+			}
+			else
+			{
+				$content        = $command->content;
+				$content_type   = $command->content_type;
+				$content_length = strlen($content);
+			}
+			
+			$header_content = "\r\nContent-Type: $content_type\r\nContent-Length: $content_length";
+			
+			$content = "\r\n".$content;
+		}
+
 		// an alternate option is OAuth WRAP. We dont' have any support for it
 		// as of yet, but we want the code paths to hint that we might down the line.
 		if($this->options['authorization']['type'] == Galaxy::kAuthorizationOAuth)
@@ -31,25 +54,39 @@ class GalaxyConnection
 			$authorization->setKey($this->options['authorization']['key']);
 			$authorization->setSecret($this->options['authorization']['secret']);
 			$authorization->setMethod($command->method);
+			$authorization->setAdditionalParameters($command->content);
 			$authorization->setRealm(Galaxy::kSchemeGalaxy.$this->options['id']);
 			
-			// NOTE: We add the leading slash for the command action.  Command actions should not start with the /
-			$authorization->setAbsoluteUrl($this->scheme.$this->host.'/'.$command->action);
+			// NOTE: We add the leading slash for the command action.  Command endpoints should not start with the /
+			$authorization->setAbsoluteUrl($this->scheme.$this->host.'/'.$command->endpoint);
 			
 			$authorization = (string) $authorization;
 		}
 		
+		
 		// NOTE: We add the leading slash for the action.  Actions should not start with the /
 		return <<<REQUEST
-$command->method /$command->action HTTP/1.0
+$command->method /$endpoint HTTP/1.0
 $authorization
 Host: $this->host:$this->port
 User-Agent: $this->agent
-Accept: $format
+Accept: $format{$header_content}
 Connection: Close
 
-
+$content
 REQUEST;
+	}
+	
+	private function prepare_endpoint(GalaxyCommand $command)
+	{
+		$endpoint = $command->endpoint;
+		
+		if(!empty($command->data) && $command->method == GalaxyCommand::kMethodGet)
+		{
+			$endpoint = $endpoint.'?'.http_build_query($command->data);
+		}
+		
+		return $endpoint;
 	}
 	
 	public function start()
@@ -72,8 +109,8 @@ REQUEST;
 		$errstr   = null;
 		$response = null;
 
-		$socket  = $this->transport.$this->host.':'.$this->port;
-		$stream  = stream_socket_client($socket, $errno, $errstr, $this->timeout);
+		$socket   = $this->transport.$this->host.':'.$this->port;
+		$stream   = stream_socket_client($socket, $errno, $errstr, $this->timeout);
 
 		if(!$stream)
 		{

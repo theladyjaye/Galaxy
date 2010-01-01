@@ -9,11 +9,17 @@ class GalaxySignatureOAuth
 	private $method;
 	private $absolute_url;
 	private $realm;
+	private $additionalParameters;
 	
 	public function __construct($key=null, $secret=null)
 	{
 		$this->key    = $key    ? $key    : null;
 		$this->secret = $secret ? $secret : null;
+	}
+	
+	public function setAdditionalParameters($value)
+	{
+		$this->additionalParameters = $value;
 	}
 	
 	public function setKey($value)
@@ -60,6 +66,15 @@ class GalaxySignatureOAuth
 		$base_string['oauth_timestamp']        = $time;
 		$base_string['oauth_token']            = '';
 		$base_string['oauth_version']          = $this->version;
+		
+		if(!empty($this->additionalParameters))
+		{
+			if(is_array($this->additionalParameters))
+			{
+				$base_string = array_merge($base_string, $this->additionalParameters);
+				ksort($base_string);
+			}
+		}
 		
 		$string       = strtoupper($this->method)."&".$this->absolute_url."&".http_build_query($base_string);
 		$string       = urlencode($string);

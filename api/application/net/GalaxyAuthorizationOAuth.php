@@ -30,6 +30,13 @@ class GalaxyAuthorizationOAuth
 			$base_string['oauth_token']            = '';
 			$base_string['oauth_version']          = $this->oauth->oauth_version;
 			
+			if(count($_REQUEST))
+			{
+				$base_string = array_merge($base_string, $_REQUEST);
+				ksort($base_string);
+			}
+			
+			
 			$string    = strtoupper($_SERVER['REQUEST_METHOD'])."&http://".$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']."&".http_build_query($base_string);
 			$string    = urlencode($string);
 			

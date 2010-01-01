@@ -1,7 +1,7 @@
 <?php
 abstract class GalaxyApplication
 {
-	public function channels($application)
+	public function channels_get($application)
 	{
 		$options  = array('default' => GalaxyAPI::databaseForId($application));
 		$channels = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPIConstants::kDatabaseChannels, $options);

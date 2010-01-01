@@ -58,7 +58,8 @@ class GalaxyRequest
 							especially in the case of /command/option/option... etc.
 						*/
 						
-						$method = substr($_SERVER['REQUEST_URI'], 1);
+						// format: command_method e.g., channels_get
+						$method = strtolower(substr($_SERVER['REQUEST_URI'], 1)).'_'.strtolower($_SERVER['REQUEST_METHOD']);
 						if(method_exists($api, $method))
 						{
 							$response = $api->$method($realm['application']);

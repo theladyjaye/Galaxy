@@ -20,13 +20,19 @@ abstract class GalaxyApplication
 	
 	public function channels()
 	{
-		$options    = $this->defaultCommandOptions();
-		$connection = GalaxyConnection::initWithCommandAndOptions(new Channels(), $options);
-		$response = $connection->start();
+		$response   = $this->execute(new Channels());
 		return $response->result;
 	}
 	
-	private function defaultCommandOptions()
+	protected function execute(GalaxyCommand $command)
+	{
+		$options    = $this->defaultCommandOptions();
+		$connection = GalaxyConnection::initWithCommandAndOptions($command, $options);
+		$response   = $connection->start();
+		return $response;
+	}
+	
+	protected function defaultCommandOptions()
 	{
 		// right now we are just using OAuth
 		// at some point, we may consider OAuth WRAP

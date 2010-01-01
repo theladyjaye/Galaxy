@@ -8,9 +8,15 @@ $options  = array('id'     =>'com.galaxy.community',
                   'key'    => $key,
                   'secret' => $secret,
                   'type'   => Galaxy::kApplicationForum,
-                  'format' => Galaxy::kFormatPHP);
+                  'format' => Galaxy::kFormatJSON);
 $galaxy   = Galaxy::applicationWithOptions($options);
-$channels = $galaxy->forums();
-
-print_r($channels);
+$channels = json_decode($galaxy->forum_list(), true);
+foreach($channels as $channel)
+{
+	$id          = urlencode($channel['id']);
+	$description = $channel['description'];
+	echo <<<HTML
+	<div><a href="/topics/$id">$description</a></div>
+HTML;
+}
 ?>
