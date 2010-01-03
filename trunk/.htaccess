@@ -21,6 +21,7 @@ RewriteRule actions/application/delete main.php?path=application/forms/applicati
 RewriteRule actions/application/permissions/update main.php?path=application/forms/applicationUpdatePermissions.php [L,NC,QSA]
 RewriteRule actions/channel/create main.php?path=application/forms/channelCreate.php [L,NC,QSA]
 RewriteRule actions/channel/delete main.php?path=application/forms/channelDelete.php [L,NC,QSA]
+RewriteRule actions/channel/subscribe main.php?path=application/forms/channelSubscribe.php [L,NC,QSA]
 
 
 RewriteCond %{REQUEST_URI} !(\.gif$)|(\.jpg$)|(\.png$)|(\.css$)|(\.js$)|(\.xml$) 

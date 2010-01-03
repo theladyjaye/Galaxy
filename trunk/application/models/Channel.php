@@ -16,6 +16,24 @@ class Channel
 	
 	public function __construct($id)
 	{
+		// if we are given a full channel name:
+		// com.galaxy.community.announcements
+		// we only want the 'announcements' part
+		if(strpos($id, '.') !== false)
+		{
+			$parts = explode('.', $id);
+			
+			if(count($parts) == 4)
+			{
+				$id = $parts[3];
+				$this->application = implode('.', array_slice($parts, 0,3));
+			}
+			else
+			{
+				throw new Exception("Invalid 'id' provided in Channel::__construct");
+			}
+		}
+		
 		$this->id = $id;
 	}
 	
