@@ -1,11 +1,10 @@
 <div class="application" style="border-bottom:1px solid #333333; margin-bottom:7px; padding-bottom:7px;">
 	<h3>{description}</h3>
 	<table border="0" cellspacing="2" cellpadding="2">
-		<!--<tr>
+		<tr>
 			<td align="right">Application Id:</td>
-			<td>{applicationId}</td>
+			<td>{_id}</td>
 		</tr>
-		-->
 		<tr>
 			<td align="right">Application Instance:</td>
 			<td>{instance}</td>
@@ -22,25 +21,25 @@
 			<td>{api_secret}</td>
 		</tr>
 	</table>
-	<h3>Default Permisisons</h3>
+	<h3>Default Channel Creation Permisisons</h3>
 	<table border="0" cellspacing="2" cellpadding="2">
 		<tr>
-			<td align="right">Channel Default<br>Read Permission:</td>
+			<td align="right">Read:</td>
 			<td valign="top">{permission_read}</td>
 		</tr>
 		<tr>
-			<td align="right">Channel Default<br>Write Permission:</td>
+			<td align="right">Write:</td>
 			<td valign="top">{permission_write}</td>
 		</tr>
 		<tr>
-			<td align="right">Channel Default<br>Delete Permission:</td>
+			<td align="right">Delete:</td>
 			<td valign="top">{permission_delete}</td>
 		</tr>
 	</table>
 	<h3>Actions</h3>
 	<div class="actions" style="padding-bottom:7px;">
-		<a href="/applications/{_id}/channels">Manage Channels</a><br>
-		<a href="#">Manage Permissions</a><br>
+		<button type="button"><a style="text-decoration:none; color:#000000" href="/applications/{_id}/permissions">Manage Permissions</a></button><br>
+		<button type="button"><a style="text-decoration:none; color:#000000" href="/applications/{_id}/channels">Manage Channels</a></button><br>
 		<form method="post" action="/actions/application/delete">
 			<input type="submit" value="Delete Application">
 			<input type="hidden" name="inputId" value="{_id}" id="inputId">

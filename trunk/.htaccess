@@ -1,9 +1,13 @@
 RewriteEngine On
 RewriteBase /
 
+#RewriteRule ^applications/((com|org|net|edu)\.[a-z0-9][a-z0-9-]{2,}\.[a-z0-9][a-z0-9-]{2,})/channels$ main.php?view=channels.php&id=$1 [L,NC,QSA]
+RewriteCond %{REQUEST_URI} ^/applications/((com|org|net|edu)\.[a-z0-9][a-z0-9-]{2,}\.[a-z0-9][a-z0-9-]{2,})/ [NC]
+RewriteRule ^applications/([^\/]+)/channels$ main.php?view=channels.php&id=$1 [L,NC,QSA]
+RewriteRule ^applications/([^\/]+)/permissions$ main.php?view=permissions.php&id=$1 [L,NC,QSA]
+
 RewriteRule ^about main.php?view=about.php [L,NC,QSA]
 RewriteRule ^account main.php?view=account.php [L,NC,QSA]
-RewriteRule ^applications/((com|org|net|edu)\.[a-z0-9][a-z0-9-]{2,}\.[a-z0-9][a-z0-9-]{2,})/channels$ main.php?view=channels.php&id=$1 [L,NC,QSA]
 RewriteRule ^applications main.php?view=applications.php [L,NC,QSA]
 
 RewriteCond %{REQUEST_URI} ^/actions [NC]
@@ -14,6 +18,7 @@ RewriteRule actions/account/logout main.php?path=application/forms/accountLogout
 RewriteRule actions/account/update main.php?path=application/forms/accountUpdate.php [L,NC,QSA]
 RewriteRule actions/application/create main.php?path=application/forms/applicationCreate.php [L,NC,QSA]
 RewriteRule actions/application/delete main.php?path=application/forms/applicationDelete.php [L,NC,QSA]
+RewriteRule actions/application/permissions/update main.php?path=application/forms/applicationUpdatePermissions.php [L,NC,QSA]
 RewriteRule actions/channel/create main.php?path=application/forms/channelCreate.php [L,NC,QSA]
 RewriteRule actions/channel/delete main.php?path=application/forms/channelDelete.php [L,NC,QSA]
 

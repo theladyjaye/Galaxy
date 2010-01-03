@@ -1,5 +1,4 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/application/lib/couchdb/CouchDB.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/controls/ChannelDetail.php';
 class Channels extends ViewController
 {

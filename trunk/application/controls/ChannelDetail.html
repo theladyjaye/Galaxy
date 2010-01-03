@@ -18,7 +18,7 @@
 	</table>
 	<h3>Actions</h3>
 	<div class="actions" style="padding-bottom:7px;">
-		<a href="/applications/{_id}/channels">Manage Subscriptions</a><br>
+		<button type="button"><a style="text-decoration:none; color:#000000" href="/applications/{_id}/channels">Manage Subscriptions</a></button><br>
 		<form method="post" action="/actions/channel/delete">
 			<input type="submit" value="Delete Channel">
 			<input type="hidden" name="inputChannelId" value="{_id}" id="inputChannelId">

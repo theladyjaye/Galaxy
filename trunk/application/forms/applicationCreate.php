@@ -1,5 +1,4 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/application/lib/couchdb/CouchDB.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/functions/SecurityFunctions.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/Channel.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/Application.php';

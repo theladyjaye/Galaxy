@@ -44,6 +44,18 @@ class Renegade
 		return $user;
 	}
 	
+	public static function redirect($value=null)
+	{
+		$value = $value ? $value : '/';
+		header('Location:'.$value);
+		exit;
+	}
+	
+	public static function unauthorized($value=null)
+	{
+		self::redirect($value);
+	}
+	
 	public static function authorizeUser($user)
 	{
 		session_regenerate_id(true);
