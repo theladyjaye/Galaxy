@@ -33,7 +33,8 @@ class Subscription
 		$data =  array('application' => $this->application,
 		               'channel'     => $this->channel,
 		               'certificate' => $this->certificate,
-		               'master'      => $this->master);
+		               'master'      => $this->master,
+		               'type'        => RenegadeConstants::kTypeSubscription);
 		
 		return $data;
 	}

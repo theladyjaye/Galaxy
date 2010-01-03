@@ -64,10 +64,14 @@ if(strlen($session->user) > 0 && count($_POST))
 				$channels = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseChannels, $options_channels);
 				$data     = $channels->findOne(array('_id' => $form->inputChannelId));
 				
-				$options_subscriptions['default'] = $data['application'];
-				$subscriptions = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseSubscriptions, $options);
-				$subscriptions->remove(array('application' => $form->inputApplicationId, 'channel'=> $form->inputChannelId));
+				$options_subscriptions['default'] = Renegade::databaseForId($data['application']);
+				$subscriptions = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseSubscriptions, $options_subscriptions);
+
+				$record        = $subscriptions->findOne(array('application' => $form->inputApplicationId, 'channel'=> $data['_id']));
+				
+				$subscriptions->remove(array('_id' => $record['_id']));
 				$channels->remove(array('_id' => $form->inputChannelId));
+				$redis->delete($record['certificate']);
 			}
 			
 			header('Location:/applications/'.$form->inputApplicationId.'/channels');

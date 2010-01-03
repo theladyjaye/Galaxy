@@ -57,7 +57,10 @@ class Channels extends ViewController
 		{
 			foreach($channels as $channel)
 			{
-				$channel['applicationId'] = $this->application['_id'];
+				$channel['applicationId']     = $this->application['_id'];
+				$channel['permission_read']   = $channel['defaultPermissions'] & RenegadeConstants::kPermissionRead   ? 'Yes' : 'No'; 
+				$channel['permission_write']  = $channel['defaultPermissions'] & RenegadeConstants::kPermissionWrite  ? 'Yes' : 'No'; 
+				$channel['permission_delete'] = $channel['defaultPermissions'] & RenegadeConstants::kPermissionDelete ? 'Yes' : 'No';
 				echo new ChannelDetail($channel);
 			}
 		}

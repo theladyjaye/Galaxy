@@ -27,6 +27,7 @@ class RenegadeConstants
 	const kTypeCertificate      = 'cert';
 	const kTypeApplication      = 'application';
 	const kTypeForum            = 'forum';
+	const kTypeSubscription     = 'subscription';
 	
 	const kSessionKey           = 'Renegade';
 	const kChannelPrefix        = 'renegade/channels';

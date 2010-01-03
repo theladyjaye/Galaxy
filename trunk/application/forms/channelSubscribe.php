@@ -97,19 +97,17 @@ if(count($_POST))
 							$subscription->setChannel($metadata['_id']);
 							$subscription->setMaster(false);
 							
-							print_r($subscription->toArray());
+							$db_remote_options       = array('default' => Renegade::databaseForId($remote_application));
+							$db_remote_subscriptions = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseSubscriptions, $db_remote_options);
+							$certificates            = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseCertificates);
 							
-							//$db_remote_options       = array('default' => Renegade::databaseForId($remote_application));
-							//$db_remote_subscriptions = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseSubscriptions, $db_remote_options);
-							//$certificates = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseCertificates);
+							$db_remote_subscriptions->insert($subscription->toArray());
+							$db_channels->insert($metadata);
+							$certificates->set($certificate['key'], $certificate['value']);
 							
-							
-							//$db_channels->insert($remote_channel);
-							//$certificates->set($application['certificate'].':'.$form->inputId, json_encode($remote_channel['defaultPermissions']));
-							//$db_remote_subscriptions->insert()
 							
 							// All Done
-							//Renegade::redirect('/applications/'.$form->inputApplicationId.'./channels');
+							Renegade::redirect('/applications/'.$form->inputApplicationId.'/channels');
 						}
 						
 					}
@@ -124,7 +122,6 @@ if(count($_POST))
 		}
 	}
 }
-exit;
 Renegade::redirect('/');
 
 ?>
