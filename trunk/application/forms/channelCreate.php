@@ -35,7 +35,7 @@ if(strlen($session->user) > 0 && count($_POST))
 	$pattern_certificate = '/^'.RenegadeConstants::kTypeCertificate.':[a-z0-9]{32}$/';
 	
 	$form->addValidator(new AMInputValidator('inputDescription', true, 4, null, 'Channel Description must be at least 4 characters long'));
-	$form->addValidator(new AMPatternValidator('inputDescription', true, '/^[\w -]+$/', 'Channel Description may only container letters, numbers, spaces, underscores or hyphens'));
+	$form->addValidator(new AMPatternValidator('inputLabel', true, '/^[\w -]+$/', 'Channel Name may only container letters, numbers, spaces, underscores or hyphens'));
 	$form->addValidator(new AMPatternValidator('inputId', true, '/^[a-z0-9][a-z0-9-]+$/', 'Channel Id may only container letters, numbers, or hyphens.  It cannot begin with a hyphen'));
 	$form->addValidator(new AMPatternValidator('inputCertificate', true, $pattern_certificate, 'Invalid certificate'));
 	$form->addValidator(new ApplicationIdValidator('inputApplicationId', true, 'Invalid application id'));
@@ -54,10 +54,12 @@ if(strlen($session->user) > 0 && count($_POST))
 			$channel = new Channel($form->inputId);
 			$channel->setCertificate($form->inputCertificate);
 			$channel->setApplication($form->inputApplicationId);
+			$channel->setLabel($form->inputLabel);
 			$channel->setDescription($form->inputDescription);
-			$channel->setDefaultPermissions((int)$form->inputRead|(int)$form->inputWrite);
+			$channel->setDefaultPermissions((int)$form->inputRead|(int)$form->inputWrite|(int)$form->inputDelete);
 			
-			$certificate  = $channel->generate_certificate(RenegadeConstants::kPermissionRead|RenegadeConstants::kPermissionWrite);
+			// channel owner gets all permissions by default
+			$certificate  = $channel->generate_certificate(RenegadeConstants::kPermissionRead|RenegadeConstants::kPermissionWrite|RenegadeConstants::kPermissionDelete);
 			$metadata     = $channel->generate_metadata();
 			
 			$subscription = new Subscription();

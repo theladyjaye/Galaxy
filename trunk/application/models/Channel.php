@@ -9,6 +9,7 @@ class Channel
 	private $certificate;
 	private $permissions;
 	private $id;
+	private $label;
 	private $description;
 	private $defaultPermissions;
 	private $instance;
@@ -21,6 +22,11 @@ class Channel
 	public function setInstance($value)
 	{
 		$this->instance = $value;
+	}
+	
+	public function setLabel($value)
+	{
+		$this->label = $value;
 	}
 	
 	public function setDescription($value)
@@ -62,6 +68,7 @@ class Channel
 		$metadata = array('_id'                  => $this->channelId(),
 			               'database'            => Renegade::databaseForId($this->channelId()),
 			               'application'         => $this->application,
+			               'label'               => $this->label,
 			               'description'         => $this->description,
 			               'defaultPermissions'  => $this->defaultPermissions,
 			               'created'             => time(),

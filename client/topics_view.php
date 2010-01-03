@@ -1,15 +1,7 @@
 <?php
-require 'galaxy/Galaxy.php';
+require 'application/Application.php';
+$galaxy   = Application::galaxyForum();
 
-$key         = 'c49b1e9c75c8e2dce99d602ae4bb1019';
-$secret      = 'aacc9ff43235f2ad1ff067ba3f3069c9';
-
-$options  = array('id'     =>'com.galaxy.community',
-                  'key'    => $key,
-                  'secret' => $secret,
-                  'type'   => Galaxy::kApplicationForum,
-                  'format' => Galaxy::kFormatJSON);
-$galaxy   = Galaxy::applicationWithOptions($options);
 $topics   = json_decode($galaxy->topics_list($_GET['id']));
 
 ?>

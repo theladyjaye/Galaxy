@@ -39,11 +39,14 @@
 				<h3>Add channel to <?php echo $page->application['instance'] ?> based application</h3>
 				<label for="inputId">Channel Id</label><br>
 				<span style="font-style:italic;"><?php echo $page->application['_id'] ?>.</span><input type="text" name="inputId" value="" id="inputId" size="35"><br><br>
-				<label for="inputDescription">Channel Description</label><input type="text" name="inputDescription" value="" id="inputDescription" size="40">
+				<label for="inputLabel">Channel Name</label><input type="text" name="inputLabel" value="" id="inputLabel" size="40"><br>
+				<label for="inputDescription">Channel Description</label><br>
+				<textarea  name="inputDescription"  id="inputDescription" rows="5" cols="50"></textarea><br>
 				<h3>Channel Permissions</h3>
 				<div style="width:300px;font-style:italic;padding-bottom:7px">Other users can perform the following actions to this channel without requesting permission:</div>
 				<label for="inputRead">Read</label><input type="checkbox" name="inputRead" value="<?php echo RenegadeConstants::kPermissionRead ?>" <?php $page->defaultPermissionRead() ?> id="inputRead"><br>
-				<label for="inputWrite">Write</label><input type="checkbox" name="inputWrite" value="<?php echo RenegadeConstants::kPermissionWrite ?>" <?php $page->defaultPermissionWrite() ?> id="inputWrite">
+				<label for="inputWrite">Write</label><input type="checkbox" name="inputWrite" value="<?php echo RenegadeConstants::kPermissionWrite ?>" <?php $page->defaultPermissionWrite() ?> id="inputWrite"><br>
+				<label for="inputDelete">Delete</label><input type="checkbox" name="inputDelete" value="<?php echo RenegadeConstants::kPermissionDelete ?>" <?php $page->defaultPermissionDelete() ?> id="inputDelete">
 				<div>
 					<input type="hidden" name="inputApplicationId" value="<?php echo $page->application['_id'] ?>" id="applicationId">
 					<input type="hidden" name="inputCertificate" value="<?php echo $page->application['certificate'] ?>" id="inputCertificate">

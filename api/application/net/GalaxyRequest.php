@@ -62,6 +62,10 @@ class GalaxyRequest
 						{
 							$response = $api->$method($context);
 						}
+						else
+						{
+							GalaxyResponse::unauthorized();
+						}
 						
 						echo $response;
 					}
@@ -73,12 +77,36 @@ class GalaxyRequest
 				// accessing a channel within the application
 				else
 				{
-					// check the authorization permissions for a channel action.
-					// GET             = read
-					// POST/PUT/DELETE = write
-					if(method_exists($api, $method))
+					$has_permission  = false;
+					$db_certificates = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseRedis, GalaxyAPIConstants::kDatabaseCertificates);
+					$permissions     = json_decode($db_certificates->get(GalaxyAPIConstants::kTypeCertificate.':'.$authorization->oauth_consumer_key.':'.$context->channel));
+					
+					$verb = strtolower($_SERVER['REQUEST_METHOD']);
+					
+					switch($verb)
+					{
+						case 'get':
+							$has_permission = ($permissions & GalaxyAPIConstants::kPermissionRead) ? true : false;
+							break;
+						
+						case 'post':
+						case 'put':
+							$has_permission = ($permissions & GalaxyAPIConstants::kPermissionWrite) ? true : false;
+							break;
+						
+						case 'delete':
+							$has_permission = ($permissions & GalaxyAPIConstants::kPermissionDelete) ? true : false;
+							break;
+					}
+					
+					
+					if($has_permission && method_exists($api, $method))
 					{
 						$response = $api->$method($context);
+					}
+					else
+					{
+						GalaxyResponse::unauthorized();
 					}
 					
 					echo $response;

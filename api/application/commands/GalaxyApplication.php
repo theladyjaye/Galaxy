@@ -12,6 +12,7 @@ abstract class GalaxyApplication
 		{
 			$data[] = array('id'          => $channel['_id'],
 			                'type'        => $channel['type'],
+			                'label'       => $channel['label'],
 			                'description' => $channel['description']);
 		}
 		

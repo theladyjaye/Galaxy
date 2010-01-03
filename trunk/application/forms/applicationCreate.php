@@ -56,7 +56,7 @@ if(count($_POST))
 			$application->setApplicationOwner($session->user);
 			$application->setDescription($form->inputName);
 			$application->setApplicationType($form->inputType);
-			$application->setDefaultPermissions($form->inputRead|$form->inputWrite);
+			$application->setDefaultPermissions($form->inputRead|$form->inputWrite|$form->inputDelete);
 			$certificate = $application->generate_certificate();
 			
 			if($certificate)

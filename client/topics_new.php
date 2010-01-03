@@ -10,20 +10,11 @@ else
 
 if(count($_POST))
 {
-	require 'galaxy/Galaxy.php';
+	require 'application/Application.php';
 	require 'galaxy/models/forum/GalaxyForumTopic.php';
 	require 'galaxy/models/forum/GalaxyForumMessage.php';
-
-	$key         = 'c49b1e9c75c8e2dce99d602ae4bb1019';
-	$secret      = 'aacc9ff43235f2ad1ff067ba3f3069c9';
-
-	$options  = array('id'     =>'com.galaxy.community',
-	                  'key'    => $key,
-	                  'secret' => $secret,
-	                  'type'   => Galaxy::kApplicationForum,
-	                  'format' => Galaxy::kFormatJSON);
 	
-	$galaxy   = Galaxy::applicationWithOptions($options);
+	$galaxy   = Application::galaxyForum();
 	
 	switch($_GET['action'])
 	{

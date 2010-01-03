@@ -44,6 +44,11 @@ class Channels extends ViewController
 		echo ($this->application['defaultPermissions'] & RenegadeConstants::kPermissionWrite) ? 'checked' : '';
 	}
 	
+	public function defaultPermissionDelete()
+	{
+		echo ($this->application['defaultPermissions'] & RenegadeConstants::kPermissionDelete) ? 'checked' : '';
+	}
+	
 	public function showChannels()
 	{
 		$options     = array('default'=>Renegade::databaseForId($_GET['id']));

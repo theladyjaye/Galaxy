@@ -40,7 +40,8 @@
 				<h3>Default Channel Permissions</h3>
 				<div style="width:300px;font-style:italic;padding-bottom:7px">Other users can perform the following actions to this application's channels without requesting permission.  You can customize this on a per channel basis as well, this is just the default setting.</div>
 				<label for="inputRead">Read</label><input type="checkbox" name="inputRead" value="<?php echo RenegadeConstants::kPermissionRead ?>" id="inputRead"><br>
-				<label for="inputWrite">Write</label><input type="checkbox" name="inputWrite" value="<?php echo RenegadeConstants::kPermissionWrite ?>" id="inputWrite">
+				<label for="inputWrite">Write</label><input type="checkbox" name="inputWrite" value="<?php echo RenegadeConstants::kPermissionWrite ?>" id="inputWrite"><br>
+				<label for="inputDelete">Delete</label><input type="checkbox" name="inputDelete" value="<?php echo RenegadeConstants::kPermissionDelete ?>" id="inputDelete">
 				<hr>
 				<div>
 					<input type="submit" name="" value="Create Application &raquo;" id="">

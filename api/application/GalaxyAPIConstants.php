@@ -35,6 +35,7 @@ class GalaxyAPIConstants
 	
 	const kPermissionRead       = 1;
 	const kPermissionWrite      = 2;
+	const kPermissionDelete     = 4;
 	
 	const kSchemeGalaxy         = 'glxy://';
 	
