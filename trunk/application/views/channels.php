@@ -25,7 +25,7 @@
 	<h1>Manage Channels for: <?php echo $page->application['description'] ?> (<?php echo $page->application['_id'] ?>)</h1>
 	<!-- channel add -->
 	<div id="channelFormContext" style="background:#efefef; width:100%;min-height:15px;">
-		<div style="padding:10px;"><button type="button"><a href="/actions/channels/show/add" id="channelAddAction">+</a></button> | <button type="button"><a href="/actions/channels/subscribe" id="channelSubscribeAction">Subscribe to Channel</a></button> | <button type="button"><a href="/applications/" id="">Back to Applications</a></button></div>
+		<div style="padding:10px;"><a href="/actions/channels/show/add" id="channelAddAction">+</a> | <a href="/actions/channels/subscribe" id="channelSubscribeAction">Subscribe to Channel</a> | <a href="/applications/" id="">Back to Applications</a></div>
 		<div style="display:none; padding-left:10px;" class="formSubscribe">
 			<form id="channelSubscribe" method="post" action="/actions/channel/subscribe">
 				<h3>Subscribe channel to <?php echo $page->application['instance'] ?> based application</h3>
