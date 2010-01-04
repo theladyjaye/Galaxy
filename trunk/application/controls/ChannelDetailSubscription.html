@@ -1,5 +1,5 @@
 <div class="application" style="border-bottom:1px solid #333333; margin-bottom:7px; padding-bottom:7px;">
-	<div style="background-color:#efefef">
+	<div style="background-color:#e3f1ff">
 		<h3>{label}</h3>
 		<div style="font-size:11px; font-style:italic;">{description}</div>
 	</div>
@@ -35,7 +35,6 @@
 	</table>-->
 	<h3>Actions</h3>
 	<div class="actions" style="padding-bottom:7px;">
-		<button type="button"><a style="text-decoration:none; color:#000000" href="/applications/{_id}/channels">Manage Subscriptions</a></button><br>
 		<form method="post" action="/actions/channel/delete">
 			<input type="submit" value="Delete Channel">
 			<input type="hidden" name="inputChannelId" value="{_id}" id="inputChannelId">
