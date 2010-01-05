@@ -1,6 +1,6 @@
 <?php
-require 'application/Application.php';
-$galaxy   = Application::galaxyForum();
+require 'constellation/Constellation.php';
+$galaxy   = Constellation::galaxyForum();
 $messages = json_decode($galaxy->messages_list($_GET['id']));
 $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 ?>

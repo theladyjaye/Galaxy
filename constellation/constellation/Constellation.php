@@ -1,6 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/galaxy/Galaxy.php';
-class Application
+class Constellation
 {
 	public static function galaxyForum()
 	{

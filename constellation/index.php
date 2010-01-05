@@ -1,6 +1,6 @@
 <?php
-require 'application/Application.php';
-$galaxy   = Application::galaxyForum();
+require 'constellation/Constellation.php';
+$galaxy   = Constellation::galaxyForum();
 $channels = json_decode($galaxy->forum_list(), true);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

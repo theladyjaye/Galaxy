@@ -1,6 +1,6 @@
 <?php
-require 'application/Application.php';
-$galaxy   = Application::galaxyForum();
+require 'constellation/Constellation.php';
+$galaxy   = Constellation::galaxyForum();
 
 $topics   = json_decode($galaxy->topics_list($_GET['id']));
 

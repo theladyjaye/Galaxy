@@ -10,11 +10,11 @@ else
 
 if(count($_POST))
 {
-	require 'application/Application.php';
+	require 'constellation/Constellation.php';
 	require 'galaxy/models/forum/GalaxyForumTopic.php';
 	require 'galaxy/models/forum/GalaxyForumMessage.php';
 	
-	$galaxy   = Application::galaxyForum();
+	$galaxy   = Constellation::galaxyForum();
 	
 	switch($_GET['action'])
 	{
