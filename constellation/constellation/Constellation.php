@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/galaxy/Galaxy.php';
+require 'lib/galaxy/Galaxy.php';
 class Constellation
 {
 	public static function galaxyForum()
