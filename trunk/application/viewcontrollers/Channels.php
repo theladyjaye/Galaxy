@@ -50,6 +50,7 @@ class Channels extends ViewController
 	
 	public function showChannels()
 	{
+		
 		$options     = array('default'=>Renegade::databaseForId($_GET['id']));
 		$db          = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseChannels, $options);
 		$channels    = $db->find();
@@ -57,6 +58,13 @@ class Channels extends ViewController
 		{
 			foreach($channels as $channel)
 			{
+				/*
+					TODO Need a way to include the channels permissions in the channel view
+					just to let people know what they are allowed to do to their respective channels.
+					below are just the default permissions, they don't reflect the actual permissions for this user.
+					this will also be important when the application owner manages subscriptions.
+				*/
+				//print_r($channel);
 				$channel['permission_read']   = $channel['defaultPermissions'] & RenegadeConstants::kPermissionRead   ? 'Yes' : 'No'; 
 				$channel['permission_write']  = $channel['defaultPermissions'] & RenegadeConstants::kPermissionWrite  ? 'Yes' : 'No'; 
 				$channel['permission_delete'] = $channel['defaultPermissions'] & RenegadeConstants::kPermissionDelete ? 'Yes' : 'No';
