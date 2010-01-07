@@ -64,10 +64,10 @@ class Channels extends ViewController
 					below are just the default permissions, they don't reflect the actual permissions for this user.
 					this will also be important when the application owner manages subscriptions.
 				*/
-				//print_r($channel);
-				$channel['permission_read']   = $channel['defaultPermissions'] & RenegadeConstants::kPermissionRead   ? 'Yes' : 'No'; 
-				$channel['permission_write']  = $channel['defaultPermissions'] & RenegadeConstants::kPermissionWrite  ? 'Yes' : 'No'; 
-				$channel['permission_delete'] = $channel['defaultPermissions'] & RenegadeConstants::kPermissionDelete ? 'Yes' : 'No';
+				$channel['permission_read']     = $channel['defaultPermissions'] & RenegadeConstants::kPermissionRead   ? 'Yes' : 'No'; 
+				$channel['permission_write']    = $channel['defaultPermissions'] & RenegadeConstants::kPermissionWrite  ? 'Yes' : 'No'; 
+				$channel['permission_delete']   = $channel['defaultPermissions'] & RenegadeConstants::kPermissionDelete ? 'Yes' : 'No';
+				$channel['current_application'] = $this->application['_id'];
 				
 				if($channel['application'] != $this->application['_id'])
 				{
