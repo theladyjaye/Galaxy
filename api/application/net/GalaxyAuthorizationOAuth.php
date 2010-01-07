@@ -3,6 +3,7 @@ class GalaxyAuthorizationOAuth
 {
 	private $application;
 	private $description;
+	private $domain;
 	private $instance;
 	private $oauth;
 	
@@ -23,6 +24,7 @@ class GalaxyAuthorizationOAuth
 			$this->application                     = $certificate['application'];
 			$this->instance                        = $certificate['instance'];
 			$this->description                     = $certificate['description'];
+			$this->domain                          = $certificate['domain'];
 			
 			$secret                                = $certificate['secret'];
 			$base_string                           = array();
@@ -56,17 +58,24 @@ class GalaxyAuthorizationOAuth
 	public function __get($key)
 	{
 		$value = null;
-		if($key == 'application' || $key == 'instance' || $key == 'description')
+		switch($key)
 		{
-			$value = $this->{$key};
+			case 'application':
+			case 'instance':
+			case 'description':
+			case 'domain':
+				$value = $this->{$key};
+				break;
+			
+			default:
+				
+				if(isset($this->oauth->{$key}))
+				{
+					$value = $this->oauth->{$key};
+				}
+				break;
 		}
-		else
-		{
-			if(isset($this->oauth->{$key}))
-			{
-				$value = $this->oauth->{$key};
-			}
-		}
+		
 		return $value;
 	}
 	

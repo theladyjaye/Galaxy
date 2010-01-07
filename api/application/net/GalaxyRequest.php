@@ -41,6 +41,7 @@ class GalaxyRequest
 			$context                     = $this->context_for_realm($authorization->realm);
 			$context->origin             = $authorization->application;
 			$context->origin_description = $authorization->description;
+			$context->origin_domain      = $authorization->domain;
 			
 			if($context)
 			{

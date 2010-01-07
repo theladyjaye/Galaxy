@@ -13,8 +13,8 @@ class Constellation extends GalaxyApplication
 	const kCommandMessagesList    = 0x12;
 	
 	protected $application_id     = 'com.galaxy.community';
-	protected $application_key    = '3be355bc06dc4923a3e894e5675e3f0a';
-	protected $application_secret = '91da6fc8ae68944913ac4f2f549886b2';
+	protected $application_key    = '849b35ec4988daa0dc5e77a0b30e8174';
+	protected $application_secret = 'b86645d35804b4902d31e9c6ed0c989b';
 	protected $application_format = Galaxy::kFormatJSON;
 	
 	private $galaxy;

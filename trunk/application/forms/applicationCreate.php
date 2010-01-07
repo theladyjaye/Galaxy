@@ -35,6 +35,10 @@ if(count($_POST))
 		$form->addValidator(new AMPatternValidator('inputName', true, '/^[\w ]+$/', 'Application Name may only container letters, numbers, spaces or _'));
 		$form->addValidator(new AMPatternValidator('inputType', true, '/^forum$/', 'Invalid Application Type'));
 		$form->addValidator(new ApplicationIdValidator('inputId', true, 'Invalid application id.  Please use reverse domain name style starting with com, net, org or edu e.g., com.galaxy.community'));
+		/*$form->addValidator(new ApplicationIdValidator('inputUrl', true, 'Invalid application id.  Please use reverse domain name style starting with com, net, org or edu e.g., com.galaxy.community'));*/
+		/*
+			TODO Need to create an AMUrlValidator
+		*/
 		
 		if($form->isValid)
 		{
@@ -54,6 +58,7 @@ if(count($_POST))
 			$application = new Application($form->inputId);
 			$application->setApplicationOwner($session->user);
 			$application->setDescription($form->inputName);
+			$application->setDomain($form->inputDomain);
 			$application->setApplicationType($form->inputType);
 			$application->setDefaultPermissions($form->inputRead|$form->inputWrite|$form->inputDelete);
 			$certificate = $application->generate_certificate();

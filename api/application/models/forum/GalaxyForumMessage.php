@@ -49,6 +49,7 @@ class GalaxyForumMessage
 		             'author_avatar_url'  => $this->author_avatar_url,
 		             'origin'             => $this->context->origin,
 		             'origin_description' => $this->context->origin_description,
+		             'origin_domain'      => $this->context->origin_domain,
 		             'topic'              => $this->topic,
 		             'created'            => time(),
 		             'type'               => GalaxyAPIConstants::kTypeForumMessage);

@@ -11,6 +11,7 @@ class Application
 	private $owner;
 	private $defaultPermissions = 0;
 	private $certificate;
+	private $domain;
 	
 	public function __construct($id)
 	{
@@ -32,6 +33,11 @@ class Application
 		$this->description = $value;
 	}
 	
+	public function setDomain($value)
+	{
+		$this->domain = $value;
+	}
+	
 	public function setApplicationType($value)
 	{
 		$this->type = $value;
@@ -51,7 +57,8 @@ class Application
 				$certificate->setData(array('owner'       => $this->owner,
 				                            'instance'    => $this->type,
 				                            'application' => $this->id,
-				                            'description' => $this->description));
+				                            'description' => $this->description,
+				                            'domain'      => $this->domain));
 		
 				$certificate       = $certificate->toArray();
 				$this->certificate = $certificate;
@@ -76,6 +83,7 @@ class Application
 			                  'owner'               => $this->owner,
 			                  'certificate'         => $this->certificate['key'],
 			                  'description'         => $this->description,
+			                  'domain'              => $this->domain,
 			                  'defaultPermissions'  => $this->defaultPermissions,
 			                  'created'             => time(),
 			                  'type'                => RenegadeConstants::kTypeApplication

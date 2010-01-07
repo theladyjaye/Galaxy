@@ -29,6 +29,7 @@ class Applications extends ViewController
 			{
 				// mget might be better here...
 				$certificate = json_decode($redis->get($application['certificate']), true);
+				
 				$application['api_key']           = $certificate['key'];
 				$application['api_secret']        = $certificate['secret'];
 				$application['permission_read']   = $application['defaultPermissions'] & RenegadeConstants::kPermissionRead   ? 'Yes' : 'No'; 

@@ -21,13 +21,15 @@ $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 	<hr>
 	<div>
 		<?php foreach ($messages as $message): ?>
+			<?php
+				$avatar      = $message->author_avatar_url ? $message->author_avatar_url  : '/resources/bitmaps/icon_no_avatar.png';
+				$author_name = $message->author_name       ? $message->author_name : 'Unknown';
+			?>
 			<div style="padding-top:10px">
 				<div style="background-color:#efefef; padding:7px"><?php echo $message->title ?></div>
-				<div style="font-size:11px; font-style:italic">(Posted From: <?php echo $message->origin_description ?> on <?php echo date('Y-m-d', $message->created)?> by: <?php echo $message->author_name ?>)</div>
+				<div style="font-size:11px; font-style:italic">(Posted From: <a href="http://<?php echo $message->origin_domain ?>"><?php echo $message->origin_description ?></a> on <?php echo date('Y-m-d', $message->created)?> by: <?php echo $author_name ?>)</div>
 				<div style="padding-top:10px; padding-bottom:10px; border-bottom:1px solid #cccccc">
-					<?php if($message->author_avatar_url):?>
-						<div style="float:left;width:80px;"><img src="<?php echo $message->author_avatar_url ?>"></div>
-					<?php endif; ?>
+						<div style="float:left;width:80px;"><img src="<?php echo $avatar ?>"></div>
 					<div style="min-height:80px; padding-left:90px;"><?php echo $message->body ?></div>
 				</div>
 			</div>

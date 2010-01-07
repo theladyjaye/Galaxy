@@ -51,6 +51,7 @@ class GalaxyForum extends GalaxyApplication
 			                'author_avatar_url'  => $message['author_avatar_url'],
 			                'origin'             => $message['origin'],
 			                'origin_description' => $message['origin_description'],
+			                'origin_domain'      => $message['origin_domain'],
 			                'created'            => $message['created'],
 			                'type'               => $message['type']);
 		}
@@ -123,7 +124,8 @@ class GalaxyForum extends GalaxyApplication
 			                'author_avatar_url'  => $topic['author_avatar_url'],
 			                'created'            => $topic['created'],
 			                'origin'             => $topic['origin'],
-			                'origin_description' => $topic['origin_description']);
+			                'origin_description' => $topic['origin_description'],
+			                'origin_domain'      => $topic['origin_domain']);
 		}
 		
 		return GalaxyResponse::responseWithData($data);

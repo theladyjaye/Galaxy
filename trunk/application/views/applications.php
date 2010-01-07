@@ -35,7 +35,8 @@
 				</select><br>
 				<label for="inputName">Application Display Name</label><input type="text" name="inputName" size="40" value="" id="inputName"><br>
 				<label for="inputId">Application Id</label><input type="text" name="inputId" size="40" value="" id="inputId"><br>
-				<div style="font-style:italic">(reverse-domain name style, wildcards are not allowed e.g., <span style="font-weight:bold">com.galaxy.community</span>)</div>
+				<div style="font-style:italic">(reverse-domain name style, wildcards are not allowed e.g., <span style="font-weight:bold">com.galaxy.community</span>)</div><br>
+				<label for="inputDomain">Application Domain</label><input type="text" name="inputDomain" size="40" value="" id="inputDomain"><br>
 				<hr>
 				<h3>Default Channel Permissions</h3>
 				<div style="width:300px;font-style:italic;padding-bottom:7px">Other users can perform the following actions to this application's channels without requesting permission.  You can customize this on a per channel basis as well, this is just the default setting.</div>

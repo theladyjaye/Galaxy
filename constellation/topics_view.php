@@ -19,9 +19,12 @@ $topics = json_decode($topics);
 	<hr>
 	<div>
 		<?php foreach($topics as $topic): ?>
+			<?php
+				$author_name = $topic->author_name ? $topic->author_name : 'Unknown'; 
+			?>
 			<div style="padding-bottom:20px">
 				<div><a href="/topics/read/<?php echo $_GET['id']?>.<?php echo $topic->id ?>"><?php echo $topic->title ?></a></div>
-				<div style="font-size:11px;font-style:italic;">(Created From: <?php echo $topic->origin_description ?> on <?php echo date('Y-m-d', $topic->created)  ?> by: <?php echo $topic->author_name ?>)</div>
+				<div style="font-size:11px;font-style:italic;">(Created From: <a href="http://<?php echo $topic->origin_domain ?>"><?php echo $topic->origin_description ?></a> on <?php echo date('Y-m-d', $topic->created)  ?> by: <?php echo $author_name ?>)</div>
 			</div>
 		<?php endforeach;?>
 	</div>
