@@ -3,6 +3,7 @@ class CNMessage
 {
 	private $title;
 	private $body;
+	private $author;
 	private $context;
 	
 	public static function messageWithContext($context)
@@ -24,8 +25,14 @@ class CNMessage
 	
 	public function data()
 	{
-		return array('title' => $this->title,
-		             'body'  => $this->body);
+		return array('title'  => $this->title,
+		             'body'   => $this->body,
+		             'author' => $this->author);
+	}
+	
+	public function setAuthor($value)
+	{
+		$this->author = $value;
 	}
 	
 	public function context()
