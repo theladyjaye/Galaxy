@@ -1,7 +1,9 @@
 <?php
-require 'constellation/Constellation.php';
-$galaxy   = Constellation::galaxyForum();
-$channels = json_decode($galaxy->forum_list(), true);
+require 'application/system/Environment.php';
+$application = Application::sharedApplication();
+$application->initializeConstellation();
+$forums = $application->constellation->forum_list();
+$forums = json_decode($forums);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,10 +18,10 @@ $channels = json_decode($galaxy->forum_list(), true);
 </head>
 <body>
 	<h3>Forums</h3>
-	<?php foreach($channels as $channel): ?>
+	<?php foreach($forums as $forum): ?>
 	<div style="padding-bottom:10px">
-		<div><a href="/topics/<?php echo $channel['id'] ?>"><?php echo $channel['label'] ?></a></div>
-		<div style="font-size:11px; font-style:italic;"><?php echo $channel['description'] ?></div>
+		<div><a href="/topics/<?php echo $forum->id ?>"><?php echo $forum->label ?></a></div>
+		<div style="font-size:11px; font-style:italic;"><?php echo $forum->description ?></div>
 	</div>
 	<?php endforeach;?>
 </body>

@@ -1,5 +1,5 @@
 <?php
-class GalaxyForumMessage
+class CNMessage
 {
 	private $title;
 	private $body;
@@ -7,7 +7,7 @@ class GalaxyForumMessage
 	
 	public static function messageWithContext($context)
 	{
-		$message = new GalaxyForumMessage();
+		$message = new CNMessage();
 		$message->context = $context;
 		return $message;
 	}
@@ -26,6 +26,11 @@ class GalaxyForumMessage
 	{
 		return array('title' => $this->title,
 		             'body'  => $this->body);
+	}
+	
+	public function context()
+	{
+		return $this->context;
 	}
 	
 	public function __get($key)

@@ -10,25 +10,26 @@ else
 
 if(count($_POST))
 {
-	require 'constellation/Constellation.php';
-	require 'galaxy/models/forum/GalaxyForumTopic.php';
-	require 'galaxy/models/forum/GalaxyForumMessage.php';
+	require 'application/system/Environment.php';
 	
-	$galaxy   = Constellation::galaxyForum();
+	$application = Application::sharedApplication();
+	$application->initializeConstellation();
 	
 	switch($_GET['action'])
 	{
 		case 'new':
-			$topic    = GalaxyForumTopic::topicWithTitleAndBody($_POST['inputSubject'], $_POST['inputMessage']);
-			$galaxy->topics_new($_POST['inputChannel'], $topic);
+			$topic = CNTopic::topicWithContext($_POST['inputChannel']);
+			$topic->setTitle($_POST['inputSubject']);
+			$topci->setBody($_POST['inputMessage']);
+			$application->constellation->topic_new($topic);
 			header('Location: /topics/'.$back);
 			break;
 		
 		case 'reply':
-			$message    = GalaxyForumMessage::messageWithContext($_GET['id']);
+			$message    = CNMessage::messageWithContext($_GET['id']);
 			$message->setTitle($_POST['inputSubject']);
 			$message->setBody($_POST['inputMessage']);
-			$galaxy->message_new($message);
+			$application->constellation->message_new($message);
 			header('Location: /topics/'.$back);
 			break;
 	}

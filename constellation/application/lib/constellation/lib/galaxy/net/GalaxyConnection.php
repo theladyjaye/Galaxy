@@ -1,11 +1,11 @@
 <?php
 class GalaxyConnection
 {
-	private $host         = 'api.renegade.com';
+	private $host         = 'api.galaxy.com';
 	private $port         = '80';
 	private $transport    = 'tcp://';
 	private $timeout      = 10;
-	private $agent        = 'GalaxyClient/{version} (PHP)';
+	private $agent        = 'GalaxyClientCore/{version} (PHP)';
 	private $scheme       = 'http://';
 	private $command;
 	private $options;

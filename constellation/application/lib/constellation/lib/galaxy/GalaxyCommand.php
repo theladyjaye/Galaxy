@@ -23,6 +23,7 @@ abstract class GalaxyCommand
 	}
 }
 
+/* Global Commands For Any Application */
 class Channels extends GalaxyCommand
 {
 	public $method   = GalaxyCommand::kMethodGet;

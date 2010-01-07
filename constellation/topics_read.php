@@ -1,7 +1,10 @@
 <?php
-require 'constellation/Constellation.php';
-$galaxy   = Constellation::galaxyForum();
-$messages = json_decode($galaxy->messages_list($_GET['id']));
+require 'application/system/Environment.php';
+$application = Application::sharedApplication();
+$application->initializeConstellation();
+$messages = $application->constellation->topic_messages($_GET['id']);
+$messages = json_decode($messages);
+
 $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -11,9 +14,6 @@ $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>untitled</title>
-	<meta name="generator" content="TextMate http://macromates.com/">
-	<meta name="author" content="Adam Venturella">
-	<!-- Date: 2009-12-31 -->
 </head>
 <body>
 	<div><a href="/topics/<?php echo $back ?>">&laquo; Back</a></div>
