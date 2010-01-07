@@ -71,7 +71,7 @@ class Constellation extends GalaxyApplication
 		
 		if($this->delegate)
 		{
-			if($this->delegate->constellationShouldPostTopicToForum($this, $message, $channel))
+			if($this->delegate->constellationShouldPostTopic($this, $message))
 			{
 				$response = $this->requests->topic_new($this, $message);
 			}

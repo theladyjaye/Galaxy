@@ -7,12 +7,21 @@ class GalaxyForum extends GalaxyApplication
 {
 	public function messages_post($context)
 	{
+		// at a minimum all messages and topics must have an author name
+		// might want to think of a better response than Unauthorized though =)
+		if(empty($_POST['author_name']))
+		{
+			GalaxyResponse::unauthorized();
+		}
+		
 		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
 		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
 
 			$message = GalaxyForumMessage::messageWithContext($context);
 			$message->setTitle($_POST['title']);
 			$message->setBody($_POST['body']);
+			$message->setAuthorName($_POST['author_name']);
+			$message->setAuthorAvatarUrl($_POST['author_avatar_url']);
 			$message->setTopic($context->more);
 			
 			$message = $message->data();
@@ -38,6 +47,8 @@ class GalaxyForum extends GalaxyApplication
 			$data[] = array('id'                 => $message['_id'],
 			                'title'              => $message['title'],
 			                'body'               => $message['body'],
+			                'author_name'        => $message['author_name'],
+			                'author_avatar_url'  => $message['author_avatar_url'],
 			                'origin'             => $message['origin'],
 			                'origin_description' => $message['origin_description'],
 			                'created'            => $message['created'],
@@ -49,6 +60,13 @@ class GalaxyForum extends GalaxyApplication
 	
 	public function topics_post(GalaxyContext $context)
 	{
+		// at a minimum all messages and topics must have an author name
+		// might want to think of a better response than Unauthorized though =)
+		if(empty($_POST['author_name']))
+		{
+			GalaxyResponse::unauthorized();
+		}
+		
 		$status_topic   = false;
 		$status_message = false;
 		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
@@ -56,7 +74,8 @@ class GalaxyForum extends GalaxyApplication
 		
 		$topic          = GalaxyForumTopic::topicWithContext($context);
 		$topic->setTitle($_POST['title']);
-		
+		$topic->setAuthorName($_POST['author_name']);
+		$topic->setAuthorAvatarUrl($_POST['author_avatar_url']);
 		$topic = $topic->data();
 		$status_topic = $channel->insert($topic, true);
 		
@@ -65,6 +84,8 @@ class GalaxyForum extends GalaxyApplication
 			$message = GalaxyForumMessage::messageWithContext($context);
 			$message->setTitle($_POST['title']);
 			$message->setBody($_POST['body']);
+			$message->setAuthorName($_POST['author_name']);
+			$message->setAuthorAvatarUrl($_POST['author_avatar_url']);
 			$message->setTopic($topic['_id']);
 			
 			$message = $message->data();
@@ -98,6 +119,8 @@ class GalaxyForum extends GalaxyApplication
 			$data[] = array('id'                 => $topic['_id'],
 			                'type'               => $topic['type'],
 			                'title'              => $topic['title'],
+			                'author_name'        => $topic['author_name'],
+			                'author_avatar_url'  => $topic['author_avatar_url'],
 			                'created'            => $topic['created'],
 			                'origin'             => $topic['origin'],
 			                'origin_description' => $topic['origin_description']);

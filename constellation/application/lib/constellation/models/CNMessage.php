@@ -25,9 +25,16 @@ class CNMessage
 	
 	public function data()
 	{
-		return array('title'  => $this->title,
-		             'body'   => $this->body,
-		             'author' => $this->author->data());
+		$author = $this->author->data();
+		
+		if(empty($author)){
+			throw new Exception('Constellation message must be assigned an author');
+		}
+		
+		return array('title'             => $this->title,
+		             'body'              => $this->body,
+		             'author_name'       => $author['name'],
+		             'author_avatar_url' => $author['avatar_url']);
 	}
 	
 	public function setAuthor(CNAuthor $value)

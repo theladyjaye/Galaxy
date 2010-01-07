@@ -14,7 +14,7 @@ class ConstellationHandler implements ConstellationDelegate
 		return true;
 	}
 	
-	function constellationShouldPostTopic(Constellation $constellation, CNTopic &$topic)
+	function constellationShouldPostTopic(Constellation $constellation, CNMessage &$message)
 	{
 		return true;
 	}

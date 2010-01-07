@@ -15,20 +15,27 @@ if(count($_POST))
 	$application = Application::sharedApplication();
 	$application->initializeConstellation();
 	
+	
+	$author  = new CNAuthor();
+	$author->setName('logix812');
+	$author->setAvatarUrl('http://www.gravatar.com/avatar/1a6b4b96e9933a0259babb3a9d02f759.png');
+	
 	switch($_GET['action'])
 	{
 		case 'new':
-			$topic = CNTopic::topicWithContext($_POST['inputChannel']);
-			$topic->setTitle($_POST['inputSubject']);
-			$topci->setBody($_POST['inputMessage']);
-			$application->constellation->topic_new($topic);
+			$message = CNMessage::messageWithContext($_POST['inputChannel']);
+			$message->setTitle($_POST['inputSubject']);
+			$message->setBody($_POST['inputMessage']);
+			$message->setAuthor($author);
+			$application->constellation->topic_new($message);
 			header('Location: /topics/'.$back);
 			break;
 		
 		case 'reply':
-			$message    = CNMessage::messageWithContext($_GET['id']);
+			$message = CNMessage::messageWithContext($_GET['id']);
 			$message->setTitle($_POST['inputSubject']);
 			$message->setBody($_POST['inputMessage']);
+			$message->setAuthor($author);
 			$application->constellation->message_new($message);
 			header('Location: /topics/'.$back);
 			break;

@@ -21,7 +21,7 @@ $topics = json_decode($topics);
 		<?php foreach($topics as $topic): ?>
 			<div style="padding-bottom:20px">
 				<div><a href="/topics/read/<?php echo $_GET['id']?>.<?php echo $topic->id ?>"><?php echo $topic->title ?></a></div>
-				<div style="font-size:11px;font-style:italic;">(Created From: <?php echo $topic->origin_description ?> on <?php echo date('Y-m-d', $topic->created)  ?>)</div>
+				<div style="font-size:11px;font-style:italic;">(Created From: <?php echo $topic->origin_description ?> on <?php echo date('Y-m-d', $topic->created)  ?> by: <?php echo $topic->author_name ?>)</div>
 			</div>
 		<?php endforeach;?>
 	</div>
