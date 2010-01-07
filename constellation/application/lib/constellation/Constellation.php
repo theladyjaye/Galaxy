@@ -2,8 +2,8 @@
 require 'lib/galaxy/Galaxy.php';
 require 'ConstellationDelegate.php';
 require 'commands/CNRequests.php';
-require 'models/CNTopic.php';
 require 'models/CNMessage.php';
+require 'models/CNAuthor.php';
 
 class Constellation extends GalaxyApplication
 {
@@ -65,21 +65,34 @@ class Constellation extends GalaxyApplication
 		return $response;
 	}
 	
-	public function topic_new(CNTopic $topic)
+	public function topic_new(CNMessage $message)
 	{
 		$response = null;
 		
 		if($this->delegate)
 		{
-			if($this->delegate->constellationShouldPostTopicToForum($this, $topic, $channel))
+			if($this->delegate->constellationShouldPostTopicToForum($this, $message, $channel))
 			{
-				$response = $this->requests->topic_new($this, $topic);
+				$response = $this->requests->topic_new($this, $message);
 			}
 		}
 		
 		return $response;
 	}
 	
+	public function message_new(CNMessage $message)
+	{
+		$response = null;
+		if($this->delegate)
+		{
+			if($this->delegate->constellationShouldPostMessage($this, $message))
+			{
+				$response = $this->requests->message_new($this, $message);
+			}
+		}
+		
+		return $response;
+	}
 	
 	public function topic_messages($topic, $page=Galaxy::kDefaultPage, $limit=Galaxy::kDefaultLimit)
 	{
@@ -95,20 +108,6 @@ class Constellation extends GalaxyApplication
 				{
 					$response = $this->requests->topic_messages($this, $topic, $page, $limit);
 				}
-			}
-		}
-		
-		return $response;
-	}
-	
-	public function message_new(CNMessage $message)
-	{
-		$response = null;
-		if($this->delegate)
-		{
-			if($this->delegate->constellationShouldPostMessage($this, $message))
-			{
-				$response = $this->requests->message_new($this, $message);
 			}
 		}
 		

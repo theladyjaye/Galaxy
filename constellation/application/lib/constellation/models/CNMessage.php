@@ -27,10 +27,10 @@ class CNMessage
 	{
 		return array('title'  => $this->title,
 		             'body'   => $this->body,
-		             'author' => $this->author);
+		             'author' => $this->author->data());
 	}
 	
-	public function setAuthor($value)
+	public function setAuthor(CNAuthor $value)
 	{
 		$this->author = $value;
 	}
@@ -38,17 +38,6 @@ class CNMessage
 	public function context()
 	{
 		return $this->context;
-	}
-	
-	public function __get($key)
-	{
-		$value = null;
-		if(isset($this->{$key}))
-		{
-			$value = $this->{$key};
-		}
-		
-		return $value;
 	}
 }
 ?>

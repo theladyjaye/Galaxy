@@ -15,7 +15,7 @@ class CNRequests
 		return $response->result;
 	}
 	
-	public function topic_new(Constellation $constellation, CNTopic $topic)
+	public function topic_new(Constellation $constellation, CNMessage $topic)
 	{
 		$command = new CNTopicNew();
 		$command->setContent($topic->data());
