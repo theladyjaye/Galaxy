@@ -16,7 +16,8 @@ abstract class GalaxyApplication
 			                'description'        => $channel['description'],
 			                'origin'             => $channel['application'],
 			                'origin_description' => $context->origin_description,
-			                'origin_domain'      => $context->origin_domain);
+			                'origin_domain'      => $context->origin_domain,
+			                'requests'           => $channel['requests']);
 		}
 		
 		return GalaxyResponse::responseWithData($data);

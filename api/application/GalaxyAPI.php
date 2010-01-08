@@ -88,6 +88,12 @@ class GalaxyAPI
 		return $db;
 	}
 	
+	public static function datetime($value=null)
+	{
+		$datetime = new DateTime($value);
+		return $datetime->format(DateTime::ISO8601);
+	}
+	
 	public function __construct()
 	{
 		$this->handleRequest();

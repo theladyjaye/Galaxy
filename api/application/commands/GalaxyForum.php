@@ -53,6 +53,7 @@ class GalaxyForum extends GalaxyApplication
 			                'origin_description' => $message['origin_description'],
 			                'origin_domain'      => $message['origin_domain'],
 			                'created'            => $message['created'],
+			                'requests'           => $message['requests'],
 			                'type'               => $message['type']);
 		}
 		
@@ -125,7 +126,8 @@ class GalaxyForum extends GalaxyApplication
 			                'created'            => $topic['created'],
 			                'origin'             => $topic['origin'],
 			                'origin_description' => $topic['origin_description'],
-			                'origin_domain'      => $topic['origin_domain']);
+			                'origin_domain'      => $topic['origin_domain'],
+			                'requests'           => $topic['requests']);
 		}
 		
 		return GalaxyResponse::responseWithData($data);

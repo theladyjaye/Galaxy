@@ -42,6 +42,7 @@ class GalaxyForumMessage
 	
 	public function data()
 	{
+		
 		return array('_id'                => (string) new MongoID(),
 			         'title'              => $this->title,
 		             'body'               => $this->body,
@@ -51,7 +52,7 @@ class GalaxyForumMessage
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,
 		             'topic'              => $this->topic,
-		             'created'            => time(),
+		             'created'            => GalaxyAPI::datetime(),
 		             'type'               => GalaxyAPIConstants::kTypeForumMessage);
 	}
 }

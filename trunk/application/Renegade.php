@@ -56,6 +56,12 @@ class Renegade
 		self::redirect($value);
 	}
 	
+	public static function datetime($value=null)
+	{
+		$datetime = new DateTime($value);
+		return $datetime->format(DateTime::ISO8601);
+	}
+	
 	public static function authorizeUser($user)
 	{
 		session_regenerate_id(true);

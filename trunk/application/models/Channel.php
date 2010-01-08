@@ -90,7 +90,7 @@ class Channel
 			               'description'         => $this->description,
 			               'defaultPermissions'  => $this->defaultPermissions,
 			               'requests'            => 0,
-			               'created'             => time(),
+			               'created'             => Renegade::datetime(),
 			               'type'                => RenegadeConstants::kTypeChannel
 			             );
 		

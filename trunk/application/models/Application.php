@@ -85,7 +85,7 @@ class Application
 			                  'description'         => $this->description,
 			                  'domain'              => $this->domain,
 			                  'defaultPermissions'  => $this->defaultPermissions,
-			                  'created'             => time(),
+			                  'created'             => Renegade::datetime(),
 			                  'type'                => RenegadeConstants::kTypeApplication
 			             );
 		}

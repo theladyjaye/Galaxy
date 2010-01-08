@@ -37,7 +37,7 @@ class GalaxyForumTopic
 		             'origin'             => $this->context->origin,
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,
-		             'created'            => time(),
+		             'created'            => GalaxyAPI::datetime(),
 		             'type'               => GalaxyAPIConstants::kTypeForumTopic);
 	}
 }
