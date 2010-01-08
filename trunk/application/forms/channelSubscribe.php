@@ -90,6 +90,8 @@ if(count($_POST))
 							
 							$certificate  = $channel->generate_certificate($remote_channel['defaultPermissions']);
 							$metadata     = $channel->generate_metadata();
+							
+							$metadata['requests'] = $remote_channel['requests'];
 						
 							$subscription = new Subscription();
 							$subscription->setCertificate($certificate['key']);

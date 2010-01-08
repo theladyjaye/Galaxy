@@ -16,7 +16,6 @@ class Constellation extends GalaxyApplication
 	protected $application_key    = '849b35ec4988daa0dc5e77a0b30e8174';
 	protected $application_secret = 'b86645d35804b4902d31e9c6ed0c989b';
 	
-
 	//protected $application_id     = 'com.galaxy.test';
 	//protected $application_key    = 'bbf8b8970943467e372f579924a601ca';
 	//protected $application_secret = '43fcadbcba58c40dbf913293c4939408';
