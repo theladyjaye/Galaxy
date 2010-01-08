@@ -22,7 +22,7 @@ if(strlen($session->user) > 0 && count($_POST))
 	
 	$form->addValidator(new ChannelIdValidator('inputChannelId', true, 'Invalid channel id'));
 	$form->addValidator(new ApplicationIdValidator('inputApplicationId', true, 'Invalid application id'));
-	print_r($_POST);
+
 	if($form->isValid)
 	{
 		$db            = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseApplications);
