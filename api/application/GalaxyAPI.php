@@ -22,6 +22,19 @@ class GalaxyAPI
 		return $id;
 	}
 	
+	public static function applicationIdForChannelId($id)
+	{
+		$value    = null;
+		$position = strrpos($id, '.');
+		
+		if($position !== false)
+		{
+			$value = substr($id, 0, $position);
+		}
+		
+		return $value;
+	}
+	
 	public static function database($type=GalaxyAPIConstants::kDatabaseCouchDB, $database=null, $options=null)
 	{
 		$db = null;

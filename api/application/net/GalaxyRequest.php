@@ -84,6 +84,12 @@ class GalaxyRequest
 					
 					$verb = strtolower($_SERVER['REQUEST_METHOD']);
 					
+					$log = new GalaxyLog();
+					$log->setEndpoint(GalaxyAPI::endpoint());
+					$log->setContext($context);
+					$log->setMethod($verb);
+					$log->write();
+					
 					switch($verb)
 					{
 						case 'get':

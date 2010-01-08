@@ -15,6 +15,7 @@ class GalaxyAPIConstants
 	const kDatabaseApplications  = 'applications';
 	const kDatabaseChannels      = 'channels';
 	const kDatabaseSubscriptions = 'subscriptions';
+	const kDatabaseLog           = 'log';
 	const kDatabaseDefault       = 'galaxy';
 	
 	// trying to keep the prefixes all in one place
