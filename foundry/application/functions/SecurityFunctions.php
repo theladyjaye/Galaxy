@@ -7,8 +7,11 @@ function renegade_security_hash($value)
 
 function renegade_generate_token($salt=null)
 {
+	echo 1;
 	$key    = null;
+	echo 2;
 	$stream = fopen('/dev/random', 'rb');
+	echo 3;exit;
 	
 	if($stream)
 	{
