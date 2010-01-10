@@ -7,26 +7,33 @@ function renegade_security_hash($value)
 
 function renegade_generate_token($salt=null)
 {
-	echo 1;
-	$key    = null;
-	echo 2;
-	$stream = fopen('/dev/random', 'rb');
-	echo 3;
 	
-	if($stream)
+	$key    = null;
+	$data   = null; 
+	
+	if(function_exists('openssl_random_pseudo_bytes'))
 	{
-		echo 4;
-		$data   = fread($stream, 512);
-		echo 5;exit;
-		fclose($stream);
-		echo 4;exit;
-		$key =  hash('md5', base64_encode($data).$salt.uniqid(mt_rand(), true));
+		$strong = false;
+		
+		while(!$strong)
+		{
+			$data = openssl_random_pseudo_bytes(512, $strong);
+		}
 	}
 	else
 	{
-		throw Exception('renegade_generate_token - Unable to open random filestream');
+		$stream = fopen('/dev/urandom', 'rb');
+		//$stream = fopen('/dev/random', 'rb');
+
+		if($stream)
+		{
+			$data   = fread($stream, 64);
+			fclose($stream);
+		}
 	}
 	
+	$key =  hash('md5', base64_encode($data).$salt.uniqid(mt_rand(), true));
+	echo $key;exit;
 	return $key;
 }
 
