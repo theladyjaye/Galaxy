@@ -43,6 +43,7 @@ if(count($_POST))
 		
 		$id                 = strtolower($form->inputName);
 		$db                 = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseUsers);
+		echo 'got a DB Handle'."\n";exit;
 		$verification_token = renegade_generate_token();
 		
 		User::generateVerificationForUserWithKey($user, $verification_token);

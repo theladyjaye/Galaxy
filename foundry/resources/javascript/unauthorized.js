@@ -70,9 +70,7 @@ function signupAction()
 	else
 	{
 		console.log('Submitting signup');
-		console.log($(this));
 		$(this).ajaxSubmit(function(response){
-			console.log($(this));
 			signupSubmit = false;
 			renegadeDialog.show();
 			console.log(response);
