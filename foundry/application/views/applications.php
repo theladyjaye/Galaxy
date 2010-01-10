@@ -1,5 +1,5 @@
 
-<?php //Page::CodeBehind('Applications.php'); ?>
+<?php Page::CodeBehind('Applications.php'); ?>
 <?php Register::Control('Navigation', 'Navigation.html.php'); ?>
 <?php Register::Control('Footer', 'Footer.html.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
