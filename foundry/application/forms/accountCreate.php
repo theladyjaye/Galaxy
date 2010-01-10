@@ -34,7 +34,7 @@ if(count($_POST))
 
 	if($form->isValid)
 	{
-		echo 'form is valid'."\n";exit;
+	
 		$user           = new User();
 		$user->email    = $form->inputEmail;
 		$user->password = $form->inputPassword;
@@ -46,8 +46,8 @@ if(count($_POST))
 		$verification_token = renegade_generate_token();
 		
 		User::generateVerificationForUserWithKey($user, $verification_token);
-		
-		// by the time we are here, we should we can set the record
+		echo 'got a verification key for the user'."\n";exit;
+		// by the time we are here, we can set the record
 		// but just in case we run msetnx to be sure we are not overwritting someone elses account.
 		$db->msetnx($user->array);
 		
