@@ -97,13 +97,13 @@ class GalaxyConnection
 		$request = $this->requestWithCommand($this->command);
 		
 		// API Debugging
-		
+		/*
 		echo "<h3>GalaxyClientConnection - request</h3>\n";
 		echo $request."\n\n<hr>";
 		$data = $this->connect($request);
 		echo "<h3>GalaxyClientConnection - response</h3>\n";
-		echo $data;//exit;
-		
+		echo $data;exit;
+		*/
 		
 		$data = $this->connect($request);
 		$response = GalaxyResponse::responseWithData($data);
