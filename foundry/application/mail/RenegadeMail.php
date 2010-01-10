@@ -1,7 +1,7 @@
 <?php
 abstract class RenegadeMail
 {
-	protected $fromName    = 'Project Renegade';
+	protected $fromName    = 'Galaxy Foundry';
 	protected $fromAddress = 'agent@galaxyfoundry.com';
 	protected $subject;
 	protected $text;
