@@ -16,6 +16,10 @@ function renegade_generate_token($salt=null)
 		fclose($stream);
 		$key =  hash('md5', base64_encode($data).$salt.uniqid(mt_rand(), true));
 	}
+	else
+	{
+		throw Exception('renegade_generate_token - Unable to open random filestream');
+	}
 	
 	return $key;
 }
