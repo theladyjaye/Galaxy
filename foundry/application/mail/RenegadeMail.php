@@ -2,7 +2,7 @@
 abstract class RenegadeMail
 {
 	protected $fromName    = 'Project Renegade';
-	protected $fromAddress = 'renegade@projectrenegade.com';
+	protected $fromAddress = 'agent@galaxyfoundry.com';
 	protected $subject;
 	protected $text;
 	protected $html;
