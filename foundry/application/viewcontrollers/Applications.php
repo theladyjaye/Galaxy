@@ -1,5 +1,4 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/application/lib/couchdb/CouchDB.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/controls/ApplicationDetail.php';
 class Applications extends ViewController
 {
