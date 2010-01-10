@@ -15,7 +15,7 @@ function renegade_generate_token($salt=null)
 	
 	if($stream)
 	{
-		echo 4;exit;
+		echo 4;
 		$data   = fread($stream, 512);
 		echo 5;exit;
 		fclose($stream);
