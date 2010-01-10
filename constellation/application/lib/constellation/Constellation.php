@@ -43,6 +43,7 @@ class Constellation extends GalaxyApplication
 				if(empty($response))
 				{
 					$response = $this->channels();
+					$this->delegate->galaxySetCacheForResponse($this, Constellation::kCommandForumList, null, $response);
 				}
 			}
 		}
@@ -58,11 +59,16 @@ class Constellation extends GalaxyApplication
 		{
 			if($this->delegate->constellationShouldGetTopicsForForum($this, $channel))
 			{
-				$response = $this->delegate->galaxyCachedResponseForCommand($this, Constellation::kCommandForumTopcis, func_get_args());
+				$arguments = array('forum' => $channel,
+				                   'page'  => $page,
+				                   'limit' => $limit);
+				
+				$response = $this->delegate->galaxyCachedResponseForCommand($this, Constellation::kCommandForumTopcis, $arguments);
 				
 				if(empty($response))
 				{
 					$response = $this->requests->topic_list($this, $channel, $page, $limit);
+					$this->delegate->galaxySetCacheForResponse($this, Constellation::kCommandForumTopcis, $arguments, $response);
 				}
 			}
 		}
@@ -107,11 +113,16 @@ class Constellation extends GalaxyApplication
 		{
 			if($this->delegate->constellationShouldGetMessagesForTopic($this, $topic))
 			{
-				$response = $this->delegate->galaxyCachedResponseForCommand($this, Constellation::kCommandMessagesList, func_get_args());
+				$arguments = array('topic' => $topic,
+				                   'page'  => $page,
+				                   'limit' => $limit);
+				
+				$response = $this->delegate->galaxyCachedResponseForCommand($this, Constellation::kCommandMessagesList, $arguments);
 				
 				if(empty($response))
 				{
 					$response = $this->requests->topic_messages($this, $topic, $page, $limit);
+					$this->delegate->galaxySetCacheForResponse($this, Constellation::kCommandMessagesList, $arguments, $response);
 				}
 			}
 		}

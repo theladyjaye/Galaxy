@@ -30,9 +30,6 @@ class ConstellationHandler implements ConstellationDelegate
 	}
 	
 	
-	
-	
-	
 	/* Galaxy Delegate */
 	
 	function galaxyCachedResponseForCommand(GalaxyApplication $application, $command, $arguments=null)
@@ -46,6 +43,11 @@ class ConstellationHandler implements ConstellationDelegate
 		}
 		
 		return $value;
+	}
+	
+	function galaxySetCacheForResponse(GalaxyApplication $application, $command, $arguments=null, $response=null)
+	{
+		
 	}
 }
 ?>
