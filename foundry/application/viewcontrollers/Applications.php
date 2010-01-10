@@ -7,7 +7,7 @@ class Applications extends ViewController
 	
 	protected function initialize()
 	{
-
+		echo 20;
 	}
 	
 	public function javascript()
