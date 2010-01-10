@@ -17,7 +17,7 @@ class Applications extends ViewController
 	
 	public function showApplications()
 	{
-		/*$mongodb  = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseApplications);
+		$mongodb  = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseApplications);
 		$redis    = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseCertificates);
 		$session  = Renegade::session();
 		$response = $mongodb->find(array('owner'=>$session->user));
@@ -42,7 +42,7 @@ class Applications extends ViewController
 		else
 		{
 			echo 'No Applications';
-		}*/
+		}
 	}
 }
 ?>
