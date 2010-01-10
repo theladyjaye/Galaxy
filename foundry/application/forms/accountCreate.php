@@ -14,7 +14,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/application/forms/validators/UniqueEmailVali
 require $_SERVER['DOCUMENT_ROOT'].'/application/mail/MailEnvironment.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/mail/AuthorizeAccountMail.php';
 
-
+echo 'all imports complete'."\n";exit;
 if(count($_POST))
 {
 	$context = array(AMForm::kDataKey => $_POST);
