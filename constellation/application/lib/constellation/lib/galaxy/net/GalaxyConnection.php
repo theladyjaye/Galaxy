@@ -1,7 +1,7 @@
 <?php
 class GalaxyConnection
 {
-	private $host         = 'api.galaxy.com';
+	private $host         = 'api.galaxyfoundry.com';
 	private $port         = '80';
 	private $transport    = 'tcp://';
 	private $timeout      = 10;

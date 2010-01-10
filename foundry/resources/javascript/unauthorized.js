@@ -69,6 +69,7 @@ function signupAction()
 	}
 	else
 	{
+		console.log('Submitting signup');
 		$(this).ajaxSubmit(function(response){
 			signupSubmit = false;
 			renegadeDialog.show();
