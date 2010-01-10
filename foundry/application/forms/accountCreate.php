@@ -45,9 +45,8 @@ if(count($_POST))
 		$db                 = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseUsers);
 		
 		$verification_token = renegade_generate_token();
-		echo 'got a verification_token'.$verification_token."\n";exit;
 		User::generateVerificationForUserWithKey($user, $verification_token);
-		echo 'got a verification key for the user'."\n";exit;
+
 		// by the time we are here, we can set the record
 		// but just in case we run msetnx to be sure we are not overwritting someone elses account.
 		$db->msetnx($user->array);
