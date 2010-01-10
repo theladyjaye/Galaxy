@@ -12,13 +12,11 @@ function renegade_generate_token($salt=null)
 	$data   = null; 
 	if(function_exists('openssl_random_pseudo_bytes'))
 	{
-		//echo 'using openssl_random_pseudo_bytes';exit;
 		$strong = false;
 		
 		while(!$strong)
 		{
 			$data = openssl_random_pseudo_bytes(512, $strong);
-			echo $data;exit;
 		}
 	}
 	else
