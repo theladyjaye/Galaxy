@@ -10,7 +10,7 @@ function renegade_generate_token($salt=null)
 	
 	$key    = null;
 	$data   = null; 
-	
+	echo 1;exit;
 	if(function_exists('openssl_random_pseudo_bytes'))
 	{
 		echo 'using openssl_random_pseudo_bytes';exit;
