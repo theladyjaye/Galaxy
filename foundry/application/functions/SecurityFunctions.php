@@ -32,7 +32,6 @@ function renegade_generate_token($salt=null)
 	}
 	
 	$key =  hash('md5', base64_encode($data).$salt.uniqid(mt_rand(), true));
-	echo $key;exit;
 	return $key;
 }
 
