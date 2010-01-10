@@ -11,12 +11,13 @@ function renegade_generate_token($salt=null)
 	$key    = null;
 	echo 2;
 	$stream = fopen('/dev/random', 'rb');
-	echo 3;exit;
+	echo 3;
 	
 	if($stream)
 	{
 		$data   = fread($stream, 512);
 		fclose($stream);
+		echo 4;exit;
 		$key =  hash('md5', base64_encode($data).$salt.uniqid(mt_rand(), true));
 	}
 	else
