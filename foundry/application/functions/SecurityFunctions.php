@@ -15,7 +15,9 @@ function renegade_generate_token($salt=null)
 	
 	if($stream)
 	{
+		echo 4;exit;
 		$data   = fread($stream, 512);
+		echo 5;exit;
 		fclose($stream);
 		echo 4;exit;
 		$key =  hash('md5', base64_encode($data).$salt.uniqid(mt_rand(), true));
