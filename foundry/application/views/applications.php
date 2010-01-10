@@ -1,6 +1,7 @@
-<?php Page::CodeBehind('Applications.php'); ?>
-<?php Register::Control('Navigation', 'Navigation.html.php'); ?>
-<?php Register::Control('Footer', 'Footer.html.php'); ?>
+<?php echo 90;exit; ?>
+<?php //Page::CodeBehind('Applications.php'); ?>
+<?php //Register::Control('Navigation', 'Navigation.html.php'); ?>
+<?php //Register::Control('Footer', 'Footer.html.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
