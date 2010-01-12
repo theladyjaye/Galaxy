@@ -8,6 +8,7 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} ^/applications/((com|org|net|edu)\.[a-z0-9][a-z0-9-]{2,}\.[a-z0-9][a-z0-9-]{2,})/ [NC]
 RewriteRule ^applications/([^\/]+)/channels$ main.php?view=channels.php&id=$1 [L,NC,QSA]
 RewriteRule ^applications/([^\/]+)/permissions$ main.php?view=permissions.php&id=$1 [L,NC,QSA]
+RewriteRule ^channel/([^\/]+)/subscriptions$ main.php?view=subscriptions.php&id=$1 [L,NC,QSA]
 
 RewriteRule ^about main.php?view=about.php [L,NC,QSA]
 RewriteRule ^account main.php?view=account.php [L,NC,QSA]
