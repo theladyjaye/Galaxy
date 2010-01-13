@@ -1,5 +1,4 @@
 <?php
-
 require $_SERVER['DOCUMENT_ROOT'].'/application/functions/SecurityFunctions.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/AMForm.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/forms/validators/ApplicationIdValidator.php';
