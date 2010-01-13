@@ -11,10 +11,16 @@ class Subscriptions extends ViewController
 	public $channel;
 	public $subscriptions;
 	public $application_id;
+	
 	protected function initialize()
 	{
 		$id                   = $_GET['id'];
 		$this->application_id = Renegade::applicationIdForChannelId($id);
+		
+		if($this->isPostBack)
+		{
+			$this->processForm();
+		}
 		
 		$options              = array('default' => Renegade::databaseForId($this->application_id));
 		$database             = Renegade::database(RenegadeConstants::kDatabaseMongoDB, null, $options);
@@ -60,5 +66,67 @@ class Subscriptions extends ViewController
 		$this->jquery();
 		$this->forms();
 	}
+	
+	private function processForm()
+	{
+		$context = array(AMForm::kDataKey => $_POST);
+		$form = AMForm::formWithContext($context);
+		
+		switch($form->context)
+		{
+			case 'Update':
+				$this->processUpdate($form);
+				break;
+				
+			case 'Delete':
+				$this->processDelete($form);
+				break;
+		}
+	}
+	
+	private function processUpdate(AMForm $form)
+	{
+		$read        = $form->inputRead   ? RenegadeConstants::kPermissionRead   : 0;
+		$write       = $form->inputWrite  ? RenegadeConstants::kPermissionWrite  : 0;
+		$delete      = $form->inputDelete ? RenegadeConstants::kPermissionDelete : 0;
+		
+		$permissions = $read|$write|$delete;
+		
+		if($permissions == 0)
+		{
+			$this->processDelete($form);
+		}
+		else
+		{
+			$options       = array('default' => Renegade::databaseForId($this->application_id));
+			$subscriptions = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseSubscriptions, $options);
+			
+			$data = $subscriptions->findOne(array('_id' => new MongoId($form->inputSubscription)));
+			
+			if($data)
+			{
+				$certificates = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseCertificates);
+				$certificates->set($data['certificate'], $permissions);
+			}
+		}
+	}
+	
+	private function processDelete(AMForm $form)
+	{
+		$options       = array('default' => Renegade::databaseForId($this->application_id));
+		$subscriptions = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseSubscriptions, $options);
+		$certificates  = Renegade::database(RenegadeConstants::kDatabaseRedis, RenegadeConstants::kDatabaseCertificates);
+		
+		$data = $subscriptions->findOne(array('_id' => new MongoId($form->inputSubscription)));
+		
+		$remote_options  = array('default' => Renegade::databaseForId($data['application']));
+		$remote_channels = Renegade::database(RenegadeConstants::kDatabaseMongoDB, RenegadeConstants::kDatabaseChannels, $remote_options);
+		
+		$subscriptions->remove(array('_id' => new MongoId($form->inputSubscription)));
+		$remote_channels->remove(array('_id' => $data['channel']));
+		$certificates->delete($data['certificate']);
+	}
+	
+	
 }
 ?>

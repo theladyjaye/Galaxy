@@ -19,7 +19,7 @@ class SubscriptionDetail
 		$this->data['has_read']          = ($this->data['permissions'] & RenegadeConstants::kPermissionRead)   ? 'checked' : '';
 		$this->data['has_write']         = ($this->data['permissions'] & RenegadeConstants::kPermissionWrite)  ? 'checked' : '';
 		$this->data['has_delete']        = ($this->data['permissions'] & RenegadeConstants::kPermissionDelete) ? 'checked' : '';
-		
+		$this->data['action']            = $_SERVER['REDIRECT_URL'];
 		return AMDisplayObject::renderDisplayObjectWithURLAndDictionary($source, $this->data);
 		
 	}
