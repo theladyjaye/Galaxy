@@ -20,6 +20,10 @@ class ViewController extends Page
 	
 	protected function initialize() { }
 	
+	public function mustache()
+	{
+		echo '<script type="text/javascript" charset="utf-8" src="/resources/javascript/mustache/mustache.js"></script>'."\n";
+	}
 	public function jquery()
 	{
 		echo '<script type="text/javascript" charset="utf-8" src="/resources/javascript/jquery/jquery-1.3.2.min.js"></script>'."\n";
@@ -33,6 +37,7 @@ class ViewController extends Page
 	
 	public function javascript() 
 	{
+		$this->mustache();
 		if(!$this->hasAuthorizedUser)
 		{
 			$this->jquery();

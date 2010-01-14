@@ -20,6 +20,10 @@ class Constellation extends GalaxyApplication
 	//protected $application_key    = 'bbf8b8970943467e372f579924a601ca';
 	//protected $application_secret = '43fcadbcba58c40dbf913293c4939408';
 	
+	//protected $application_id     = 'com.galaxy.woot';
+	//protected $application_key    = 'f3dc6c486e8496b8c14fb924b6cfab34';
+	//protected $application_secret = 'defe82fb4bc32cd0190c488ce9ce0a57';
+	
 	protected $application_format = Galaxy::kFormatJSON;
 	
 	private $galaxy;

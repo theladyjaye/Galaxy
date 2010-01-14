@@ -42,8 +42,8 @@
 	</table>
 	<h3>Actions</h3>
 	<div class="actions" style="padding-bottom:7px;">
-		<button type="button"><a style="text-decoration:none; color:#000000" href="/applications/{_id}/permissions">Manage Permissions</a></button><br>
-		<button type="button"><a style="text-decoration:none; color:#000000" href="/applications/{_id}/channels">Manage Channels</a></button><br>
+		<a style="text-decoration:underline; color:#0000ff" href="/applications/{_id}/permissions">Manage Permissions</a><br>
+		<a style="text-decoration:underline; color:#0000ff" href="/applications/{_id}/channels">Manage Channels</a><br>
 		<form method="post" action="/actions/application/delete">
 			<input type="submit" value="Delete Application">
 			<input type="hidden" name="inputId" value="{_id}" id="inputId">

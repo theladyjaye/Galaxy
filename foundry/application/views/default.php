@@ -1,6 +1,7 @@
 <?php Page::CodeBehind('Home.php'); ?>
 <?php Register::Control('Navigation', 'Navigation.html.php'); ?>
 <?php Register::Control('Footer', 'Footer.html.php'); ?>
+<?php require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/display/AMMustache.php' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -14,6 +15,9 @@
 	<link rel="stylesheet" href="/resources/css/footer.css" type="text/css" media="screen" title="no title" charset="utf-8">
 	<?php echo $page->javascript() ?>
 	<?php echo $page->css() ?>
+	<script type="text/javascript" charset="utf-8">
+		var template = "<?php AMMustache::template($_SERVER['DOCUMENT_ROOT'].'/application/controls/mustache/sample.html') ?>"
+	</script>
 </head>
 <body>
 <?php Navigation('home') ?>
