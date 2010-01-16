@@ -1,5 +1,6 @@
 <?php
-require 'application/system/Environment.php';
+$context_app = dirname(__FILE__);
+require $context_app.'/application/system/Environment.php';
 $application = Application::sharedApplication();
 $application->initializeConstellation();
 $forums = $application->constellation->forum_list();
@@ -18,7 +19,7 @@ $forums = json_decode($forums);
 	<h3>Forums</h3>
 	<?php foreach($forums as $forum): ?>
 	<div style="padding-bottom:10px">
-		<div><a href="/topics/<?php echo $forum->id ?>"><?php echo $forum->label ?></a></div>
+		<div><a href="topics_view.php?id=<?php echo $forum->id ?>"><?php echo $forum->label ?></a></div>
 		<div style="font-size:11px; font-style:italic;"><?php echo $forum->description ?></div>
 		<div style="font-size:11px; font-style:italic;">Views: <?php echo $forum->requests ?></div>
 		<!--<div style="font-size:11px; font-style:italic;">Created On: <a href="http://<?php echo $forum->origin_domain ?>"><?php echo $forum->origin_description ?></a></div>-->

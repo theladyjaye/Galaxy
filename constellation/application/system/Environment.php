@@ -1,5 +1,7 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/application/lib/constellation/Constellation.php';
+$context_env = dirname(__FILE__);
+$context_env = implode('/',array_slice(explode('/', $context_env), 0, -1));
+require $context_env.'/lib/constellation/Constellation.php';
 require 'Application.php';
 
 date_default_timezone_set('America/Los_Angeles');

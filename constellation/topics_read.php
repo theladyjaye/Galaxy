@@ -1,5 +1,6 @@
 <?php
-require 'application/system/Environment.php';
+$context_app = dirname(__FILE__);
+require $context_app.'/application/system/Environment.php';
 $application = Application::sharedApplication();
 $application->initializeConstellation();
 $messages = $application->constellation->topic_messages($_GET['id']);
@@ -16,8 +17,8 @@ $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 	<title>untitled</title>
 </head>
 <body>
-	<div><a href="/topics/<?php echo $back ?>">&laquo; Back</a></div>
-	<div><a href="/topics/reply/<?php echo $_GET['id'] ?>">&laquo; Reply</a></div>
+	<div><a href="topics_view.php?id=<?php echo $back ?>">&laquo; Back</a></div>
+	<div><a href="topics_new.php?id=<?php echo $_GET['id'] ?>&action=reply">&laquo; Reply</a></div>
 	<hr>
 	<div>
 		<?php foreach ($messages as $message): ?>
@@ -27,7 +28,7 @@ $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 			?>
 			<div style="padding-top:10px">
 				<div style="background-color:#efefef; padding:7px"><?php echo $message->title ?></div>
-				<div style="font-size:11px; font-style:italic">(Posted From: <a href="http://<?php echo $message->origin_domain ?>"><?php echo $message->origin_description ?></a> on <?php echo date('Y-m-d', $message->created)?> by: <?php echo $author_name ?>)</div>
+				<div style="font-size:11px; font-style:italic">(Posted From: <a href="http://<?php echo $message->origin_domain ?>"><?php echo $message->origin_description ?></a> on <?php echo date('Y-m-d', strtotime($message->created))?> by: <?php echo $author_name ?>)</div>
 				<div style="padding-top:10px; padding-bottom:10px; border-bottom:1px solid #cccccc">
 						<div style="float:left;width:80px;"><img src="<?php echo $avatar ?>"></div>
 					<div style="min-height:80px; padding-left:90px;"><?php echo $message->body ?></div>

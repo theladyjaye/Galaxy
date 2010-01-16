@@ -1,16 +1,17 @@
 <?php
 if($_GET['action'] == 'reply')
 {
-	$back = 'read/'.$_GET['id'];
+	$back = 'topics_read.php?id='.$_GET['id'];
 }
 else
 {
-	$back = $_GET['id'];
+	$back = 'topics_view.php?id='.$_GET['id'];
 }
 
 if(count($_POST))
 {
-	require 'application/system/Environment.php';
+	$context_app = dirname(__FILE__);
+	require $context_app.'/application/system/Environment.php';
 	
 	$application = Application::sharedApplication();
 	$application->initializeConstellation();
@@ -28,7 +29,7 @@ if(count($_POST))
 			$message->setBody($_POST['inputMessage']);
 			$message->setAuthor($author);
 			$application->constellation->topic_new($message);
-			header('Location: /topics/'.$back);
+			header('Location: '.$back);
 			break;
 		
 		case 'reply':
@@ -37,7 +38,7 @@ if(count($_POST))
 			$message->setBody($_POST['inputMessage']);
 			$message->setAuthor($author);
 			$application->constellation->message_new($message);
-			header('Location: /topics/'.$back);
+			header('Location: '.$back);
 			break;
 	}
 }
@@ -54,8 +55,8 @@ if(count($_POST))
 	<!-- Date: 2009-12-31 -->
 </head>
 <body>
-<div><a href="/topics/<?php echo $back ?>">&laquo; Back</a></div>
-<form action="/topics/<?php echo $_GET['action'] ?>/<?php echo $_GET['id'] ?>" method="post" accept-charset="utf-8">
+<div><a href="<?php echo $back ?>">&laquo; Back</a></div>
+<form action="topics_new.php?id=<?php echo $_GET['id'] ?>&action=<?php echo $_GET['action'] ?>" method="post" accept-charset="utf-8">
 	<div><label for="inputSubject">Subject:</label><input type="text" name="inputSubject" value="" id="inputSubject" size="40"></div>
 	<div><textarea name="inputMessage" id="inputMessage" cols="90" rows="20"></textarea></div>
 	<input type="hidden" name="inputChannel" value="<?php echo $_GET['id'] ?>" id="inputChannel">

@@ -1,7 +1,10 @@
-RewriteEngine On
-RewriteBase /
+php_value error_reporting 1
+php_value display_errors 1
 
-RewriteRule ^topics/(reply)/(.*)$ topics_new.php?action=$1&id=$2 [QSA,L]
-RewriteRule ^topics/read/(.*)$ topics_read.php?id=$1 [QSA,L]
-RewriteRule ^topics/(new)/(.*)$ topics_new.php?action=$1&id=$2 [QSA,L]
-RewriteRule ^topics/(.*)$ topics_view.php?id=$1 [QSA,L]
+#RewriteEngine On
+#RewriteBase /constellation
+#
+#RewriteRule ^topics/(reply)/(.*)$ /constellation/topics_new.php?action=$1&id=$2 [QSA,L]
+#RewriteRule ^topics/read/(.*)$ /constellation/topics_read.php?id=$1 [QSA,L]
+#RewriteRule ^topics/(new)/(.*)$ /constellation/topics_new.php?action=$1&id=$2 [QSA,L]
+#RewriteRule ^topics/(.*)$ /constellation/topics_view.php?id=$1 [QSA,L]

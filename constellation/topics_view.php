@@ -1,5 +1,6 @@
 <?php
-require 'application/system/Environment.php';
+$context_app = dirname(__FILE__);
+require $context_app.'/application/system/Environment.php';
 $application = Application::sharedApplication();
 $application->initializeConstellation();
 $topics = $application->constellation->topic_list($_GET['id']);
@@ -14,17 +15,17 @@ $topics = json_decode($topics);
 	<title>untitled</title>
 </head>
 <body>
-	<div><a href="/">&laquo; Back</a></div>
-	<div><a href="/topics/new/<?php echo $_GET['id'] ?>">New Topic</a>
+	<div><a href="index.php">&laquo; Back</a></div>
+	<div><a href="topics_new.php?id=<?php echo $_GET['id'] ?>&action=new">New Topic</a>
 	<hr>
 	<div>
 		<?php foreach($topics as $topic): ?>
 			<?php
-				$author_name = $topic->author_name ? $topic->author_name : 'Unknown'; 
+				$author_name = $topic->author_name ? $topic->author_name : 'Unknown';
 			?>
 			<div style="padding-bottom:20px">
-				<div><a href="/topics/read/<?php echo $_GET['id']?>.<?php echo $topic->id ?>"><?php echo $topic->title ?></a></div>
-				<div style="font-size:11px;font-style:italic;">(Created From: <a href="http://<?php echo $topic->origin_domain ?>"><?php echo $topic->origin_description ?></a> on <?php echo date('Y-m-d', $topic->created)  ?> by: <?php echo $author_name ?>)</div>
+				<div><a href="topics_read.php?id=<?php echo $_GET['id']?>.<?php echo $topic->id ?>"><?php echo $topic->title ?></a></div>
+				<div style="font-size:11px;font-style:italic;">(Created From: <a href="http://<?php echo $topic->origin_domain ?>"><?php echo $topic->origin_description ?></a> on <?php echo date('Y-m-d', strtotime($topic->created))  ?> by: <?php echo $author_name ?>)</div>
 				<div style="font-size:11px;font-style:italic;">Views: <?php echo $topic->requests ?></div>
 			</div>
 		<?php endforeach;?>
