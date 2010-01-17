@@ -32,10 +32,10 @@ interface ConstellationDelegate extends GalaxyDelegate
 	
 	function constellationShouldGetTopicsForForum(Constellation $constellation, &$forum);
 	function constellationShouldPostTopic(Constellation $constellation, CNMessage &$message);
-	//function constellationShouldDeleteTopic(Constellation $constellation);
+	function constellationShouldDeleteTopic(Constellation $constellation, &$topic_id);
 	
 	function constellationShouldGetMessagesForTopic(Constellation $constellation, &$topic);
 	function constellationShouldPostMessage(Constellation $constellation, CNMessage &$message);
-	//function constellationShouldDeleteMessage(Constellation $constellation);
+
 }
 ?>

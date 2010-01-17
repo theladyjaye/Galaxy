@@ -40,10 +40,17 @@ class Constellation extends GalaxyApplication
 	const kCommandForumTopcis     = 0x11;
 	const kCommandMessagesList    = 0x12;
 	
-	protected $application_id     = 'your_application_id';
+	/*protected $application_id     = 'your_application_id';
 	protected $application_key    = 'your_application_key';
 	protected $application_secret = 'your_application_secret';
+	*/
 	
+	// local
+	protected $application_id     = 'com.galaxy.community';
+	protected $application_key    = '849b35ec4988daa0dc5e77a0b30e8174';
+	protected $application_secret = 'b86645d35804b4902d31e9c6ed0c989b';
+	
+	//staging
 	//protected $application_id     = 'com.galaxy.community';
 	//protected $application_key    = '03105797f2eae24be6d1ac90500493c0';
 	//protected $application_secret = '34c6587fec895845450c4b82b13cae55';
@@ -121,6 +128,20 @@ class Constellation extends GalaxyApplication
 			if($this->delegate->constellationShouldPostTopic($this, $message))
 			{
 				$response = $this->requests->topic_new($this, $message);
+			}
+		}
+		
+		return $response;
+	}
+	
+	public function topic_delete($topic_id)
+	{
+		$response = null;
+		if($this->delegate)
+		{
+			if($this->delegate->constellationShouldDeleteTopic($this, $topic_id))
+			{
+				$response = $this->requests->topic_delete($this, $topic_id);
 			}
 		}
 		

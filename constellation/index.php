@@ -12,6 +12,7 @@ $forums = json_decode($forums);
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="/resources/css/global.css" type="text/css" media="screen" charset="utf-8">
 	<title>Forums</title>
 	<!-- Date: 2009-12-31 -->
 </head>

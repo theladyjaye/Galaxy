@@ -29,6 +29,11 @@ class ConstellationHandler implements ConstellationDelegate
 		return true;
 	}
 	
+	function constellationShouldDeleteTopic(Constellation $constellation, &$topic_id)
+	{
+		return true;
+	}
+	
 	
 	/* Galaxy Delegate */
 	

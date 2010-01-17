@@ -49,6 +49,7 @@ if(count($_POST))
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="/resources/css/global.css" type="text/css" media="screen" charset="utf-8">
 	<title>topics <?php echo $_GET['action'] ?></title>
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Adam Venturella">

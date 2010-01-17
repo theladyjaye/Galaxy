@@ -14,6 +14,7 @@ $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="/resources/css/global.css" type="text/css" media="screen" charset="utf-8">
 	<title>untitled</title>
 </head>
 <body>

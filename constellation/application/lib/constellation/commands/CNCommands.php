@@ -37,6 +37,12 @@ class CNTopicNew extends GalaxyCommand
 	public $endpoint = 'topics';
 }
 
+class CNTopicDelete extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodDelete;
+	public $endpoint = 'topics';
+}
+
 class CNTopicList extends GalaxyCommand
 {
 	public $method   = GalaxyCommand::kMethodGet;

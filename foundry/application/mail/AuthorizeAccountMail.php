@@ -27,7 +27,7 @@
  **/
 class AuthorizeAccountMail extends RenegadeMail
 {
-	protected $subject = 'Welcome To Project Renegade!';
+	protected $subject = 'Welcome To the Galaxy Foundry!';
 	protected $text    = 'resources/mail/accountCreate.txt';
 	protected $html    = 'resources/mail/accountCreate.html';
 	

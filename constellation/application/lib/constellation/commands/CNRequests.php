@@ -53,6 +53,18 @@ class CNRequests
 		return $response->result;
 	}
 	
+	public function topic_delete(Constellation $constellation, $topic_id)
+	{
+		$command = new CNTopicDelete();
+		//$command->setContent(array("id"=>$topic_id));
+		
+		$options       = $constellation->defaultCommandOptions();
+		$options['id'] = $topic_id;//$topic->context();
+
+		$response = $constellation->execute($command, $options);
+		return $response->result;
+	}
+	
 	public function topic_messages(Constellation $constellation, $topic, $page, $limit)
 	{
 		$command = new CNTopicMessages();

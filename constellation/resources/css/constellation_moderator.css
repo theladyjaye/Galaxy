@@ -1,0 +1,18 @@
+#moderator-panel{
+	position:absolute;
+	width:400px;
+	min-height:100px;
+	background:#f9f9f9;
+	display:none;
+	border: 1px solid #cccccc;
+	padding:10px;
+}
+#moderator-panel .close{
+	float:right; 
+	width:20px;
+}
+
+#moderator-panel h3{
+	margin:0;
+	padding:0;
+}

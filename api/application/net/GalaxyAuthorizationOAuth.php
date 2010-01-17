@@ -75,7 +75,7 @@ class GalaxyAuthorizationOAuth
 
 			$sig1  = base64_decode(urldecode($this->oauth->oauth_signature));
 			$sig2  = base64_decode($signature);
-
+			
 			$result = rawurlencode($sig1) == rawurlencode($sig2);
 		}
 		
