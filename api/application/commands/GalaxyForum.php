@@ -27,7 +27,6 @@
  *
  **/
 require 'GalaxyApplication.php';
-require $_SERVER['DOCUMENT_ROOT'].'/application/models/forum/GalaxyForumTopic.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/forum/GalaxyForumMessage.php';
 
 class GalaxyForum extends GalaxyApplication
