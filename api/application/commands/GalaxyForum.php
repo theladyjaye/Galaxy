@@ -123,10 +123,7 @@ class GalaxyForum extends GalaxyApplication
 		$channel  = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
 		
 		// delete all messages
-		// finally delete the topic itself
-		
 		$channel->remove(array('topic' => $context->more));
-		$channel->remove(array('_id'   => $context->more));
 	}
 	
 	public function topics_get(GalaxyContext $context)
