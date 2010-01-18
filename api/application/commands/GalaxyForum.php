@@ -65,7 +65,7 @@ class GalaxyForum extends GalaxyApplication
 	{
 		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
 		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
-		$messages       = $channel->find(array('topic'=> $context->more, 'type' => GalaxyAPIConstants::kTypeForumMessage));
+		$messages       = $channel->find(array('topic'=> $context->more));
 		
 		$data = array();
 		
@@ -96,35 +96,22 @@ class GalaxyForum extends GalaxyApplication
 			GalaxyResponse::unauthorized();
 		}
 		
-		$status_topic   = false;
 		$status_message = false;
+		
 		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
 		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
 		
-		$topic          = GalaxyForumTopic::topicWithContext($context);
-		$topic->setTitle($_POST['title']);
-		$topic->setAuthorName($_POST['author_name']);
-		$topic->setAuthorAvatarUrl($_POST['author_avatar_url']);
-		$topic = $topic->data();
-		$status_topic = $channel->insert($topic, true);
+		$message = GalaxyForumMessage::messageWithContext($context);
+		$message->setTitle($_POST['title']);
+		$message->setBody($_POST['body']);
+		$message->setAuthorName($_POST['author_name']);
+		$message->setAuthorAvatarUrl($_POST['author_avatar_url']);
+		$message->setTopic(null);
 		
-		if($status_topic['ok'])
-		{
-			$message = GalaxyForumMessage::messageWithContext($context);
-			$message->setTitle($_POST['title']);
-			$message->setBody($_POST['body']);
-			$message->setAuthorName($_POST['author_name']);
-			$message->setAuthorAvatarUrl($_POST['author_avatar_url']);
-			$message->setTopic($topic['_id']);
-			
-			$message = $message->data();
-			$status_message = $channel->insert($message, true);
-		}
+		$message = $message->data();
+		$status_message = $channel->insert($message, true);
 		
-		$data = array('topic'   => array('ok' => $status_topic['ok'] ? true : false,
-		                                 'id' => $topic['_id']),
-
-		              'message' => array('ok' => $status_message['ok'] ? true : false,
+		$data = array('message' => array('ok' => $status_message['ok'] ? true : false,
 		                                 'id' => $message['_id']));
 		
 		return GalaxyResponse::responseWithData($data);

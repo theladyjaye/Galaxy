@@ -52,7 +52,7 @@ class GalaxyForumMessage
 		$this->body = $value;
 	}
 	
-	public function setTopic($value)
+	public function setTopic($value=null)
 	{
 		$this->topic = $value;
 	}
@@ -69,8 +69,15 @@ class GalaxyForumMessage
 	
 	public function data()
 	{
+		$id       = (string) new MongoID();
+		// if the topic is null, this message represents 
+		// the start of a new topic, so assign the topic_id to itself
+		// and assign the topic accordingly
 		
-		return array('_id'                => (string) new MongoID(),
+		$type  = $this->topic ? GalaxyAPIConstants::kTypeForumMessage : GalaxyAPIConstants::kTypeForumTopic;
+		$topic = $this->topic ? $this->topic : $id;
+		
+		return array('_id'                => $id,
 			         'title'              => $this->title,
 		             'body'               => $this->body,
 		             'author_name'        => $this->author_name,
@@ -78,9 +85,9 @@ class GalaxyForumMessage
 		             'origin'             => $this->context->origin,
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,
-		             'topic'              => $this->topic,
+		             'topic'              => $topic,
 		             'created'            => GalaxyAPI::datetime(),
-		             'type'               => GalaxyAPIConstants::kTypeForumMessage);
+		             'type'               => $type);
 	}
 }
 ?>
