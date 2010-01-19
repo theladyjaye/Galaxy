@@ -25,22 +25,17 @@
  *    @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  *
  **/
+/* Gets */
+class CNMessageDetails extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodGet;
+	public $endpoint = 'message/details';
+}
+
 class CNTopicMessages extends GalaxyCommand
 {
 	public $method   = GalaxyCommand::kMethodGet;
 	public $endpoint = 'messages';
-}
-
-class CNTopicNew extends GalaxyCommand
-{
-	public $method   = GalaxyCommand::kMethodPut;
-	public $endpoint = 'topics';
-}
-
-class CNTopicDelete extends GalaxyCommand
-{
-	public $method   = GalaxyCommand::kMethodDelete;
-	public $endpoint = 'topics';
 }
 
 class CNTopicList extends GalaxyCommand
@@ -49,11 +44,21 @@ class CNTopicList extends GalaxyCommand
 	public $endpoint = 'topics';
 }
 
+/* Puts */
 class CNMessageNew extends GalaxyCommand
 {
 	public $method   = GalaxyCommand::kMethodPut;
 	public $endpoint = 'messages';
 }
+
+
+class CNTopicNew extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodPut;
+	public $endpoint = 'topics';
+}
+
+/* Posts */
 
 class CNMessageUpdate extends GalaxyCommand
 {
@@ -61,9 +66,11 @@ class CNMessageUpdate extends GalaxyCommand
 	public $endpoint = 'messages';
 }
 
-class CNMessageDetails extends GalaxyCommand
+/* Deletes */
+
+class CNTopicDelete extends GalaxyCommand
 {
-	public $method   = GalaxyCommand::kMethodGet;
-	public $endpoint = 'message/details';
+	public $method   = GalaxyCommand::kMethodDelete;
+	public $endpoint = 'topics';
 }
 ?>

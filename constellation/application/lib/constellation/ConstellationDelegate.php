@@ -29,15 +29,17 @@ interface ConstellationDelegate extends GalaxyDelegate
 {
 	// return booleans
 	function constellationShouldGetForums(Constellation $constellation);
-	
 	function constellationShouldGetTopicsForForum(Constellation $constellation, &$forum);
-	function constellationShouldPostTopic(Constellation $constellation, CNMessage &$message);
+	function constellationShouldGetMessagesForTopic(Constellation $constellation, &$topic);
+	function constellationShouldGetMessage(Constellation $constellation, &$message_id);
+	
+	function constellationShouldCreateTopic(Constellation $constellation, CNMessage &$message);
+	function constellationShouldCreateMessage(Constellation $constellation, CNMessage &$message);
+	
 	function constellationShouldDeleteTopic(Constellation $constellation, &$topic_id);
 	
-	function constellationShouldGetMessagesForTopic(Constellation $constellation, &$topic);
-	function constellationShouldGetMessageDetails(Constellation $constellation, &$message_id);
-	function constellationShouldUpdateMessageDetails(Constellation $constellation, CNMessage &$message);
-	function constellationShouldPostMessage(Constellation $constellation, CNMessage &$message);
+	function constellationShouldUpdateMessage(Constellation $constellation, CNMessage &$message);
+	
 
 }
 ?>

@@ -73,6 +73,61 @@ class GalaxyForum extends GalaxyApplication
 		}
 	}
 	
+	public function messages_post($context)
+	{
+		$valid = array('title'             => true,
+		               'body'              => true,
+		               'author_name'       => true,
+		               'author_avatar_url' => true);
+		
+		$input = array_intersect_key($_POST, $valid);
+		if(count($input))
+		{
+			$form_context = array(AMForm::kDataKey => $input);
+			$form = AMForm::formWithContext($form_context);
+			
+			
+			$fields = array();
+			foreach($input as $key=>$value)
+			{
+				$fields[$key] = $value;
+				
+				// author_avatar_url can be set to null
+				if($key != 'author_avatar_url')
+				{
+					$label = str_replace('_', ' ', $key);
+					$form->addValidator(new AMInputValidator($key, AMValidator::kRequired, 1, null, $label.' required'));
+				}
+				
+			}
+			
+			if($form->isValid)
+			{
+				$application    = GalaxyAPI::applicationIdForChannelId($context->channel);
+				$options        = array('default' => GalaxyAPI::databaseForId($application));
+				$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+				
+				$action = array('$set' => $fields);
+				$channel->update(array('_id' => $context->more), $action);
+				
+				return GalaxyResponse::responseWithData(array('ok' => true));
+			}
+			else
+			{
+				return GalaxyResponse::errorResponseWithForm($form);
+			}
+		}
+		else
+		{
+			return GalaxyResponse::responseWithError(GalaxyError::errorWithString('no data present'));
+		}
+	}
+	
+	public function messages_delete($context)
+	{
+		
+	}
+	
 	public function message_details_get($context)
 	{
 		if($context->more && $context->channel)
@@ -86,7 +141,7 @@ class GalaxyForum extends GalaxyApplication
 		}
 		else
 		{
-			GalaxyResponse::unauthorized();
+			return GalaxyResponse::responseWithError(GalaxyError::errorWithString('invalid message'));
 		}
 	}
 	

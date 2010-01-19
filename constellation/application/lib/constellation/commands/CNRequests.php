@@ -93,7 +93,7 @@ class CNRequests
 		return $response->result;
 	}
 	
-	public function message_details(Constellation $constellation, $id)
+	public function message(Constellation $constellation, $id)
 	{
 		$command       = new CNMessageDetails();
 		$options       = $constellation->defaultCommandOptions();
@@ -105,7 +105,14 @@ class CNRequests
 	
 	public function message_update(Constellation $constellation, CNMessage $message)
 	{
+		$command       = new CNMessageUpdate();
+		$command->setContent($message->data());
 		
+		$options       = $constellation->defaultCommandOptions();
+		$options['id'] = $message->context();
+		
+		$response = $constellation->execute($command, $options);
+		return $response->result;
 	}
 }
 ?>

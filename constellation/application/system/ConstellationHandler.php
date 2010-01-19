@@ -14,17 +14,17 @@ class ConstellationHandler implements ConstellationDelegate
 		return true;
 	}
 	
-	function constellationShouldPostTopic(Constellation $constellation, CNMessage &$message)
+	function constellationShouldCreateTopic(Constellation $constellation, CNMessage &$message)
 	{
 		return true;
 	}
 	
-	function constellationShouldGetMessageDetails(Constellation $constellation, &$message_id)
+	function constellationShouldGetMessage(Constellation $constellation, &$message_id)
 	{
 		return true;
 	}
 	
-	function constellationShouldUpdateMessageDetails(Constellation $constellation, CNMessage &$message)
+	function constellationShouldUpdateMessage(Constellation $constellation, CNMessage &$message)
 	{
 		return true;
 	}
@@ -34,7 +34,7 @@ class ConstellationHandler implements ConstellationDelegate
 		return true;
 	}
 	
-	function constellationShouldPostMessage(Constellation $constellation, CNMessage &$message)
+	function constellationShouldCreateMessage(Constellation $constellation, CNMessage &$message)
 	{
 		return true;
 	}

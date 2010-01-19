@@ -162,14 +162,14 @@ class Constellation extends GalaxyApplication
 		return $response;
 	}
 	
-	public function message_details($id)
+	public function message($id)
 	{
 		$response = null;
 		if($this->delegate)
 		{
-			if($this->delegate->constellationShouldGetMessageDetails($this, $id))
+			if($this->delegate->constellationShouldGetMessage($this, $id))
 			{
-				$response = $this->requests->message_details($this, $id);
+				$response = $this->requests->message($this, $id);
 			}
 		}
 
@@ -181,7 +181,7 @@ class Constellation extends GalaxyApplication
 		$response = null;
 		if($this->delegate)
 		{
-			if($this->delegate->constellationShouldUpdateMessageDetails($this, $message))
+			if($this->delegate->constellationShouldUpdateMessage($this, $message))
 			{
 				$response = $this->requests->message_update($this, $message);
 			}
