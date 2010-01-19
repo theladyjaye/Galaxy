@@ -44,6 +44,11 @@ class ConstellationHandler implements ConstellationDelegate
 		return true;
 	}
 	
+	function constellationShouldDeleteMessage(Constellation $constellation, CNMessage &$message)
+	{
+		return true;
+	}
+	
 	
 	/* Galaxy Delegate */
 	

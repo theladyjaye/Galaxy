@@ -114,5 +114,15 @@ class CNRequests
 		$response = $constellation->execute($command, $options);
 		return $response->result;
 	}
+	
+	public function message_delete(Constellation $constellation, CNMessage $message)
+	{
+		$command       = new CNMessageDelete();
+		$options       = $constellation->defaultCommandOptions();
+		$options['id'] = $message->context();
+		
+		$response = $constellation->execute($command, $options);
+		return $response->result;
+	}
 }
 ?>

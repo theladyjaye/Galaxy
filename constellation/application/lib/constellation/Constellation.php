@@ -125,7 +125,7 @@ class Constellation extends GalaxyApplication
 		
 		if($this->delegate)
 		{
-			if($this->delegate->constellationShouldPostTopic($this, $message))
+			if($this->delegate->constellationShouldCreateTopic($this, $message))
 			{
 				$response = $this->requests->topic_new($this, $message);
 			}
@@ -153,7 +153,7 @@ class Constellation extends GalaxyApplication
 		$response = null;
 		if($this->delegate)
 		{
-			if($this->delegate->constellationShouldPostMessage($this, $message))
+			if($this->delegate->constellationShouldCreateMessage($this, $message))
 			{
 				$response = $this->requests->message_new($this, $message);
 			}
@@ -184,6 +184,20 @@ class Constellation extends GalaxyApplication
 			if($this->delegate->constellationShouldUpdateMessage($this, $message))
 			{
 				$response = $this->requests->message_update($this, $message);
+			}
+		}
+
+		return $response;
+	}
+	
+	public function message_delete(CNMessage $message)
+	{
+		$response = null;
+		if($this->delegate)
+		{
+			if($this->delegate->constellationShouldDeleteMessage($this, $message))
+			{
+				$response = $this->requests->message_delete($this, $message);
 			}
 		}
 

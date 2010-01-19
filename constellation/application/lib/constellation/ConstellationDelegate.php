@@ -37,6 +37,7 @@ interface ConstellationDelegate extends GalaxyDelegate
 	function constellationShouldCreateMessage(Constellation $constellation, CNMessage &$message);
 	
 	function constellationShouldDeleteTopic(Constellation $constellation, &$topic_id);
+	function constellationShouldDeleteMessage(Constellation $constellation, CNMessage &$message);
 	
 	function constellationShouldUpdateMessage(Constellation $constellation, CNMessage &$message);
 	

@@ -125,7 +125,11 @@ class GalaxyForum extends GalaxyApplication
 	
 	public function messages_delete($context)
 	{
-		
+		$application    = GalaxyAPI::applicationIdForChannelId($context->channel);
+		$options        = array('default' => GalaxyAPI::databaseForId($application));
+		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+		$channel->remove(array('_id' => $context->more));
+		return GalaxyResponse::responseWithData(array('ok'=>true));
 	}
 	
 	public function message_details_get($context)

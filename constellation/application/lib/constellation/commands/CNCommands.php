@@ -73,4 +73,11 @@ class CNTopicDelete extends GalaxyCommand
 	public $method   = GalaxyCommand::kMethodDelete;
 	public $endpoint = 'topics';
 }
+
+class CNMessageDelete extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodDelete;
+	public $endpoint = 'messages';
+}
+
 ?>
