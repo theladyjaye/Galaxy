@@ -30,6 +30,9 @@ class GalaxyAPI
 	public static function endpoint()
 	{
 		
+		// this does not handle files yet.
+		// eg: foo/bar/something.php
+		
 		$endpoint     = strtolower($_SERVER['REQUEST_URI']); // will start with a leading /
 		$endpoint     = substr($endpoint, 1);                // remove the leading /
 		$query_string = strpos($endpoint, '?');
@@ -40,6 +43,18 @@ class GalaxyAPI
 		}
 		
 		return $endpoint;
+	}
+	
+	public static function methodForEndpoint($endpoint)
+	{
+		// we have a path, convert it into a function name
+		// foo/bar/baz  == foo_bar_baz
+		if(strpos($endpoint, '/') !== false)
+		{
+			$endpoint = str_replace('/', '_', $endpoint);
+		}
+		
+		return $endpoint.'_'.strtolower($_SERVER['REQUEST_METHOD']);
 	}
 	
 	public static function databaseForId($id)

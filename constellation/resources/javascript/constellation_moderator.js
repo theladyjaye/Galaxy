@@ -11,7 +11,7 @@ function showModeratorControls(event)
 	$('#btn_moderator-panel_close').bind('click', hideModeratorControls);
 	$('#moderator-panel').show();
 	
-	$('#btn_edit_topic').attr('href', '/moderator/topic_edit.php?id='+topic_id);
+	$('#btn_edit_topic').attr('href', '/moderator/message_edit.php?id='+topic_id);
 	$('#btn_delete_topic').attr('href', '/moderator/topic_delete.php?id='+topic_id);
 	
 	return false;

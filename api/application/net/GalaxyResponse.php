@@ -37,6 +37,23 @@ class GalaxyResponse
 		exit;
 	}
 	
+	public static function errorResponseWithForm(AMForm $form)
+	{
+		$errors = array();
+		foreach($form->validators as $validator)
+		{
+			if(!$validator->isValid)
+			{
+				$error    = GalaxyError::errorWithString($validator->message);
+				$errors[] = $error->data();
+			}
+		}
+		
+		$response       = new GalaxyResponse();
+		$response->data = array('ok'=>false, 'type'=>GalaxyAPIConstants::kTypeError, 'errors'=>$errors);
+		return $response;
+	}
+	
 	public static function responseWithData($data)
 	{
 		$response       = new GalaxyResponse();

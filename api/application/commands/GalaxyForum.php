@@ -28,36 +28,66 @@
  **/
 require 'GalaxyApplication.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/forum/GalaxyForumMessage.php';
+require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/AMForm.php';
+require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/validators/AMInputValidator.php';
 
 class GalaxyForum extends GalaxyApplication
 {
-	public function messages_post($context)
+	public function messages_put($context)
 	{
-		// at a minimum all messages and topics must have an author name
-		// might want to think of a better response than Unauthorized though =)
-		if(empty($_POST['author_name']))
-		{
-			GalaxyResponse::unauthorized();
-		}
+
+		// anything incoming as a PUT will be coming in as JSON
+		$data = json_decode(file_get_contents('php://input'), true);
 		
-		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
-		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+		$form_context = array(AMForm::kDataKey => $data);
+		$form = AMForm::formWithContext($form_context);
+		$form->addValidator(new AMInputValidator('author_name', AMValidator::kRequired, 1, null, 'author name required'));
+		$form->addValidator(new AMInputValidator('title', AMValidator::kRequired, 1, null, 'title required'));
+		$form->addValidator(new AMInputValidator('body', AMValidator::kRequired, 1, null, 'body required'));
+		
+		if($form->isValid)
+		{
+		
+			$options = array('default' => GalaxyAPI::databaseForId($context->application));
+			$channel = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
 
 			$message = GalaxyForumMessage::messageWithContext($context);
-			$message->setTitle($_POST['title']);
-			$message->setBody($_POST['body']);
-			$message->setAuthorName($_POST['author_name']);
-			$message->setAuthorAvatarUrl($_POST['author_avatar_url']);
+			$message->setTitle($data['title']);
+			$message->setBody($data['body']);
+			$message->setAuthorName($data['author_name']);
+			$message->setAuthorAvatarUrl($data['author_avatar_url']);
 			$message->setTopic($context->more);
-			
+		
 			$message = $message->data();
 			$status_message = $channel->insert($message, true);
 
 		
-		$data = array('ok' => $status_message['ok'] ? true : false,
-		              'id' => $message['_id']);
+			$data = array('ok' => $status_message['ok'] ? true : false,
+			              'id' => $message['_id']);
 		
-		return GalaxyResponse::responseWithData($data);
+			return GalaxyResponse::responseWithData($data);
+		}
+		else
+		{
+			GalaxyResponse::errorResponseWithForm($form);
+		}
+	}
+	
+	public function message_details_get($context)
+	{
+		if($context->more && $context->channel)
+		{
+			$application    = GalaxyAPI::applicationIdForChannelId($context->channel);
+			$options        = array('default' => GalaxyAPI::databaseForId($application));
+			$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+			$data = $channel->findOne(array('_id' => $context->more));
+			
+			return GalaxyResponse::responseWithData($data);
+		}
+		else
+		{
+			GalaxyResponse::unauthorized();
+		}
 	}
 	
 	public function messages_get($context)
@@ -86,34 +116,43 @@ class GalaxyForum extends GalaxyApplication
 		return GalaxyResponse::responseWithData($data);
 	}
 	
-	public function topics_post(GalaxyContext $context)
+	public function topics_put(GalaxyContext $context)
 	{
-		// at a minimum all messages and topics must have an author name
-		// might want to think of a better response than Unauthorized though =)
-		if(empty($_POST['author_name']))
+		// anything incoming as a PUT will be coming in as JSON
+		$data = json_decode(file_get_contents('php://input'), true);
+		
+		$form_context = array(AMForm::kDataKey => $data);
+		$form = AMForm::formWithContext($form_context);
+		$form->addValidator(new AMInputValidator('author_name', AMValidator::kRequired, 1, null, 'author name required'));
+		$form->addValidator(new AMInputValidator('title', AMValidator::kRequired, 1, null, 'title required'));
+		$form->addValidator(new AMInputValidator('body', AMValidator::kRequired, 1, null, 'body required'));
+	
+		if($form->isValid)
 		{
-			GalaxyResponse::unauthorized();
+			$status_message = false;
+		
+			$options        = array('default' => GalaxyAPI::databaseForId($context->application));
+			$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+		
+			$message = GalaxyForumMessage::messageWithContext($context);
+			$message->setTitle($data['title']);
+			$message->setBody($data['body']);
+			$message->setAuthorName($data['author_name']);
+			$message->setAuthorAvatarUrl($data['author_avatar_url']);
+			$message->setTopic(null);
+		
+			$message = $message->data();
+			$status_message = $channel->insert($message, true);
+		
+			$data = array('message' => array('ok' => $status_message['ok'] ? true : false,
+			                                 'id' => $message['_id']));
+		
+			return GalaxyResponse::responseWithData($data);
 		}
-		
-		$status_message = false;
-		
-		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
-		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
-		
-		$message = GalaxyForumMessage::messageWithContext($context);
-		$message->setTitle($_POST['title']);
-		$message->setBody($_POST['body']);
-		$message->setAuthorName($_POST['author_name']);
-		$message->setAuthorAvatarUrl($_POST['author_avatar_url']);
-		$message->setTopic(null);
-		
-		$message = $message->data();
-		$status_message = $channel->insert($message, true);
-		
-		$data = array('message' => array('ok' => $status_message['ok'] ? true : false,
-		                                 'id' => $message['_id']));
-		
-		return GalaxyResponse::responseWithData($data);
+		else
+		{
+			return GalaxyResponse::errorResponseWithForm($form);
+		}
 	}
 	
 	public function topics_delete(GalaxyContext $context)

@@ -62,16 +62,20 @@ class GalaxyAuthorizationOAuth
 			$base_string['oauth_token']            = '';
 			$base_string['oauth_version']          = $this->oauth->oauth_version;
 			
+			
+			
 			if(count($_REQUEST))
 			{
 				$base_string = array_merge($base_string, $_REQUEST);
 				ksort($base_string);
 			}
+		
 			
 			$string    = strtoupper($_SERVER['REQUEST_METHOD'])."&http://".$_SERVER['SERVER_NAME'].'/'.GalaxyAPI::endpoint()."&".http_build_query($base_string);
 			$string    = urlencode($string);
 			
 			$signature = base64_encode(hash_hmac('sha1', $string, $secret, true));
+			
 
 			$sig1  = base64_decode(urldecode($this->oauth->oauth_signature));
 			$sig2  = base64_decode($signature);

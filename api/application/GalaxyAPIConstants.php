@@ -56,6 +56,7 @@ class GalaxyAPIConstants
 	const kTypeForum            = 'forum';
 	const kTypeForumTopic       = 'topic';
 	const kTypeForumMessage     = 'message';
+	const kTypeError            = 'error';
 	
 	const kSessionKey           = 'Renegade';
 	const kChannelPrefix        = 'renegade/channels';

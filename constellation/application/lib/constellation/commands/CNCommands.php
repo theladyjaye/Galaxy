@@ -33,7 +33,7 @@ class CNTopicMessages extends GalaxyCommand
 
 class CNTopicNew extends GalaxyCommand
 {
-	public $method   = GalaxyCommand::kMethodPost;
+	public $method   = GalaxyCommand::kMethodPut;
 	public $endpoint = 'topics';
 }
 
@@ -51,7 +51,19 @@ class CNTopicList extends GalaxyCommand
 
 class CNMessageNew extends GalaxyCommand
 {
+	public $method   = GalaxyCommand::kMethodPut;
+	public $endpoint = 'messages';
+}
+
+class CNMessageUpdate extends GalaxyCommand
+{
 	public $method   = GalaxyCommand::kMethodPost;
 	public $endpoint = 'messages';
+}
+
+class CNMessageDetails extends GalaxyCommand
+{
+	public $method   = GalaxyCommand::kMethodGet;
+	public $endpoint = 'message/details';
 }
 ?>

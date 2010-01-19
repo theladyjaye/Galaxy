@@ -75,7 +75,8 @@ class GalaxyRequest
 				$api    = $this->commandLibraryForType($authorization->instance);
 				
 				// format: command_method e.g., channels_get, topics_post, topics_delete
-				$method = GalaxyAPI::endpoint().'_'.strtolower($_SERVER['REQUEST_METHOD']);
+				$method = GalaxyAPI::methodForEndpoint(GalaxyAPI::endpoint());
+				
 				
 				if(!$api){
 					GalaxyResponse::unauthorized();

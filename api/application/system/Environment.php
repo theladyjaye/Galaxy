@@ -33,6 +33,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/application/net/GalaxyRequest.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/net/GalaxyResponse.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/GalaxyContext.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/GalaxyLog.php';
+require $_SERVER['DOCUMENT_ROOT'].'/application/models/GalaxyError.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/security/OAuthRequest.php';
 
 date_default_timezone_set('America/Los_Angeles');

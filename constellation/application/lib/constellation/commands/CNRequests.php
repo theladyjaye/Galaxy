@@ -44,8 +44,9 @@ class CNRequests
 	public function topic_new(Constellation $constellation, CNMessage $topic)
 	{
 		$command = new CNTopicNew();
-		$command->setContent($topic->data());
-
+		$command->setContent(json_encode($topic->data()));
+		$command->setContentType('application/json');
+		
 		$options       = $constellation->defaultCommandOptions();
 		$options['id'] = $topic->context();
 
@@ -82,13 +83,29 @@ class CNRequests
 	public function message_new(Constellation $constellation, CNMessage $message)
 	{
 		$command = new CNMessageNew();
-		$command->setContent($message->data());
+		$command->setContent(json_encode($message->data()));
+		$command->setContentType('application/json');
 		
 		$options       = $constellation->defaultCommandOptions();
 		$options['id'] = $message->context();
 		
 		$response = $constellation->execute($command, $options);
 		return $response->result;
+	}
+	
+	public function message_details(Constellation $constellation, $id)
+	{
+		$command       = new CNMessageDetails();
+		$options       = $constellation->defaultCommandOptions();
+		$options['id'] = $id;
+		
+		$response = $constellation->execute($command, $options);
+		return $response->result;
+	}
+	
+	public function message_update(Constellation $constellation, CNMessage $message)
+	{
+		
 	}
 }
 ?>

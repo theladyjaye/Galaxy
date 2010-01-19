@@ -82,7 +82,12 @@ class GalaxyConnection
 			$authorization->setKey($this->options['authorization']['key']);
 			$authorization->setSecret($this->options['authorization']['secret']);
 			$authorization->setMethod($command->method);
-			$authorization->setAdditionalParameters($command->content);
+			
+			if($command->method == GalaxyCommand::kMethodGet || $command->method == GalaxyCommand::kMethodPost)
+			{
+				$authorization->setAdditionalParameters($command->content);
+			}
+			
 			$authorization->setRealm(Galaxy::kSchemeGalaxy.$this->options['id']);
 			
 			// NOTE: We add the leading slash for the command action.  Command endpoints should not start with the /

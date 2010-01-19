@@ -27,6 +27,7 @@
  **/
 class CNMessage
 {
+	private $id;
 	private $title;
 	private $body;
 	private $author;
@@ -37,6 +38,11 @@ class CNMessage
 		$message = new CNMessage();
 		$message->context = $context;
 		return $message;
+	}
+	
+	public function setId($value)
+	{
+		$this->id = $value;
 	}
 	
 	public function setTitle($value)
@@ -51,13 +57,18 @@ class CNMessage
 	
 	public function data()
 	{
-		$author = $this->author->data();
-		
-		if(empty($author)){
-			throw new Exception('Constellation message must be assigned an author');
+		if(!$this->id)
+		{
+			$author = $this->author->data();
+			
+			if(empty($author))
+			{
+				throw new Exception('New Constellation message must be assigned an author');
+			}
 		}
 		
-		return array('title'             => $this->title,
+		return array('id'                => $this->id,
+			         'title'             => $this->title,
 		             'body'              => $this->body,
 		             'author_name'       => $author['name'],
 		             'author_avatar_url' => $author['avatar_url']);

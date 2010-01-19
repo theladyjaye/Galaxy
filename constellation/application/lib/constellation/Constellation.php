@@ -162,6 +162,34 @@ class Constellation extends GalaxyApplication
 		return $response;
 	}
 	
+	public function message_details($id)
+	{
+		$response = null;
+		if($this->delegate)
+		{
+			if($this->delegate->constellationShouldGetMessageDetails($this, $id))
+			{
+				$response = $this->requests->message_details($this, $id);
+			}
+		}
+
+		return $response;
+	}
+	
+	public function message_update(CNMessage $message)
+	{
+		$response = null;
+		if($this->delegate)
+		{
+			if($this->delegate->constellationShouldUpdateMessageDetails($this, $message))
+			{
+				$response = $this->requests->message_update($this, $message);
+			}
+		}
+
+		return $response;
+	}
+	
 	public function topic_messages($topic, $page=Galaxy::kDefaultPage, $limit=Galaxy::kDefaultLimit)
 	{
 		$response = null;

@@ -19,6 +19,16 @@ class ConstellationHandler implements ConstellationDelegate
 		return true;
 	}
 	
+	function constellationShouldGetMessageDetails(Constellation $constellation, &$message_id)
+	{
+		return true;
+	}
+	
+	function constellationShouldUpdateMessageDetails(Constellation $constellation, CNMessage &$message)
+	{
+		return true;
+	}
+	
 	function constellationShouldGetMessagesForTopic(Constellation $constellation, &$topic)
 	{
 		return true;
