@@ -112,11 +112,6 @@ class GalaxyRequest
 					
 					$verb = strtolower($_SERVER['REQUEST_METHOD']);
 					
-					$log = new GalaxyLog();
-					$log->setEndpoint(GalaxyAPI::endpoint());
-					$log->setContext($context);
-					$log->setMethod($verb);
-					$log->write();
 					
 					switch($verb)
 					{
@@ -137,6 +132,12 @@ class GalaxyRequest
 					
 					if($has_permission && method_exists($api, $method))
 					{
+						$log = new GalaxyLog();
+						$log->setEndpoint(GalaxyAPI::endpoint());
+						$log->setContext($context);
+						$log->setMethod($verb);
+						$log->write();
+						
 						$response = $api->$method($context);
 					}
 					else
