@@ -32,7 +32,9 @@ class GalaxyForumTopic
 	private $title;
 	private $author_name;
 	private $author_avatar_url;
- 	private $origin_message_id;
+	private $origin_message_id;
+	private $replies = 0;
+	private $requests = 0;
 
 	public static function topicWithContext(GalaxyContext $context)
 	{
@@ -60,10 +62,22 @@ class GalaxyForumTopic
 	{
 		$this->origin_message_id = $value;
 	}
+	
+	public function setReplies($value)
+	{
+		$this->replies = $value;
+	}
+	
+	public function setRequests($value)
+	{
+		$this->requests = $value;
+	}
  
 	public function data()
 	{
 		return array('_id'                => (string) new MongoID(),
+		             'replies'            => $this->replies,
+		             'requests'           => $this->requests,
 			         'title'              => $this->title,
 			         'author_name'        => $this->author_name,
 		             'author_avatar_url'  => $this->author_avatar_url,

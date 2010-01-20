@@ -61,6 +61,7 @@ class GalaxyForum extends GalaxyApplication
 		
 			$message = $message->data();
 			$status_message = $channel->insert($message, true);
+			$channel->update(array('_id'=>$context->more), array('$inc'=>array('replies'=>1)));
 
 		
 			$data = array('ok' => $status_message['ok'] ? true : false,
@@ -133,6 +134,7 @@ class GalaxyForum extends GalaxyApplication
 		// get the message, so we can get the topic, so we can see if this message was the origin message, and update the topic accordingly
 		$message = $channel->findOne(array('_id' => $context->more));
 		$channel->remove(array('_id' => $context->more));
+		$channel->update(array('_id' => $message['topic']), array('$inc'=>array('replies' => -1)));
 		
 		if($message['topic_origin'])
 		{
@@ -189,7 +191,7 @@ class GalaxyForum extends GalaxyApplication
 		$options        = array('default' => GalaxyAPI::databaseForId($context->application));
 		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
 		$messages       = $channel->find(array('topic'=> $context->more));
-		
+		$messages       = $messages->sort(array('created'=> 1));
 		$data = array();
 		
 		foreach($messages as $message)
@@ -288,6 +290,7 @@ class GalaxyForum extends GalaxyApplication
 		foreach($result as $topic)
 		{
 			$data[] = array('id'                 => $topic['_id'],
+			                'replies'            => $topic['replies'],
 			                'type'               => $topic['type'],
 			                'title'              => $topic['title'],
 			                'author_name'        => $topic['author_name'],

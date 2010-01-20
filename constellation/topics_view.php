@@ -40,6 +40,7 @@ $topics = json_decode($topics);
 				<div><a href="topics_read.php?id=<?php echo $_GET['id']?>.<?php echo $topic->id ?>"><?php echo $topic->title ?></a> | <a href="moderate" class="btn_moderate" name="<?php echo $_GET['id']?>.<?php echo $topic->id ?>">Moderate</a></div>
 				<div style="font-size:11px;font-style:italic;">(Created From: <a href="http://<?php echo $topic->origin_domain ?>"><?php echo $topic->origin_description ?></a> on <?php echo date('Y-m-d', strtotime($topic->created))  ?> by: <?php echo $author_name ?>)</div>
 				<div style="font-size:11px;font-style:italic;">Views: <?php echo $topic->requests ?></div>
+				<div style="font-size:11px;font-style:italic;">Replies: <?php echo $topic->replies ?></div>
 			</div>
 		<?php endforeach;?>
 	</div>
