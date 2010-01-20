@@ -29,11 +29,13 @@
 class GalaxyForumMessage
 {
 	private $context;
+	private $id;
 	private $title;
 	private $body;
 	private $topic;
 	private $author_name;
 	private $author_avatar_url;
+	private $created;
 	private $topic_origin = false;
 	
 	public static function messageWithContext(GalaxyContext $context)
@@ -41,6 +43,12 @@ class GalaxyForumMessage
 		$topic          = new GalaxyForumMessage();
 		$topic->context = $context;
 		return $topic;
+	}
+	
+	public function __construct()
+	{
+		$this->id      = (string) new MongoID();
+		$this->created = GalaxyAPI::datetime();
 	}
 	
 	public function setTitle($value)
@@ -68,22 +76,38 @@ class GalaxyForumMessage
 		$this->author_name = $value;
 	}
 	
+	public function setCreated($value=null)
+	{
+		$this->created = $value ? $value : GalaxtAPI::datetime();
+	}
+	
 	public function setAuthorAvatarUrl($value)
 	{
 		$this->author_avatar_url = $value;
 	}
 	
+	
+	public function last_message_snapshot()
+	{
+		return array('id'                 => $this->id,
+			         'origin'             => $this->context->origin,
+		             'origin_description' => $this->context->origin_description,
+		             'origin_domain'      => $this->context->origin_domain,
+		             'author_name'        => $this->author_name,
+		             'created'            => $this->created);
+	}
+	
 	public function data()
 	{
-		$id       = (string) new MongoID();
+		
 		// if the topic is null, this message represents 
 		// the start of a new topic, so assign the topic_id to itself
 		// and assign the topic accordingly
 		
 		//$type  = $this->topic ? GalaxyAPIConstants::kTypeForumMessage : GalaxyAPIConstants::kTypeForumTopic;
-		$topic = $this->topic ? $this->topic : $id;
+		$topic = $this->topic ? $this->topic : $this->id;
 		
-		return array('_id'                => $id,
+		return array('_id'                => $this->id,
 			         'title'              => $this->title,
 		             'body'               => $this->body,
 		             'author_name'        => $this->author_name,
@@ -93,7 +117,7 @@ class GalaxyForumMessage
 		             'origin_domain'      => $this->context->origin_domain,
 		             'topic'              => $topic,
 		             'topic_origin'       => $this->topic_origin,
-		             'created'            => GalaxyAPI::datetime(),
+		             'created'            => $this->created,
 		             'type'               => GalaxyAPIConstants::kTypeForumMessage);
 	}
 }

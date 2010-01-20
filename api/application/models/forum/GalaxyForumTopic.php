@@ -33,8 +33,10 @@ class GalaxyForumTopic
 	private $author_name;
 	private $author_avatar_url;
 	private $origin_message_id;
+	private $last_message;
 	private $replies = 0;
 	private $requests = 0;
+	
 
 	public static function topicWithContext(GalaxyContext $context)
 	{
@@ -72,21 +74,30 @@ class GalaxyForumTopic
 	{
 		$this->requests = $value;
 	}
+	
+	public function setLastMessage(GalaxyForumMessage $message)
+	{
+		$this->last_message = $message;
+	}
  
 	public function data()
 	{
-		return array('_id'                => (string) new MongoID(),
-		             'replies'            => $this->replies,
-		             'requests'           => $this->requests,
-			         'title'              => $this->title,
-			         'author_name'        => $this->author_name,
-		             'author_avatar_url'  => $this->author_avatar_url,
-		             'origin_message_id'  => $this->origin_message_id,
-		             'origin'             => $this->context->origin,
-		             'origin_description' => $this->context->origin_description,
-		             'origin_domain'      => $this->context->origin_domain,
-		             'created'            => GalaxyAPI::datetime(),
-		             'type'               => GalaxyAPIConstants::kTypeForumTopic);
+		
+		$last_message = $this->last_message ? $this->last_message->data() : null;
+		
+		return array('_id'                          => (string) new MongoID(),
+		             'replies'                      => $this->replies,
+		             'requests'                     => $this->requests,
+			         'title'                        => $this->title,
+			         'author_name'                  => $this->author_name,
+		             'author_avatar_url'            => $this->author_avatar_url,
+		             'origin_message_id'            => $this->origin_message_id,
+		             'origin'                       => $this->context->origin,
+		             'origin_description'           => $this->context->origin_description,
+		             'origin_domain'                => $this->context->origin_domain,
+		             'last_message'                 => $last_message,
+		             'created'                      => GalaxyAPI::datetime(),
+		             'type'                         => GalaxyAPIConstants::kTypeForumTopic);
 	}
 }
 ?>

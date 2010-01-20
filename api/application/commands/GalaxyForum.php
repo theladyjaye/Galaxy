@@ -32,6 +32,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/application/models/forum/GalaxyForumTopic.ph
 require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/AMForm.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/validators/AMInputValidator.php';
 
+
 class GalaxyForum extends GalaxyApplication
 {
 	public function messages_put($context)
@@ -58,9 +59,12 @@ class GalaxyForum extends GalaxyApplication
 			$message->setAuthorName($data['author_name']);
 			$message->setAuthorAvatarUrl($data['author_avatar_url']);
 			$message->setTopic($context->more);
-		
-			$message = $message->data();
+			
+			$last_message   = $message->last_message_snapshot();
+			$message        = $message->data();
 			$status_message = $channel->insert($message, true);
+			
+			$channel->update(array('_id'=>$context->more), array('$set'=>array('last_message'=>$last_message)));
 			$channel->update(array('_id'=>$context->more), array('$inc'=>array('replies'=>1)));
 
 		
@@ -150,7 +154,7 @@ class GalaxyForum extends GalaxyApplication
 				$next_message = $next_message->getNext();
 			
 				// make the next message the origin and update the topic accordingly
-				$channel->update(array('_id'=>$next_message['_id']), array('$set'=>array('topic_origin' => true)));
+				$channel->update(array('_id' => $next_message['_id']), array('$set'=>array('topic_origin' => true)));
 				$channel->update(array('_id' => $message['topic']), array('$set'=>array('title'              => $next_message['title'],
 				                                                                        'author_name'        => $next_message['author_name'],
 				                                                                        'author_avatar_url'  => $next_message['author_avatar_url'],
@@ -247,11 +251,17 @@ class GalaxyForum extends GalaxyApplication
 				$message->setTopicOrigin(true);
 				$message->setTopic($topic['_id']);
 		
-				$message = $message->data();
+				$last_message   = $message->last_message_snapshot();
+				$message        = $message->data();
 				$status_message = $channel->insert($message, true);
 				
-				// we can get the message id, and omit this update, but then if the update fails we have an orphaned document
-				$channel->update(array('_id' => $topic['id']), array('$set'=>array('origin_message_id'=>$message['_id'])));
+				
+				if($status_message['ok'])
+				{
+					// we can get the message id, and omit this update, but then if the topic set fails we will be left with an orphaned document
+					$channel->update(array('_id' => $topic['_id']), array('$set'=>array('origin_message_id' => $message['_id'],
+					                                                                    'last_message'      => $last_message)));
+				}
 			}
 			
 			
@@ -299,6 +309,7 @@ class GalaxyForum extends GalaxyApplication
 			                'origin'             => $topic['origin'],
 			                'origin_description' => $topic['origin_description'],
 			                'origin_domain'      => $topic['origin_domain'],
+			                'last_message'       => $topic['last_message'],
 			                'requests'           => $topic['requests']);
 		}
 		
