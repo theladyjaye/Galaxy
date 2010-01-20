@@ -26,68 +26,46 @@
  *    @license http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0
  *
  **/
-class GalaxyForumMessage
+class GalaxyForumTopic
 {
 	private $context;
 	private $title;
-	private $body;
-	private $topic;
 	private $author_name;
 	private $author_avatar_url;
-	
-	public static function messageWithContext(GalaxyContext $context)
+ 
+	public static function topicWithContext(GalaxyContext $context)
 	{
-		$topic          = new GalaxyForumMessage();
+		$topic          = new GalaxyForumTopic();
 		$topic->context = $context;
 		return $topic;
 	}
-	
+ 
 	public function setTitle($value)
 	{
 		$this->title = $value;
 	}
-	
-	public function setBody($value)
-	{
-		$this->body = $value;
-	}
-	
-	public function setTopic($value=null)
-	{
-		$this->topic = $value;
-	}
-	
+ 
 	public function setAuthorName($value)
 	{
 		$this->author_name = $value;
 	}
-	
+ 
 	public function setAuthorAvatarUrl($value)
 	{
 		$this->author_avatar_url = $value;
 	}
-	
+ 
 	public function data()
 	{
-		$id       = (string) new MongoID();
-		// if the topic is null, this message represents 
-		// the start of a new topic, so assign the topic_id to itself
-		// and assign the topic accordingly
-		
-		//$type  = $this->topic ? GalaxyAPIConstants::kTypeForumMessage : GalaxyAPIConstants::kTypeForumTopic;
-		$topic = $this->topic ? $this->topic : $id;
-		
-		return array('_id'                => $id,
+		return array('_id'                => (string) new MongoID(),
 			         'title'              => $this->title,
-		             'body'               => $this->body,
-		             'author_name'        => $this->author_name,
+			         'author_name'        => $this->author_name,
 		             'author_avatar_url'  => $this->author_avatar_url,
 		             'origin'             => $this->context->origin,
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,
-		             'topic'              => $topic,
 		             'created'            => GalaxyAPI::datetime(),
-		             'type'               => GalaxyAPIConstants::kTypeForumMessage);
+		             'type'               => GalaxyAPIConstants::kTypeForumTopic);
 	}
 }
 ?>

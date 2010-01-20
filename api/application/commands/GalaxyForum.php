@@ -28,6 +28,7 @@
  **/
 require 'GalaxyApplication.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/models/forum/GalaxyForumMessage.php';
+require $_SERVER['DOCUMENT_ROOT'].'/application/models/forum/GalaxyForumTopic.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/AMForm.php';
 require $_SERVER['DOCUMENT_ROOT'].'/application/lib/axismundi/forms/validators/AMInputValidator.php';
 
@@ -188,24 +189,39 @@ class GalaxyForum extends GalaxyApplication
 	
 		if($form->isValid)
 		{
+			$status_topic   = false;
 			$status_message = false;
-		
 			$options        = array('default' => GalaxyAPI::databaseForId($context->application));
 			$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+			
+			$topic          = GalaxyForumTopic::topicWithContext($context);
+			$topic->setTitle($data['title']);
+			$topic->setAuthorName($data['author_name']);
+			$topic->setAuthorAvatarUrl($data['author_avatar_url']);
+			$topic = $topic->data();
+			$status_topic = $channel->insert($topic, true);
+
+			if($status_topic['ok'])
+			{
+				$message = GalaxyForumMessage::messageWithContext($context);
+				$message->setTitle($data['title']);
+				$message->setBody($data['body']);
+				$message->setAuthorName($data['author_name']);
+				$message->setAuthorAvatarUrl($data['author_avatar_url']);
+				$message->setTopic($topic['_id']);
 		
-			$message = GalaxyForumMessage::messageWithContext($context);
-			$message->setTitle($data['title']);
-			$message->setBody($data['body']);
-			$message->setAuthorName($data['author_name']);
-			$message->setAuthorAvatarUrl($data['author_avatar_url']);
-			$message->setTopic(null);
-		
-			$message = $message->data();
-			$status_message = $channel->insert($message, true);
-		
-			$data = array('message' => array('ok' => $status_message['ok'] ? true : false,
-			                                 'id' => $message['_id']));
-		
+				$message = $message->data();
+				$status_message = $channel->insert($message, true);
+			}
+			
+			
+			$data = array('topic'   => array('ok' => $status_topic['ok'] ? true : false,
+					                         'id' => $topic['_id']),
+
+					      'message' => array('ok' => $status_message['ok'] ? true : false,
+					                         'id' => $message['_id']));
+			
+			print_r($data);
 			return GalaxyResponse::responseWithData($data);
 		}
 		else
@@ -220,6 +236,7 @@ class GalaxyForum extends GalaxyApplication
 		$channel  = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
 		
 		// delete all messages
+		$channel->remove(array('_id' => $context->more));
 		$channel->remove(array('topic' => $context->more));
 	}
 	
