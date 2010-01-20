@@ -28,7 +28,6 @@ $topics = json_decode($topics);
 		<h3>Moderator Controls</h3>
 		<div class="context">
 			<div><a href="delete_topic" id="btn_delete_topic">Delete Topic</a></div>
-			<div><a href="edit_topic" id="btn_edit_topic">Edit Topic</a></div>
 		</div>
 	</div>
 	<!-- /moderator -->

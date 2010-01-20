@@ -34,6 +34,7 @@ class GalaxyForumMessage
 	private $topic;
 	private $author_name;
 	private $author_avatar_url;
+	private $topic_origin = false;
 	
 	public static function messageWithContext(GalaxyContext $context)
 	{
@@ -55,6 +56,11 @@ class GalaxyForumMessage
 	public function setTopic($value=null)
 	{
 		$this->topic = $value;
+	}
+	
+	public function setTopicOrigin($value)
+	{
+		$this->topic_origin = (bool) $value;
 	}
 	
 	public function setAuthorName($value)
@@ -86,6 +92,7 @@ class GalaxyForumMessage
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,
 		             'topic'              => $topic,
+		             'topic_origin'       => $this->topic_origin,
 		             'created'            => GalaxyAPI::datetime(),
 		             'type'               => GalaxyAPIConstants::kTypeForumMessage);
 	}

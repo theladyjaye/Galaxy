@@ -32,7 +32,8 @@ class GalaxyForumTopic
 	private $title;
 	private $author_name;
 	private $author_avatar_url;
- 
+ 	private $origin_message_id;
+
 	public static function topicWithContext(GalaxyContext $context)
 	{
 		$topic          = new GalaxyForumTopic();
@@ -54,6 +55,11 @@ class GalaxyForumTopic
 	{
 		$this->author_avatar_url = $value;
 	}
+	
+	public function setOriginMessageId($value)
+	{
+		$this->origin_message_id = $value;
+	}
  
 	public function data()
 	{
@@ -61,6 +67,7 @@ class GalaxyForumTopic
 			         'title'              => $this->title,
 			         'author_name'        => $this->author_name,
 		             'author_avatar_url'  => $this->author_avatar_url,
+		             'origin_message_id'  => $this->origin_message_id,
 		             'origin'             => $this->context->origin,
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,

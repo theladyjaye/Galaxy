@@ -40,7 +40,5 @@ interface ConstellationDelegate extends GalaxyDelegate
 	function constellationShouldDeleteMessage(Constellation $constellation, CNMessage &$message);
 	
 	function constellationShouldUpdateMessage(Constellation $constellation, CNMessage &$message);
-	
-
 }
 ?>

@@ -129,7 +129,41 @@ class GalaxyForum extends GalaxyApplication
 		$application    = GalaxyAPI::applicationIdForChannelId($context->channel);
 		$options        = array('default' => GalaxyAPI::databaseForId($application));
 		$channel        = GalaxyAPI::database(GalaxyAPIConstants::kDatabaseMongoDB, GalaxyAPI::databaseForId($context->channel), $options);
+		
+		// get the message, so we can get the topic, so we can see if this message was the origin message, and update the topic accordingly
+		$message = $channel->findOne(array('_id' => $context->more));
 		$channel->remove(array('_id' => $context->more));
+		
+		if($message['topic_origin'])
+		{
+			// if the message was the topic origin, we need to update the topic with the next message
+			// and set that next message to the origin
+			
+			$next_message = $channel->find(array('topic'=>$message['topic']));
+			$next_message = $next_message->sort(array('created'=> -1));
+			$next_message = $next_message->limit(1);
+			
+			if($next_message->count())
+			{
+				$next_message = $next_message->getNext();
+			
+				// make the next message the origin and update the topic accordingly
+				$channel->update(array('_id'=>$next_message['_id']), array('$set'=>array('topic_origin' => true)));
+				$channel->update(array('_id' => $message['topic']), array('$set'=>array('title'              => $next_message['title'],
+				                                                                        'author_name'        => $next_message['author_name'],
+				                                                                        'author_avatar_url'  => $next_message['author_avatar_url'],
+				                                                                        'origin_message_id'  => $next_message['_id'],
+				                                                                        'origin'             => $next_message['origin'],
+				                                                                        'origin_description' => $next_message['origin_description'],
+				                                                                        'origin_domain'      => $next_message['origin_domain'])));
+			}
+			else
+			{
+				$context->more = $message['topic'];
+				$this->topics_delete($context);
+			}
+		}
+		
 		return GalaxyResponse::responseWithData(array('ok'=>true));
 	}
 	
@@ -208,10 +242,14 @@ class GalaxyForum extends GalaxyApplication
 				$message->setBody($data['body']);
 				$message->setAuthorName($data['author_name']);
 				$message->setAuthorAvatarUrl($data['author_avatar_url']);
+				$message->setTopicOrigin(true);
 				$message->setTopic($topic['_id']);
 		
 				$message = $message->data();
 				$status_message = $channel->insert($message, true);
+				
+				// we can get the message id, and omit this update, but then if the update fails we have an orphaned document
+				$channel->update(array('_id' => $topic['id']), array('$set'=>array('origin_message_id'=>$message['_id'])));
 			}
 			
 			
@@ -221,7 +259,6 @@ class GalaxyForum extends GalaxyApplication
 					      'message' => array('ok' => $status_message['ok'] ? true : false,
 					                         'id' => $message['_id']));
 			
-			print_r($data);
 			return GalaxyResponse::responseWithData($data);
 		}
 		else
