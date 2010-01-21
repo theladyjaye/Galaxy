@@ -71,7 +71,7 @@
 e.g., <em>The place to go for announcements about Galaxy</em></li>
 <li>Finally, you can set default subscriber permissions on this channel.  The default permissions will reflect the default
 permissions you set when you created the application.  If you would like this channel to require different permissions, you can
-set that accordingly at this time.</li>
+set that accordingly at this time.  This permission setting only affects subscribers, the channel&#8217;s owner is granted all permissions.</li>
 <li>Once your are satisfied with your channel, click the <em>Add Channel</em> button.</li>
 </ul>
 <div class="admonition warning">
@@ -82,7 +82,33 @@ set that accordingly at this time.</li>
 <div class="section" id="channel-management">
 <h2>2.3.2. Channel Management<a class="headerlink" href="#channel-management" title="Permalink to this headline">¶</a></h2>
 <p>Once a channel is created, you can view it&#8217;s details on the channel management screen.</p>
+<p>The management screen makes a distinction between channels you own and channels you are subscribed to.
+Channels you are the owner of you and manage subscriptions on as will as delete.</p>
 <img alt="_images/channel_setup_3.png" src="_images/channel_setup_3.png" />
+<p><em>Channel you own</em></p>
+<img alt="_images/channel_setup_4.png" src="_images/channel_setup_4.png" />
+<p><em>Channel you are subscribed too</em></p>
+<p>Channels you are subscribed to you can only delete.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Deleteing a channel you are subscribed to only deletes the channel from your applictions available channels, it does not delete the original channel.  All write operations you performed on a subscribed channel will be preserverd for the other subscribers and channel owner.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you are the owner of a channel, and choose to delete the channel, all of it&#8217;s assocaited information will also be deleted.  This operation cannot be undone.</p>
+</div>
+</div>
+<div class="section" id="channel-subscriptions">
+<h2>2.3.3. Channel Subscriptions<a class="headerlink" href="#channel-subscriptions" title="Permalink to this headline">¶</a></h2>
+<p>Any channel that has at least a read permission can be subscribed to.
+If you would like to allow someone to subscribe to your channel, providing them the channel id found in the channel detail is all they will need to know.
+The user will be granted the default permissions on the channel.  To this end, you should be careful who you allow to do what to your channels, for example,
+you should only allow <em>delete</em> permissions to those applications that you trust.</p>
+<p>You can change a subscribed applications permissions to a channel at any time by clicking on the manage subscriptions button for the channel.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">At this time, we do not allow applications to request extended permissions beyond the default permissions.  This is a feature that will be coming shortly. Additionally, we are exploring implementing an additional permssion <em>Admin</em> in addition to Read, Write, Delete.</p>
+</div>
 </div>
 </div>
 
@@ -97,6 +123,7 @@ set that accordingly at this time.</li>
 <li><a class="reference external" href="#">2.3. Channels</a><ul>
 <li><a class="reference external" href="#creating-channels">2.3.1. Creating Channels</a></li>
 <li><a class="reference external" href="#channel-management">2.3.2. Channel Management</a></li>
+<li><a class="reference external" href="#channel-subscriptions">2.3.3. Channel Subscriptions</a></li>
 </ul>
 </li>
 </ul>

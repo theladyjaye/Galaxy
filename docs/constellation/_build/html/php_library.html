@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. Constellation PHP Library &mdash; Constallation v1.0 documentation</title>
+    <title>2. PHP Library &mdash; Constallation v1.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -20,8 +20,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Constallation v1.0 documentation" href="index.html" />
-    <link rel="next" title="1. Requirements" href="php_requirements.html" />
-    <link rel="prev" title="2.3. Channels" href="channel_setup.html" /> 
+    <link rel="up" title="4. Constellation PHP Library" href="php.html" />
+    <link rel="prev" title="1. Requirements" href="php_requirements.html" /> 
   </head>
   <body>
     <div class="related">
@@ -32,11 +32,9 @@
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="php_requirements.html" title="1. Requirements"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="channel_setup.html" title="2.3. Channels"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li>
+          <li><a href="php.html" accesskey="U">4. Constellation PHP Library</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -45,26 +43,23 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="constellation-php-library">
-<h1>4. Constellation PHP Library<a class="headerlink" href="#constellation-php-library" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="php_requirements.html">1. Requirements</a></li>
-<li class="toctree-l1"><a class="reference external" href="php_getting_started.html">2. Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference external" href="php_getting_started.html#overview">2.1. Overview</a></li>
-<li class="toctree-l2"><a class="reference external" href="php_getting_started.html#constellation-setup">2.2. Constellation Setup</a></li>
-<li class="toctree-l2"><a class="reference external" href="php_getting_started.html#constellationdelegate">2.3. ConstellationDelegate</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>5. Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="php-library">
+<h1>2. PHP Library<a class="headerlink" href="#php-library" title="Permalink to this headline">¶</a></h1>
+<p>The Constellation PHP library is composed of 2 primiary pieces:</p>
 <ul class="simple">
-<li><a class="reference external" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference external" href="modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference external" href="search.html"><em>Search Page</em></a></li>
+<li>Constellation.php</li>
+<li>ConstellationDelegate.php</li>
 </ul>
+<p>To initialize an instance of Constellation is as easy as</p>
+<p>require &#8216;path/to/Constellation.php&#8217;;
+$constellation         = new Constellation();
+$constellation_handler = new ConstellationHandler();
+$constellation-&gt;setDelegate($constellation_handler);</p>
+<p>Constellation.php is the core command class that talks to Galaxy to retrieve it&#8217;s data</p>
+<p>ConstellationDelegate.php is an interface that is required by all Constellation instances.  ConstellationDelegate.php provides all of your override points for any action Constellation will perform.</p>
+<div class="section" id="constellation-php">
+<h2>2.1. Constellation.php<a class="headerlink" href="#constellation-php" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -75,21 +70,18 @@
         <div class="sphinxsidebarwrapper">
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
-<li><a class="reference external" href="#">4. Constellation PHP Library</a><ul>
+<li><a class="reference external" href="#">2. PHP Library</a><ul>
+<li><a class="reference external" href="#constellation-php">2.1. Constellation.php</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#indices-and-tables">5. Indices and tables</a></li>
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="channel_setup.html"
-                                  title="previous chapter">2.3. Channels</a></p>
-            <h4>Next topic</h4>
             <p class="topless"><a href="php_requirements.html"
-                                  title="next chapter">1. Requirements</a></p>
+                                  title="previous chapter">1. Requirements</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="_sources/php.txt"
+              <li><a href="_sources/php_library.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
@@ -117,11 +109,9 @@
              >index</a></li>
         <li class="right" >
           <a href="php_requirements.html" title="1. Requirements"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="channel_setup.html" title="2.3. Channels"
              >previous</a> |</li>
-        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li>
+          <li><a href="php.html" >4. Constellation PHP Library</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

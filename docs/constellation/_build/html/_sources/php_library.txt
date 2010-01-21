@@ -1,0 +1,23 @@
+***************
+PHP Library
+***************
+
+
+The Constellation PHP library is composed of 2 primiary pieces:
+
+- Constellation.php
+- ConstellationDelegate.php
+
+To initialize an instance of Constellation is as easy as ::
+
+require 'path/to/Constellation.php';
+$constellation         = new Constellation();
+$constellation_handler = new ConstellationHandler();
+$constellation->setDelegate($constellation_handler);
+
+Constellation.php is the core command class that talks to Galaxy to retrieve it's data
+
+ConstellationDelegate.php is an interface that is required by all Constellation instances.  ConstellationDelegate.php provides all of your override points for any action Constellation will perform.
+
+Constellation.php
+==================

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Getting Started &mdash; Constallation v1.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '1.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Constallation v1.0 documentation" href="index.html" />
+    <link rel="up" title="4. Constellation PHP Library" href="php.html" />
+    <link rel="prev" title="1. Requirements" href="php_requirements.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="php_requirements.html" title="1. Requirements"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li>
+          <li><a href="php.html" accesskey="U">4. Constellation PHP Library</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="getting-started">
+<h1>2. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>2.1. Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Constellation PHP library is composed of 2 primiary pieces:</p>
+<ul class="simple">
+<li>Constellation.php (extends GalaxyApplication)</li>
+<li>ConstellationDelegate.php (extends GalaxyDelegate)</li>
+</ul>
+<p>To initialize an instance of Constellation is as easy as:</p>
+<div class="highlight-python"><pre>require 'path/to/Constellation.php';
+$constellation         = new Constellation();
+$constellation_handler = new ConstellationHandler(); // ConstellationHandler implements ConstellationDelegate
+$constellation-&gt;setDelegate($constellation_handler);</pre>
+</div>
+<p>Constellation.php is the core command class that talks to Galaxy to retrieve and send data.</p>
+<p>ConstellationDelegate.php is an interface that is required by all Constellation instances.  ConstellationDelegate.php provides all of your override points for any action Constellation will perform.</p>
+</div>
+<div class="section" id="constellation-setup">
+<h2>2.2. Constellation Setup<a class="headerlink" href="#constellation-setup" title="Permalink to this headline">¶</a></h2>
+<p>Once you have downloaded the Constellation libary, you will need to add the following to Constellation.php</p>
+<ul class="simple">
+<li>Application ID</li>
+<li>Application API Key</li>
+<li>Application API Secret</li>
+</ul>
+<p>Open Constellation.php and find the following:</p>
+<div class="highlight-python"><pre>protected $application_id     = 'your_application_id';
+protected $application_key    = 'your_application_key';
+protected $application_secret = 'your_application_secret';</pre>
+</div>
+<p>Replace them with the values for your application which you can retrieve from the Galaxy Foundry application management screen:</p>
+<div class="highlight-python"><pre>protected $application_id     = 'com.galaxy.community';
+protected $application_key    = 'acbd18db4cc2f85cedef654fccc4a4d8'; // don't get any ideas, this is md5('foo');
+protected $application_secret = '37b51d194a7513e45b56f6524f2d51f2'; // and this is md5('bar');</pre>
+</div>
+<p>That&#8217;s it for Constellation.php, it&#8217;s ready to go.  Now you need to create a class that implements ConstellationDelegate.</p>
+</div>
+<div class="section" id="constellationdelegate">
+<h2>2.3. ConstellationDelegate<a class="headerlink" href="#constellationdelegate" title="Permalink to this headline">¶</a></h2>
+<p>Constellation requires that you provide a delegate for it to call when it needs to determine if it should perform an action.
+To that end you will are required to implement the following methods, all of which return a boolean:</p>
+<div class="highlight-python"><pre>// Read Permission
+function constellationShouldGetForums(Constellation $constellation);
+function constellationShouldGetTopicsForForum(Constellation $constellation, &amp;$forum);
+function constellationShouldGetMessagesForTopic(Constellation $constellation, &amp;$topic);
+function constellationShouldGetMessage(Constellation $constellation, &amp;$message_id);
+
+// Write Permissions
+function constellationShouldCreateTopic(Constellation $constellation, CNMessage &amp;$message);
+function constellationShouldCreateMessage(Constellation $constellation, CNMessage &amp;$message);
+
+// Delete Permissions
+function constellationShouldDeleteTopic(Constellation $constellation, &amp;$topic_id);
+function constellationShouldDeleteMessage(Constellation $constellation, CNMessage &amp;$message);
+
+// TBD Permissions (Filed under Write for now, may change to Admin in the future)
+function constellationShouldUpdateMessage(Constellation $constellation, CNMessage &amp;$message);</pre>
+</div>
+<p>If you look at ConstellationDelegate.php you will also notice it extends one more interface GalaxyDelegate which requires the following:</p>
+<div class="highlight-python"><pre>function galaxyCachedResponseForCommand(GalaxyApplication $application, $command, $arguments=null);
+function galaxySetCacheForResponse(GalaxyApplication $application, $command, $arguments=null, $response=null);</pre>
+</div>
+<p>GalaxyDelegate allows for Constellation to ask you if it should load a cache or store a cache before or after an operation.
+<tt class="xref docutils literal"><span class="pre">$delegate-&gt;galaxyCachedResponseForCommand()</span></tt> is called prior to any GET requests and <tt class="xref docutils literal"><span class="pre">$delegate-&gt;galaxySetCacheForResponse()</span></tt> is called after any GET request.
+POST and PUT requests do not allow for caching.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">These delegate calls provide you override points to apply your own user system and permission logic to Constellation operations.  In other words, if you have your own user system,
+Constellation will be able to fit right along side it via these delegate calls.  Is your currently logged in user allowed to post? Allowed to read? Your application logic makes that determination.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">2. Getting Started</a><ul>
+<li><a class="reference external" href="#overview">2.1. Overview</a></li>
+<li><a class="reference external" href="#constellation-setup">2.2. Constellation Setup</a></li>
+<li><a class="reference external" href="#constellationdelegate">2.3. ConstellationDelegate</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="php_requirements.html"
+                                  title="previous chapter">1. Requirements</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/php_getting_started.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="php_requirements.html" title="1. Requirements"
+             >previous</a> |</li>
+        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li>
+          <li><a href="php.html" >4. Constellation PHP Library</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Adam Venturella.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

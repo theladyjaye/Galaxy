@@ -7,7 +7,8 @@ Contents:
    :maxdepth: 2
    :numbered:
 
-   getting_started.rst
+   php_requirements.rst
+   php_getting_started.rst
 
 Indices and tables
 ==================
