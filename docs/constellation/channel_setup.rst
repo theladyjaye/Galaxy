@@ -1,6 +1,6 @@
-******************
-Channel Setup
-******************
+****************************
+Channels
+****************************
 
 Remember, in Constellation, channels are synonymous with forums.
 

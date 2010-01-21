@@ -13,8 +13,7 @@ Contents:
    :numbered:
 
    overview.rst
-   application_setup.rst
-   channel_setup.rst
+   galaxy_foundry.rst
    php.rst
 
 Indices and tables
