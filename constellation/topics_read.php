@@ -30,7 +30,7 @@ $channel  = substr($_GET['id'], 0, strrpos($_GET['id'], '.'));
 			?>
 			<div style="padding-top:10px">
 				<div style="background-color:#efefef; padding:7px"><?php echo $message->title ?> | Moderation: <a href="/moderator/message_edit.php?id=<?php echo $channel.'.'.$message->id ?>">Edit Message</a> : <a href="/moderator/message_delete.php?id=<?php echo $channel.'.'.$message->id ?>">Delete Message</a></div>
-				<div style="font-size:11px; font-style:italic">(Posted From: <a href="http://<?php echo $message->origin_domain ?>"><?php echo $message->origin_description ?></a> on <?php echo date('Y-m-d', strtotime($message->created))?> by: <?php echo $author_name ?>)</div>
+				<div style="font-size:11px; font-style:italic">(Posted From: <a href="http://<?php echo $message->source->domain ?>"><?php echo $message->source->description ?></a> on <?php echo date('Y-m-d', strtotime($message->created))?> by: <?php echo $author_name ?>)</div>
 				<div style="padding-top:10px; padding-bottom:10px; border-bottom:1px solid #cccccc">
 						<div style="float:left;width:80px;"><img src="<?php echo $avatar ?>"></div>
 					<div style="min-height:80px; padding-left:90px;"><?php echo $message->body ?></div>

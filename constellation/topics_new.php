@@ -18,7 +18,7 @@ if(count($_POST))
 	
 	
 	$author  = new CNAuthor();
-	$author->setName('logix812');
+	$author->setName('GodMoose');
 	$author->setAvatarUrl('http://www.gravatar.com/avatar/1a6b4b96e9933a0259babb3a9d02f759.png');
 	
 	switch($_GET['action'])
