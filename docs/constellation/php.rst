@@ -1,4 +1,4 @@
-PHP
+Constellation PHP Library
 =========================================
 
 Contents:
