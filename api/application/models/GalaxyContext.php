@@ -34,5 +34,12 @@ class GalaxyContext
 	public $application;
 	public $channel;
 	public $more;
+	
+	public function source()
+	{
+		return array('id'          => $this->origin,
+		             'description' => $this->origin_description,
+		             'domain'      => $this->origin_domain);
+	}
 }
 ?>

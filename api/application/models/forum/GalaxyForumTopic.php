@@ -30,11 +30,10 @@ class GalaxyForumTopic
 {
 	private $context;
 	private $title;
-	private $author_name;
-	private $author_avatar_url;
+	private $author;
 	private $origin_message_id;
 	private $last_message;
-	private $replies = 0;
+	private $replies  = 0;
 	private $requests = 0;
 	
 
@@ -50,14 +49,12 @@ class GalaxyForumTopic
 		$this->title = $value;
 	}
  
-	public function setAuthorName($value)
+	public function setAuthor($value)
 	{
-		$this->author_name = $value;
-	}
- 
-	public function setAuthorAvatarUrl($value)
-	{
-		$this->author_avatar_url = $value;
+		$valid = array('name'       => true,
+		               'avatar_url' => true);
+		
+		$this->author = array_intersect_key($value, $valid);
 	}
 	
 	public function setOriginMessageId($value)
@@ -89,12 +86,9 @@ class GalaxyForumTopic
 		             'replies'                      => $this->replies,
 		             'requests'                     => $this->requests,
 			         'title'                        => $this->title,
-			         'author_name'                  => $this->author_name,
-		             'author_avatar_url'            => $this->author_avatar_url,
-		             'origin_message_id'            => $this->origin_message_id,
-		             'origin'                       => $this->context->origin,
-		             'origin_description'           => $this->context->origin_description,
-		             'origin_domain'                => $this->context->origin_domain,
+			         'author'                       => $this->author,
+			         'origin_message_id'            => $this->origin_message_id,
+		             'source'                       => $this->context->source(),
 		             'last_message'                 => $last_message,
 		             'created'                      => GalaxyAPI::datetime(),
 		             'type'                         => GalaxyAPIConstants::kTypeForumTopic);

@@ -57,10 +57,7 @@ class CNMessage
 		
 		if($this->author)
 		{
-			$author = $this->author->data();
-			
-			$data['author_name']       = $author['name'];
-			$data['author_avatar_url'] = $author['avatar_url'];
+			$data['author'] = $this->author->data();
 		}
 		
 		return $data;

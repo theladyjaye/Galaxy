@@ -41,6 +41,9 @@ class GalaxyForum extends GalaxyApplication
 		// anything incoming as a PUT will be coming in as JSON
 		$data = json_decode(file_get_contents('php://input'), true);
 		
+		// artifically add the author name for validation purposes
+		$data['author_name'] = $data['author']['name'];
+		
 		$form_context = array(AMForm::kDataKey => $data);
 		$form = AMForm::formWithContext($form_context);
 		$form->addValidator(new AMInputValidator('author_name', AMValidator::kRequired, 1, null, 'author name required'));
@@ -56,8 +59,7 @@ class GalaxyForum extends GalaxyApplication
 			$message = GalaxyForumMessage::messageWithContext($context);
 			$message->setTitle($data['title']);
 			$message->setBody($data['body']);
-			$message->setAuthorName($data['author_name']);
-			$message->setAuthorAvatarUrl($data['author_avatar_url']);
+			$message->setAuthor($data['author']);
 			$message->setTopic($context->more);
 			
 			$last_message   = $message->last_message_snapshot();
@@ -156,12 +158,10 @@ class GalaxyForum extends GalaxyApplication
 				// make the next message the origin and update the topic accordingly
 				$channel->update(array('_id' => $next_message['_id']), array('$set'=>array('topic_origin' => true)));
 				$channel->update(array('_id' => $message['topic']), array('$set'=>array('title'              => $next_message['title'],
-				                                                                        'author_name'        => $next_message['author_name'],
-				                                                                        'author_avatar_url'  => $next_message['author_avatar_url'],
+				                                                                        'author'             => $next_message['author'],
 				                                                                        'origin_message_id'  => $next_message['_id'],
-				                                                                        'origin'             => $next_message['origin'],
-				                                                                        'origin_description' => $next_message['origin_description'],
-				                                                                        'origin_domain'      => $next_message['origin_domain'])));
+				                                                                        'source'             => $next_message['source']
+				                                                                        )));
 			}
 			else
 			{
@@ -203,13 +203,10 @@ class GalaxyForum extends GalaxyApplication
 			$data[] = array('id'                 => $message['_id'],
 			                'title'              => $message['title'],
 			                'body'               => $message['body'],
-			                'author_name'        => $message['author_name'],
-			                'author_avatar_url'  => $message['author_avatar_url'],
-			                'origin'             => $message['origin'],
-			                'origin_description' => $message['origin_description'],
-			                'origin_domain'      => $message['origin_domain'],
+			                'author'             => $message['author'],
+			                'source'             => $message['source'],
 			                'created'            => $message['created'],
-			                'requests'           => $message['requests'],
+			                //'requests'           => $message['requests'],
 			                'type'               => $message['type']);
 		}
 		
@@ -221,12 +218,16 @@ class GalaxyForum extends GalaxyApplication
 		// anything incoming as a PUT will be coming in as JSON
 		$data = json_decode(file_get_contents('php://input'), true);
 		
+		// artifically add the author name for validation purposes
+		$data['author_name'] = $data['author']['name'];
+		
 		$form_context = array(AMForm::kDataKey => $data);
 		$form = AMForm::formWithContext($form_context);
+		
 		$form->addValidator(new AMInputValidator('author_name', AMValidator::kRequired, 1, null, 'author name required'));
 		$form->addValidator(new AMInputValidator('title', AMValidator::kRequired, 1, null, 'title required'));
 		$form->addValidator(new AMInputValidator('body', AMValidator::kRequired, 1, null, 'body required'));
-	
+		
 		if($form->isValid)
 		{
 			$status_topic   = false;
@@ -236,8 +237,7 @@ class GalaxyForum extends GalaxyApplication
 			
 			$topic          = GalaxyForumTopic::topicWithContext($context);
 			$topic->setTitle($data['title']);
-			$topic->setAuthorName($data['author_name']);
-			$topic->setAuthorAvatarUrl($data['author_avatar_url']);
+			$topic->setAuthor($data['author']);
 			$topic = $topic->data();
 			$status_topic = $channel->insert($topic, true);
 
@@ -246,8 +246,7 @@ class GalaxyForum extends GalaxyApplication
 				$message = GalaxyForumMessage::messageWithContext($context);
 				$message->setTitle($data['title']);
 				$message->setBody($data['body']);
-				$message->setAuthorName($data['author_name']);
-				$message->setAuthorAvatarUrl($data['author_avatar_url']);
+				$message->setAuthor($data['author']);
 				$message->setTopicOrigin(true);
 				$message->setTopic($topic['_id']);
 		
@@ -300,17 +299,15 @@ class GalaxyForum extends GalaxyApplication
 		foreach($result as $topic)
 		{
 			$data[] = array('id'                 => $topic['_id'],
+			                'requests'           => $topic['requests'],
 			                'replies'            => $topic['replies'],
-			                'type'               => $topic['type'],
 			                'title'              => $topic['title'],
-			                'author_name'        => $topic['author_name'],
-			                'author_avatar_url'  => $topic['author_avatar_url'],
-			                'created'            => $topic['created'],
-			                'origin'             => $topic['origin'],
-			                'origin_description' => $topic['origin_description'],
-			                'origin_domain'      => $topic['origin_domain'],
+			                'author'             => $topic['author'],
+			                'source'             => $topic['source'],
 			                'last_message'       => $topic['last_message'],
-			                'requests'           => $topic['requests']);
+			                'created'            => $topic['created'],
+			                'type'               => $topic['type']
+			                );
 		}
 		
 		return GalaxyResponse::responseWithData($data);

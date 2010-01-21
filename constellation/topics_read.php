@@ -25,8 +25,8 @@ $channel  = substr($_GET['id'], 0, strrpos($_GET['id'], '.'));
 	<div>
 		<?php foreach ($messages as $message): ?>
 			<?php
-				$avatar      = $message->author_avatar_url ? $message->author_avatar_url  : '/resources/bitmaps/icon_no_avatar.png';
-				$author_name = $message->author_name       ? $message->author_name : 'Unknown';
+				$avatar      = $message->author->avatar_url ? $message->author->avatar_url  : '/resources/bitmaps/icon_no_avatar.png';
+				$author_name = $message->author->name       ? $message->author->name : 'Unknown';
 			?>
 			<div style="padding-top:10px">
 				<div style="background-color:#efefef; padding:7px"><?php echo $message->title ?> | Moderation: <a href="/moderator/message_edit.php?id=<?php echo $channel.'.'.$message->id ?>">Edit Message</a> : <a href="/moderator/message_delete.php?id=<?php echo $channel.'.'.$message->id ?>">Delete Message</a></div>

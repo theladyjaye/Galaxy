@@ -33,8 +33,7 @@ class GalaxyForumMessage
 	private $title;
 	private $body;
 	private $topic;
-	private $author_name;
-	private $author_avatar_url;
+	private $author;
 	private $created;
 	private $topic_origin = false;
 	
@@ -71,19 +70,17 @@ class GalaxyForumMessage
 		$this->topic_origin = (bool) $value;
 	}
 	
-	public function setAuthorName($value)
+	public function setAuthor($value)
 	{
-		$this->author_name = $value;
+		$valid = array('name'       => true,
+		               'avatar_url' => true);
+		
+		$this->author = array_intersect_key($value, $valid);
 	}
 	
 	public function setCreated($value=null)
 	{
 		$this->created = $value ? $value : GalaxtAPI::datetime();
-	}
-	
-	public function setAuthorAvatarUrl($value)
-	{
-		$this->author_avatar_url = $value;
 	}
 	
 	
@@ -93,7 +90,7 @@ class GalaxyForumMessage
 			         'origin'             => $this->context->origin,
 		             'origin_description' => $this->context->origin_description,
 		             'origin_domain'      => $this->context->origin_domain,
-		             'author_name'        => $this->author_name,
+		             'author'             => $this->author,
 		             'created'            => $this->created);
 	}
 	
@@ -110,11 +107,8 @@ class GalaxyForumMessage
 		return array('_id'                => $this->id,
 			         'title'              => $this->title,
 		             'body'               => $this->body,
-		             'author_name'        => $this->author_name,
-		             'author_avatar_url'  => $this->author_avatar_url,
-		             'origin'             => $this->context->origin,
-		             'origin_description' => $this->context->origin_description,
-		             'origin_domain'      => $this->context->origin_domain,
+		             'author'             => $this->author,
+		             'source'             => $this->context->source(),
 		             'topic'              => $topic,
 		             'topic_origin'       => $this->topic_origin,
 		             'created'            => $this->created,
