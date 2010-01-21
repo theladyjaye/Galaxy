@@ -14,6 +14,7 @@ Contents:
 
    overview.rst
    application_setup.rst
+   channel_setup.rst
    php.rst
 
 Indices and tables

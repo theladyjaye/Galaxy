@@ -4,6 +4,9 @@
 Overview
 ***************
 
+Constellation
+=============
+
 Constellation is a cloud based forum system that allows users to share their communities across the web.
 Constellation is built on the Galaxy platform, specifically the Galaxy Client Core, as such an account at 
 http://www.galaxyfoundry.com is required in order to begin using Constellation

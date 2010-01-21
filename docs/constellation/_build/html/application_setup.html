@@ -20,7 +20,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Constallation v1.0 documentation" href="index.html" />
-    <link rel="next" title="3. PHP" href="php.html" />
+    <link rel="next" title="3. Channel Setup" href="channel_setup.html" />
     <link rel="prev" title="1. Overview" href="overview.html" /> 
   </head>
   <body>
@@ -31,7 +31,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="php.html" title="3. PHP"
+          <a href="channel_setup.html" title="3. Channel Setup"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="overview.html" title="1. Overview"
@@ -56,11 +56,22 @@ You will be asked to verify your e-mail address if you do not already have an ac
 <h2>2.2. Create an Application<a class="headerlink" href="#create-an-application" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Once you are logged in click on the <em>Application</em> button, then click the + in the upper left to create a new application.</li>
+</ul>
+<img alt="_images/application_setup_1.png" src="_images/application_setup_1.png" />
+<p>This will reveal the new application form</p>
+<img alt="_images/application_setup_2.png" src="_images/application_setup_2.png" />
+<ul class="simple">
 <li>For application type, choose <em>Forum</em></li>
 <li>Enter the name you would like to appear for messages originating from your application in the Application Display Name field, e.g., &#8220;Galaxy Community&#8221;
 would result in the following: Posted from <strong>Galaxy Community</strong> on 2012-01-20</li>
-<li>Application Id is an identifier in reverse-domain name style, e.g, com.galaxy.community.  Wildcards are not allowed in Application Ids.
+<li>Application Id is an identifier in reverse-domain name style, e.g, com.galaxy.community.
 The Application Id forms the base of all the channels you will create moving forward.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Wildcards are not allowed in Application ids.</p>
+</div>
+<ul class="simple">
 <li>Application Domain is the url you would like to associate with this application, e.g., <a class="reference external" href="http://galaxyfoundry.com">http://galaxyfoundry.com</a>.  This information will be
 included in all information sent from Galaxy.</li>
 <li>Set your default channel permissions.  This will represent the default permissions others will have when subscribing to your application.  As the
@@ -80,7 +91,9 @@ All 3 pieces of information to configure your client.</p>
 <ul class="simple">
 <li>Manage Default Permissions</li>
 <li>Manage Channels</li>
+<li>Delete Application</li>
 </ul>
+<img alt="_images/application_setup_3.png" src="_images/application_setup_3.png" />
 <div class="section" id="manage-default-permissions">
 <h3>2.4.1. Manage Default Permissions<a class="headerlink" href="#manage-default-permissions" title="Permalink to this headline">¶</a></h3>
 <p>Here you can change the default permissions for any new channels you create</p>
@@ -88,6 +101,14 @@ All 3 pieces of information to configure your client.</p>
 <div class="section" id="manage-channels">
 <h3>2.4.2. Manage Channels<a class="headerlink" href="#manage-channels" title="Permalink to this headline">¶</a></h3>
 <p>You will create your channels here.  Since this application is a Constellation instance, channels are synonymous with Forms</p>
+</div>
+<div class="section" id="delete-application">
+<h3>2.4.3. Delete Application<a class="headerlink" href="#delete-application" title="Permalink to this headline">¶</a></h3>
+<p>This will delete your application and all associated channels/data.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This cannot be undone.</p>
+</div>
 </div>
 </div>
 </div>
@@ -107,6 +128,7 @@ All 3 pieces of information to configure your client.</p>
 <li><a class="reference external" href="#application-actions">2.4. Application Actions</a><ul>
 <li><a class="reference external" href="#manage-default-permissions">2.4.1. Manage Default Permissions</a></li>
 <li><a class="reference external" href="#manage-channels">2.4.2. Manage Channels</a></li>
+<li><a class="reference external" href="#delete-application">2.4.3. Delete Application</a></li>
 </ul>
 </li>
 </ul>
@@ -117,8 +139,8 @@ All 3 pieces of information to configure your client.</p>
             <p class="topless"><a href="overview.html"
                                   title="previous chapter">1. Overview</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="php.html"
-                                  title="next chapter">3. PHP</a></p>
+            <p class="topless"><a href="channel_setup.html"
+                                  title="next chapter">3. Channel Setup</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="_sources/application_setup.txt"
@@ -148,7 +170,7 @@ All 3 pieces of information to configure your client.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="php.html" title="3. PHP"
+          <a href="channel_setup.html" title="3. Channel Setup"
              >next</a> |</li>
         <li class="right" >
           <a href="overview.html" title="1. Overview"
