@@ -5,6 +5,7 @@ $application = Application::sharedApplication();
 $application->initializeConstellation();
 $messages = $application->constellation->topic_messages($_GET['id']);
 $messages = json_decode($messages);
+$messages = $messages->response;
 
 $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 $channel  = substr($_GET['id'], 0, strrpos($_GET['id'], '.'));

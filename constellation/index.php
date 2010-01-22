@@ -5,6 +5,7 @@ $application = Application::sharedApplication();
 $application->initializeConstellation();
 $forums = $application->constellation->forum_list();
 $forums = json_decode($forums);
+$forums = $forums->response;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">

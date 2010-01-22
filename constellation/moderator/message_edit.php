@@ -17,6 +17,7 @@ if(count($_POST))
 }
 
 $details = json_decode($application->constellation->message($_GET['id']));
+$details = $details->response;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
