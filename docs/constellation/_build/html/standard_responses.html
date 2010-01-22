@@ -52,17 +52,12 @@
 <h1>4. Standard API Responses<a class="headerlink" href="#standard-api-responses" title="Permalink to this headline">¶</a></h1>
 <p>The Galaxy API will return the following standardized responses across application types:</p>
 <ul class="simple">
-<li>Unauthorized</li>
 <li>Errors</li>
 <li>Success</li>
 </ul>
-<div class="section" id="unauthorized">
-<h2>4.1. Unauthorized<a class="headerlink" href="#unauthorized" title="Permalink to this headline">¶</a></h2>
-<p>If a request you make is not allowed you will receive a <em>401 Unauthorized</em> in response to your request.</p>
-</div>
 <div class="section" id="errors">
-<h2>4.2. Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
-<p>Errors received from API requests will be in the following JSON format:</p>
+<h2>4.1. Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>In general, errors received from API requests will be in the following JSON format:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
  <span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;error&quot;</span><span class="p">,</span>
  <span class="s">&quot;errors&quot;</span><span class="p">:[{</span><span class="s">&quot;reason&quot;</span><span class="p">:</span><span class="s">&quot;why it went wrong 1&quot;</span><span class="p">},</span>
@@ -70,9 +65,16 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>For example if you make a write request to a channel you have subscribed to, but you do not have permissions to write to that channel you would see the following response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">false</span><span class="p">,</span>
+ <span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;error&quot;</span><span class="p">,</span>
+ <span class="s">&quot;errors&quot;</span><span class="p">:[{</span><span class="s">&quot;reason&quot;</span><span class="p">:</span><span class="s">&quot;unauthorized&quot;</span><span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="success">
-<h2>4.3. Success<a class="headerlink" href="#success" title="Permalink to this headline">¶</a></h2>
+<h2>4.2. Success<a class="headerlink" href="#success" title="Permalink to this headline">¶</a></h2>
 <p>Success messages may come in different forms depending on the data you would like to receive, however, you will be able to rely
 on &#8220;ok&#8221; and &#8220;response&#8221; being present in the top level of the returned object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
@@ -95,9 +97,8 @@ See the documentation related to your specific application for expected response
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
 <li><a class="reference external" href="#">4. Standard API Responses</a><ul>
-<li><a class="reference external" href="#unauthorized">4.1. Unauthorized</a></li>
-<li><a class="reference external" href="#errors">4.2. Errors</a></li>
-<li><a class="reference external" href="#success">4.3. Success</a></li>
+<li><a class="reference external" href="#errors">4.1. Errors</a></li>
+<li><a class="reference external" href="#success">4.2. Success</a></li>
 </ul>
 </li>
 </ul>

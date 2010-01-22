@@ -59,13 +59,16 @@ Constellation Objects
       Reply to a topic with given CNMessage Model object.
 
       Sample Response::
-	{"ok":true,
-	 "response":{"status":true,"id":"4b5a1f098ead0e0e04060000"}
-	}
+	
+	{"ok":true, "response":{"status":true,"id":"4b5a1f098ead0e0e04060000"}}
 
    .. method:: message_update(CNMessage $message)
 
       Update and existing message with the data in a given CNMessage model object
+
+      Sample Response::
+	
+	{"ok":true,"response":null}
 
 
    .. method:: message_delete(CNMessage $message)
@@ -73,6 +76,7 @@ Constellation Objects
       Delete a message matching $message->context
 
       Sample Response::
+	
 	{"ok":true,"response":null}
 
 
@@ -81,6 +85,7 @@ Constellation Objects
       Delete a topic for a given id
 
       Sample Response::
+	
 	{"ok":true,"response":null}
 
 
@@ -118,7 +123,7 @@ Constellation Objects
       Retrieve a list of messages for a given topic.  Returns an array of JSON objects.
       Sample Response::
 
-	{"ok":true
+	{"ok":true,
 	 "response":[{"id":"4b5945928ead0e8501030000",
 	              "title":"Hello World",
 	              "body":"This is a test",

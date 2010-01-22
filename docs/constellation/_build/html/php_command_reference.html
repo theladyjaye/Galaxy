@@ -102,28 +102,48 @@ Response Sample:</p>
 <dl class="method">
 <dt id="Constellation.__construct.message_new">
 <tt class="descname">message_new</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message_new" title="Permalink to this definition">¶</a></dt>
-<dd>Reply to a topic with given CNMessage Model object</dd></dl>
+<dd><p>Reply to a topic with given CNMessage Model object.</p>
+<p>Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span> <span class="s">&quot;response&quot;</span><span class="p">:{</span><span class="s">&quot;status&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b5a1f098ead0e0e04060000&quot;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.message_update">
 <tt class="descname">message_update</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message_update" title="Permalink to this definition">¶</a></dt>
-<dd>Update and existing message with the data in a given CNMessage model object</dd></dl>
+<dd><p>Update and existing message with the data in a given CNMessage model object</p>
+<p>Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s">&quot;response&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.message_delete">
 <tt class="descname">message_delete</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message_delete" title="Permalink to this definition">¶</a></dt>
-<dd>Delete a message matching $message-&gt;context</dd></dl>
+<dd><p>Delete a message matching $message-&gt;context</p>
+<p>Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s">&quot;response&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.topic_delete">
 <tt class="descname">topic_delete</tt><big>(</big><em>$topic_id</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_delete" title="Permalink to this definition">¶</a></dt>
-<dd>Delete a topic for a given id</dd></dl>
+<dd><p>Delete a topic for a given id</p>
+<p>Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s">&quot;response&quot;</span><span class="p">:</span><span class="n">null</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.topic_list">
 <tt class="descname">topic_list</tt><big>(</big><em>$forum</em>, <em>$page=Galaxy::kDefaultPage</em>, <em>$limit=Galaxy::kDefaultLimit</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a forum id (Channel Id) will return topics for that forum.  Returns an array of JSON objects.
-Sample Response:</p>
+<dd><p>Given a forum id (Channel Id) will return topics for that forum.  Returns an array of JSON objects.</p>
+<p>Sample Response:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
  <span class="s">&quot;response&quot;</span><span class="p">:[{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b57ad8b8ead0e7706030000&quot;</span><span class="p">,</span>
               <span class="s">&quot;requests&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
@@ -154,26 +174,36 @@ Sample Response:</p>
 <tt class="descname">topic_messages</tt><big>(</big><em>$topic</em>, <em>$page=Galaxy::kDefaultPage</em>, <em>$limit=Galaxy::kDefaultLimit</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_messages" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve a list of messages for a given topic.  Returns an array of JSON objects.
 Sample Response:</p>
-<div class="highlight-python"><pre>{"ok":true
- "response":[{"id":"4b5945928ead0e8501030000",
-              "title":"Hello World",
-              "body":"This is a test",
-              "author":{"name":"GodMoose",
-                        "avatar_url":"http:\/\/www.gravatar.com\/avatar\/1a6b4b96e9933a0259babb3a9d02f759.png"},
-              "source":{"id":"com.galaxy.community",
-                        "description":"Galaxy Community",
-                        "domain":"galaxy"},
-              "created":"2010-01-21T22:28:34-0800",
-              "type":"message"}
-            ]
-}</pre>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:[{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b5945928ead0e8501030000&quot;</span><span class="p">,</span>
+              <span class="s">&quot;title&quot;</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">,</span>
+              <span class="s">&quot;body&quot;</span><span class="p">:</span><span class="s">&quot;This is a test&quot;</span><span class="p">,</span>
+              <span class="s">&quot;author&quot;</span><span class="p">:{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;GodMoose&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;avatar_url&quot;</span><span class="p">:</span><span class="s">&quot;http:\/\/www.gravatar.com\/avatar\/1a6b4b96e9933a0259babb3a9d02f759.png&quot;</span><span class="p">},</span>
+              <span class="s">&quot;source&quot;</span><span class="p">:{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;com.galaxy.community&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;description&quot;</span><span class="p">:</span><span class="s">&quot;Galaxy Community&quot;</span><span class="p">,</span>
+                        <span class="s">&quot;domain&quot;</span><span class="p">:</span><span class="s">&quot;galaxy&quot;</span><span class="p">},</span>
+              <span class="s">&quot;created&quot;</span><span class="p">:</span><span class="s">&quot;2010-01-21T22:28:34-0800&quot;</span><span class="p">,</span>
+              <span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;message&quot;</span><span class="p">}</span>
+            <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.topic_new">
 <tt class="descname">topic_new</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_new" title="Permalink to this definition">¶</a></dt>
-<dd>Creates a new topic with a give CNMessage model object</dd></dl>
+<dd><p>Creates a new topic with a give CNMessage model object.
+Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s">&quot;ok&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+ <span class="s">&quot;response&quot;</span><span class="p">:{</span><span class="s">&quot;topic&quot;</span><span class="p">:{</span><span class="s">&quot;status&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b5a1e3e8ead0e3104070000&quot;</span><span class="p">},</span>
+             <span class="s">&quot;message&quot;</span><span class="p">:{</span><span class="s">&quot;status&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b5a1e3e8ead0e3104080000&quot;</span><span class="p">}</span>
+            <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
 
 </dd></dl>
 

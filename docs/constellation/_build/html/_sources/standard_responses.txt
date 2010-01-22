@@ -5,18 +5,12 @@ Standard API Responses
 ********************************************
 The Galaxy API will return the following standardized responses across application types:
 
-- Unauthorized
 - Errors
 - Success
 
-Unauthorized
-------------
-If a request you make is not allowed you will receive a *401 Unauthorized* in response to your request.
-
-
 Errors
 ------
-Errors received from API requests will be in the following JSON format::
+In general, errors received from API requests will be in the following JSON format::
 
 	{"ok":false,
 	 "type":"error",
@@ -24,6 +18,15 @@ Errors received from API requests will be in the following JSON format::
 	           {"reason":"why it went wrong 2"}]
 	}
 	
+
+For example if you make a write request to a channel you have subscribed to, but you do not have permissions to write to that channel you would see the following response::
+
+	{"ok":false,
+	 "type":"error",
+	 "errors":[{"reason":"unauthorized"}]
+	}
+	
+
 
 Success
 -------
