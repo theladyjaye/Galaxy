@@ -70,7 +70,7 @@ class GalaxyForum extends GalaxyApplication
 			$channel->update(array('_id'=>$context->more), array('$inc'=>array('replies'=>1)));
 
 		
-			$data = array('ok' => $status_message['ok'] ? true : false,
+			$data = array('status' => $status_message['ok'] ? true : false,
 			              'id' => $message['_id']);
 		
 			return GalaxyResponse::responseWithData($data);
@@ -118,7 +118,7 @@ class GalaxyForum extends GalaxyApplication
 				$action = array('$set' => $fields);
 				$channel->update(array('_id' => $context->more), $action);
 				
-				return GalaxyResponse::responseWithData(array('ok' => true));
+				return GalaxyResponse::responseWithData();
 			}
 			else
 			{
@@ -170,7 +170,7 @@ class GalaxyForum extends GalaxyApplication
 			}
 		}
 		
-		return GalaxyResponse::responseWithData(array('ok'=>true));
+		return GalaxyResponse::responseWithData();
 	}
 	
 	public function message_details_get($context)
@@ -264,10 +264,10 @@ class GalaxyForum extends GalaxyApplication
 			}
 			
 			
-			$data = array('topic'   => array('ok' => $status_topic['ok'] ? true : false,
+			$data = array('topic'   => array('status' => $status_topic['ok'] ? true : false,
 					                         'id' => $topic['_id']),
 
-					      'message' => array('ok' => $status_message['ok'] ? true : false,
+					      'message' => array('status' => $status_message['ok'] ? true : false,
 					                         'id' => $message['_id']));
 			
 			return GalaxyResponse::responseWithData($data);
@@ -286,6 +286,9 @@ class GalaxyForum extends GalaxyApplication
 		// delete all messages
 		$channel->remove(array('_id' => $context->more));
 		$channel->remove(array('topic' => $context->more));
+		
+		return GalaxyResponse::responseWithData();
+		
 	}
 	
 	public function topics_get(GalaxyContext $context)

@@ -56,8 +56,12 @@ Constellation Objects
 
    .. method:: message_new(CNMessage $message)
 
-      Reply to a topic with given CNMessage Model object
+      Reply to a topic with given CNMessage Model object.
 
+      Sample Response::
+	{"ok":true,
+	 "response":{"status":true,"id":"4b5a1f098ead0e0e04060000"}
+	}
 
    .. method:: message_update(CNMessage $message)
 
@@ -68,15 +72,22 @@ Constellation Objects
 
       Delete a message matching $message->context
 
+      Sample Response::
+	{"ok":true,"response":null}
+
 
    .. method:: topic_delete($topic_id)
 
       Delete a topic for a given id
 
+      Sample Response::
+	{"ok":true,"response":null}
+
 
    .. method:: topic_list($forum, $page=Galaxy::kDefaultPage, $limit=Galaxy::kDefaultLimit)
 
       Given a forum id (Channel Id) will return topics for that forum.  Returns an array of JSON objects.
+      
       Sample Response::
 
 	{"ok":true,
@@ -124,7 +135,13 @@ Constellation Objects
 
    .. method:: topic_new(CNMessage $message)
 
-      Creates a new topic with a give CNMessage model object
+      Creates a new topic with a give CNMessage model object.
+      Sample Response::
+	{"ok":true,
+	 "response":{"topic":{"status":true,"id":"4b5a1e3e8ead0e3104070000"},
+	             "message":{"status":true,"id":"4b5a1e3e8ead0e3104080000"}
+	            }
+	}
 
 
 .. module:: CNAuthor

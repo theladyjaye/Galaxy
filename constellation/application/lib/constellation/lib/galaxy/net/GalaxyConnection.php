@@ -129,6 +129,7 @@ class GalaxyConnection
 		$request = $this->requestWithCommand($this->command);
 		
 		// API Debugging
+		
 		/*
 		echo "<h3>GalaxyClientConnection - request</h3>\n";
 		echo $request."\n\n<hr>";
