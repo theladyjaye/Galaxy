@@ -33,8 +33,11 @@ class GalaxyResponse
 	
 	public static function unauthorized()
 	{
-		header($_SERVER['SERVER_PROTOCOL'].' 401 Unauthorized');
-		exit;
+		//header($_SERVER['SERVER_PROTOCOL'].' 401 Unauthorized');
+		$response       = new GalaxyResponse();
+		$error          = GalaxyError::errorWithString('unauthorized');
+		$response->data = array('ok'=>false, 'type'=>GalaxyAPIConstants::kTypeError, 'errors'=>array($error->data()));
+		return $response;
 	}
 	
 	public static function responseWithError(GalaxyError $error)
