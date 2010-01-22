@@ -4,6 +4,7 @@
 CNAuthor mod php_command_reference.html
 Constellation mod php_command_reference.html
 CNMessage mod php_command_reference.html
+Constellation.__construct.topic_messages method php_command_reference.html
 CNAuthor.__construct.setAvatarUrl method php_command_reference.html
 Constellation.__construct.message_new method php_command_reference.html
 CNMessage.__construct.setBody method php_command_reference.html

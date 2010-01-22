@@ -53,11 +53,23 @@
 <dl class="class">
 <dt id="Constellation.__construct">
 <em class="property">class </em><tt class="descclassname">Constellation.</tt><tt class="descname">__construct</tt><a class="headerlink" href="#Constellation.__construct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Designated Constellation initializer</p>
+<dd><p>Designated Constellation initializer.  All responses are returned as JSON.</p>
 <dl class="method">
 <dt id="Constellation.__construct.forum_list">
 <tt class="descname">forum_list</tt><big>(</big><big>)</big><a class="headerlink" href="#Constellation.__construct.forum_list" title="Permalink to this definition">¶</a></dt>
-<dd>Retrieves list of available forums</dd></dl>
+<dd><p>Retrieves list of available forums.  Returns an array of the following JSON Objects:
+Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;com.galaxy.community.announcements-general&quot;</span><span class="p">,</span>
+  <span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;channel&quot;</span><span class="p">,</span>
+  <span class="s">&quot;label&quot;</span><span class="p">:</span><span class="s">&quot;Galaxy Announcements&quot;</span><span class="p">,</span>
+  <span class="s">&quot;description&quot;</span><span class="p">:</span><span class="s">&quot;Announcements about the Galaxy Platform&quot;</span><span class="p">,</span>
+  <span class="s">&quot;source&quot;</span><span class="p">:{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;com.galaxy.community&quot;</span><span class="p">,</span>
+            <span class="s">&quot;description&quot;</span><span class="p">:</span><span class="s">&quot;Galaxy Community&quot;</span><span class="p">,</span>
+            <span class="s">&quot;domain&quot;</span><span class="p">:</span><span class="s">&quot;galaxy&quot;</span><span class="p">},</span>
+  <span class="s">&quot;requests&quot;</span><span class="p">:</span><span class="mi">386</span><span class="p">}]</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.message">
@@ -87,7 +99,48 @@
 <dl class="method">
 <dt id="Constellation.__construct.topic_list">
 <tt class="descname">topic_list</tt><big>(</big><em>$forum</em>, <em>$page=Galaxy::kDefaultPage</em>, <em>$limit=Galaxy::kDefaultLimit</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_list" title="Permalink to this definition">¶</a></dt>
-<dd>Given a forum id (Channel Id) will return topics for that forum</dd></dl>
+<dd><p>Given a forum id (Channel Id) will return topics for that forum.  Returns an array of JSON objects.
+Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b57ad8b8ead0e7706030000&quot;</span><span class="p">,</span>
+ <span class="s">&quot;requests&quot;</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span>
+ <span class="s">&quot;replies&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
+ <span class="s">&quot;title&quot;</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">,</span>
+ <span class="s">&quot;author&quot;</span><span class="p">:{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;logix812&quot;</span><span class="p">,</span>
+           <span class="s">&quot;avatar_url&quot;</span><span class="p">:</span><span class="s">&quot;http:\/\/www.gravatar.com\/avatar\/1a6b4b96e9933a0259babb3a9d02f759.png&quot;</span><span class="p">},</span>
+ <span class="s">&quot;source&quot;</span><span class="p">:{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;com.galaxy.community&quot;</span><span class="p">,</span>
+           <span class="s">&quot;description&quot;</span><span class="p">:</span><span class="s">&quot;Galaxy Community&quot;</span><span class="p">,</span>
+           <span class="s">&quot;domain&quot;</span><span class="p">:</span><span class="s">&quot;galaxy&quot;</span><span class="p">},</span>
+ <span class="s">&quot;last_message&quot;</span><span class="p">:{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b57aebe8ead0e7806060000&quot;</span><span class="p">,</span>
+                 <span class="s">&quot;source&quot;</span><span class="p">:{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;com.galaxy.community&quot;</span><span class="p">,</span>
+                           <span class="s">&quot;description&quot;</span><span class="p">:</span><span class="s">&quot;Galaxy Community&quot;</span><span class="p">,</span>
+                           <span class="s">&quot;domain&quot;</span><span class="p">:</span><span class="s">&quot;galaxy&quot;</span><span class="p">},</span>
+                 <span class="s">&quot;author&quot;</span><span class="p">:{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;GodMoose&quot;</span><span class="p">,</span>
+                           <span class="s">&quot;avatar_url&quot;</span><span class="p">:</span><span class="s">&quot;http:\/\/www.gravatar.com\/avatar\/1a6b4b96e9933a0259babb3a9d02f759.png&quot;</span><span class="p">},</span>
+                 <span class="s">&quot;created&quot;</span><span class="p">:</span><span class="s">&quot;2010-01-20T17:32:46-0800&quot;</span><span class="p">},</span>
+ <span class="s">&quot;created&quot;</span><span class="p">:</span><span class="s">&quot;2010-01-20T17:27:39-0800&quot;</span><span class="p">,</span>
+ <span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;topic&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.topic_messages">
+<tt class="descname">topic_messages</tt><big>(</big><em>$topic</em>, <em>$page=Galaxy::kDefaultPage</em>, <em>$limit=Galaxy::kDefaultLimit</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_messages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a list of messages for a given topic.  Returns an array of JSON objects.
+Sample Response:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;4b5945928ead0e8501030000&quot;</span><span class="p">,</span>
+  <span class="s">&quot;title&quot;</span><span class="p">:</span><span class="s">&quot;Hello World&quot;</span><span class="p">,</span>
+  <span class="s">&quot;body&quot;</span><span class="p">:</span><span class="s">&quot;This is a test&quot;</span><span class="p">,</span>
+  <span class="s">&quot;author&quot;</span><span class="p">:{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;GodMoose&quot;</span><span class="p">,</span>
+            <span class="s">&quot;avatar_url&quot;</span><span class="p">:</span><span class="s">&quot;http:\/\/www.gravatar.com\/avatar\/1a6b4b96e9933a0259babb3a9d02f759.png&quot;</span><span class="p">},</span>
+  <span class="s">&quot;source&quot;</span><span class="p">:{</span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="s">&quot;com.galaxy.community&quot;</span><span class="p">,</span>
+            <span class="s">&quot;description&quot;</span><span class="p">:</span><span class="s">&quot;Galaxy Community&quot;</span><span class="p">,</span>
+            <span class="s">&quot;domain&quot;</span><span class="p">:</span><span class="s">&quot;galaxy&quot;</span><span class="p">},</span>
+ <span class="s">&quot;created&quot;</span><span class="p">:</span><span class="s">&quot;2010-01-21T22:28:34-0800&quot;</span><span class="p">,</span>
+ <span class="s">&quot;type&quot;</span><span class="p">:</span><span class="s">&quot;message&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="method">
 <dt id="Constellation.__construct.topic_new">
@@ -102,7 +155,7 @@
 <dl class="class">
 <dt id="CNAuthor.__construct">
 <em class="property">class </em><tt class="descclassname">CNAuthor.</tt><tt class="descname">__construct</tt><a class="headerlink" href="#CNAuthor.__construct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Designated Constellation initializer</p>
+<dd><p>Designated CNAuthor initializer</p>
 <dl class="method">
 <dt id="CNAuthor.__construct.data">
 <tt class="descname">data</tt><big>(</big><big>)</big><a class="headerlink" href="#CNAuthor.__construct.data" title="Permalink to this definition">¶</a></dt>
@@ -126,7 +179,7 @@
 <dl class="class">
 <dt id="CNMessage.__construct">
 <em class="property">class </em><tt class="descclassname">CNMessage.</tt><tt class="descname">__construct</tt><a class="headerlink" href="#CNMessage.__construct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Designated Constellation initializer</p>
+<dd><p>Designated CNMessage initializer</p>
 <dl class="method">
 <dt id="CNMessage.__construct.data">
 <tt class="descname">data</tt><big>(</big><big>)</big><a class="headerlink" href="#CNMessage.__construct.data" title="Permalink to this definition">¶</a></dt>
