@@ -23,7 +23,7 @@ $forums = json_decode($forums);
 		<div><a href="topics_view.php?id=<?php echo $forum->id ?>"><?php echo $forum->label ?></a></div>
 		<div style="font-size:11px; font-style:italic;"><?php echo $forum->description ?></div>
 		<div style="font-size:11px; font-style:italic;">Views: <?php echo $forum->requests ?></div>
-		<!--<div style="font-size:11px; font-style:italic;">Created On: <a href="http://<?php echo $forum->origin_domain ?>"><?php echo $forum->origin_description ?></a></div>-->
+		<!--<div style="font-size:11px; font-style:italic;">Created On: <a href="http://<?php echo $forum->source->domain ?>"><?php echo $forum->source->description ?></a></div>-->
 	</div>
 	<?php endforeach;?>
 </body>

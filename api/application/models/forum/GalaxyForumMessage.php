@@ -87,9 +87,10 @@ class GalaxyForumMessage
 	public function last_message_snapshot()
 	{
 		return array('id'                 => $this->id,
-			         'origin'             => $this->context->origin,
-		             'origin_description' => $this->context->origin_description,
-		             'origin_domain'      => $this->context->origin_domain,
+		             'source'             => $this->context->source(),
+			         //'origin'             => $this->context->origin,
+		             //'origin_description' => $this->context->origin_description,
+		             //'origin_domain'      => $this->context->origin_domain,
 		             'author'             => $this->author,
 		             'created'            => $this->created);
 	}

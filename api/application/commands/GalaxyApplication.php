@@ -41,9 +41,12 @@ abstract class GalaxyApplication
 			                'type'               => $channel['type'],
 			                'label'              => $channel['label'],
 			                'description'        => $channel['description'],
-			                'origin'             => $channel['application'],
-			                'origin_description' => $context->origin_description,
-			                'origin_domain'      => $context->origin_domain,
+			                'source'             => array('id'          => $channel['application'],
+			                                              'description' => $context->origin_description,
+			                                              'domain'      => $context->origin_domain),
+			                //'origin'             => $channel['application'],
+			                //'origin_description' => $context->origin_description,
+			                //'origin_domain'      => $context->origin_domain,
 			                'requests'           => $channel['requests']);
 		}
 		

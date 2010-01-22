@@ -64,7 +64,7 @@ class GalaxyResponse
 	public static function responseWithData($data)
 	{
 		$response       = new GalaxyResponse();
-		$response->data = $data;
+		$response->data = array('ok'=>true, 'response'=>$data);
 		return $response;
 	}
 	
