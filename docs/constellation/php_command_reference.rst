@@ -67,7 +67,7 @@ CNAuthor Objects
 
 .. class:: __construct()
 
-   Designated Constellation initializer
+   Designated CNAuthor initializer
 
 
    .. method:: data()
@@ -93,7 +93,7 @@ CNMessage Objects
 
 .. class:: __construct()
 
-   Designated Constellation initializer
+   Designated CNMessage initializer
 
 
    .. method:: data()

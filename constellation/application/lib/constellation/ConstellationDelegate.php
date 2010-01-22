@@ -28,17 +28,23 @@
 interface ConstellationDelegate extends GalaxyDelegate
 {
 	// return booleans
+	
+	// Read Permission
 	function constellationShouldGetForums(Constellation $constellation);
 	function constellationShouldGetTopicsForForum(Constellation $constellation, &$forum);
 	function constellationShouldGetMessagesForTopic(Constellation $constellation, &$topic);
 	function constellationShouldGetMessage(Constellation $constellation, &$message_id);
 	
+	// Write Permissions
 	function constellationShouldCreateTopic(Constellation $constellation, CNMessage &$message);
 	function constellationShouldCreateMessage(Constellation $constellation, CNMessage &$message);
-	
+
+	// Delete Permissions
 	function constellationShouldDeleteTopic(Constellation $constellation, &$topic_id);
 	function constellationShouldDeleteMessage(Constellation $constellation, CNMessage &$message);
 	
+	
 	function constellationShouldUpdateMessage(Constellation $constellation, CNMessage &$message);
+	
 }
 ?>
