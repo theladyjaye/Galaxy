@@ -1,3 +1,23 @@
 # Sphinx inventory version 1
 # Project: Constallation
 # Version: 1.0
+CNAuthor mod php_command_reference.html
+Constellation mod php_command_reference.html
+CNMessage mod php_command_reference.html
+CNAuthor.__construct.setAvatarUrl method php_command_reference.html
+Constellation.__construct.message_new method php_command_reference.html
+CNMessage.__construct.setBody method php_command_reference.html
+CNMessage.__construct class php_command_reference.html
+CNAuthor.__construct.data method php_command_reference.html
+CNAuthor.__construct class php_command_reference.html
+Constellation.__construct.forum_list method php_command_reference.html
+Constellation.__construct.topic_delete method php_command_reference.html
+Constellation.__construct.topic_new method php_command_reference.html
+CNMessage.__construct.setTitle method php_command_reference.html
+CNMessage.__construct.data method php_command_reference.html
+Constellation.__construct.message method php_command_reference.html
+Constellation.__construct.topic_list method php_command_reference.html
+CNAuthor.__construct.setName method php_command_reference.html
+Constellation.__construct.message_update method php_command_reference.html
+Constellation.__construct.message_delete method php_command_reference.html
+Constellation.__construct class php_command_reference.html

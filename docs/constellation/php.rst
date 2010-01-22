@@ -1,4 +1,4 @@
-Constellation PHP Library
+PHP Library
 =========================================
 
 Contents:
@@ -9,6 +9,7 @@ Contents:
 
    php_requirements.rst
    php_getting_started.rst
+   php_command_reference.rst
 
 Indices and tables
 ==================

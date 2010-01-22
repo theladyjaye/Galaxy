@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Constellation Command Reference &mdash; Constallation v1.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '#',
+        VERSION:     '1.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Constallation v1.0 documentation" href="index.html" />
+    <link rel="up" title="4. PHP Library" href="php.html" />
+    <link rel="prev" title="2. Getting Started" href="php_getting_started.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="php_getting_started.html" title="2. Getting Started"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li>
+          <li><a href="php.html" accesskey="U">4. PHP Library</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-Constellation">
+<h1>3. Constellation Command Reference<a class="headerlink" href="#module-Constellation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-CNAuthor">
+<h2>3.1. Constellation Objects<a class="headerlink" href="#module-CNAuthor" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Constellation.__construct">
+<em class="property">class </em><tt class="descclassname">Constellation.</tt><tt class="descname">__construct</tt><a class="headerlink" href="#Constellation.__construct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Designated Constellation initializer</p>
+<dl class="method">
+<dt id="Constellation.__construct.forum_list">
+<tt class="descname">forum_list</tt><big>(</big><big>)</big><a class="headerlink" href="#Constellation.__construct.forum_list" title="Permalink to this definition">¶</a></dt>
+<dd>Retrieves list of available forums</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.message">
+<tt class="descname">message</tt><big>(</big><em>$id</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message" title="Permalink to this definition">¶</a></dt>
+<dd>Get a single message with the given id</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.message_new">
+<tt class="descname">message_new</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message_new" title="Permalink to this definition">¶</a></dt>
+<dd>Reply to a topic with given CNMessage Model object</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.message_update">
+<tt class="descname">message_update</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message_update" title="Permalink to this definition">¶</a></dt>
+<dd>Update and existing message with the data in a given CNMessage model object</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.message_delete">
+<tt class="descname">message_delete</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.message_delete" title="Permalink to this definition">¶</a></dt>
+<dd>Delete a message matching $message-&gt;context</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.topic_delete">
+<tt class="descname">topic_delete</tt><big>(</big><em>$topic_id</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_delete" title="Permalink to this definition">¶</a></dt>
+<dd>Delete a topic for a given id</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.topic_list">
+<tt class="descname">topic_list</tt><big>(</big><em>$forum</em>, <em>$page=Galaxy::kDefaultPage</em>, <em>$limit=Galaxy::kDefaultLimit</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_list" title="Permalink to this definition">¶</a></dt>
+<dd>Given a forum id (Channel Id) will return topics for that forum</dd></dl>
+
+<dl class="method">
+<dt id="Constellation.__construct.topic_new">
+<tt class="descname">topic_new</tt><big>(</big><em>CNMessage $message</em><big>)</big><a class="headerlink" href="#Constellation.__construct.topic_new" title="Permalink to this definition">¶</a></dt>
+<dd>Creates a new topic with a give CNMessage model object</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-CNMessage">
+<h2>3.2. CNAuthor Objects<a class="headerlink" href="#module-CNMessage" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="CNAuthor.__construct">
+<em class="property">class </em><tt class="descclassname">CNAuthor.</tt><tt class="descname">__construct</tt><a class="headerlink" href="#CNAuthor.__construct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Designated Constellation initializer</p>
+<dl class="method">
+<dt id="CNAuthor.__construct.data">
+<tt class="descname">data</tt><big>(</big><big>)</big><a class="headerlink" href="#CNAuthor.__construct.data" title="Permalink to this definition">¶</a></dt>
+<dd>returns the array representation of the object</dd></dl>
+
+<dl class="method">
+<dt id="CNAuthor.__construct.setAvatarUrl">
+<tt class="descname">setAvatarUrl</tt><big>(</big><em>$value</em><big>)</big><a class="headerlink" href="#CNAuthor.__construct.setAvatarUrl" title="Permalink to this definition">¶</a></dt>
+<dd>Sets the absolute url to the authors avatar</dd></dl>
+
+<dl class="method">
+<dt id="CNAuthor.__construct.setName">
+<tt class="descname">setName</tt><big>(</big><em>$value</em><big>)</big><a class="headerlink" href="#CNAuthor.__construct.setName" title="Permalink to this definition">¶</a></dt>
+<dd>Set the name of the author</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cnmessage-objects">
+<h2>3.3. CNMessage Objects<a class="headerlink" href="#cnmessage-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="CNMessage.__construct">
+<em class="property">class </em><tt class="descclassname">CNMessage.</tt><tt class="descname">__construct</tt><a class="headerlink" href="#CNMessage.__construct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Designated Constellation initializer</p>
+<dl class="method">
+<dt id="CNMessage.__construct.data">
+<tt class="descname">data</tt><big>(</big><big>)</big><a class="headerlink" href="#CNMessage.__construct.data" title="Permalink to this definition">¶</a></dt>
+<dd>returns the array representation of the object</dd></dl>
+
+<dl class="method">
+<dt id="CNMessage.__construct.setBody">
+<tt class="descname">setBody</tt><big>(</big><em>$value</em><big>)</big><a class="headerlink" href="#CNMessage.__construct.setBody" title="Permalink to this definition">¶</a></dt>
+<dd>Sets the body of the message</dd></dl>
+
+<dl class="method">
+<dt id="CNMessage.__construct.setTitle">
+<tt class="descname">setTitle</tt><big>(</big><em>$value</em><big>)</big><a class="headerlink" href="#CNMessage.__construct.setTitle" title="Permalink to this definition">¶</a></dt>
+<dd>Sets the title of the message</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="#">3. Constellation Command Reference</a><ul>
+<li><a class="reference external" href="#module-CNAuthor">3.1. Constellation Objects</a></li>
+<li><a class="reference external" href="#module-CNMessage">3.2. CNAuthor Objects</a></li>
+<li><a class="reference external" href="#cnmessage-objects">3.3. CNMessage Objects</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="php_getting_started.html"
+                                  title="previous chapter">2. Getting Started</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/php_command_reference.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="php_getting_started.html" title="2. Getting Started"
+             >previous</a> |</li>
+        <li><a href="index.html">Constallation v1.0 documentation</a> &raquo;</li>
+          <li><a href="php.html" >4. PHP Library</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, Adam Venturella.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+    </div>
+  </body>
+</html>

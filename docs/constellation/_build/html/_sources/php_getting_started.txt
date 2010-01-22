@@ -7,8 +7,8 @@ Overview
 
 The Constellation PHP library is composed of 2 primiary pieces:
 
-- Constellation.php (extends GalaxyApplication)
-- ConstellationDelegate.php (extends GalaxyDelegate)
+- **Constellation.php** *(extends GalaxyApplication)*
+- **ConstellationDelegate.php** *(extends GalaxyDelegate)*
 
 To initialize an instance of Constellation is as easy as::
 
