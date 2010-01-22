@@ -14,6 +14,7 @@ Contents:
 
    overview.rst
    galaxy_foundry.rst
+   standard_responses.rst
    php.rst
 
 Indices and tables
