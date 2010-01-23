@@ -2,6 +2,8 @@
 Constellation Command Reference
 ********************************
 
+All Constellation commands return JSON responses where applicable.
+
 .. module:: Constellation
    :synopsis: Implementation of the Constellation API.
 
