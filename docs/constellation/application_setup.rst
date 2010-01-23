@@ -6,6 +6,7 @@ Create an Application
 =======================
 
 - Once you are logged in click on the *Application* button, then click the + in the upper left to create a new application.
+
 .. image:: _static/application_setup_1.png
 
 This will reveal the new application form

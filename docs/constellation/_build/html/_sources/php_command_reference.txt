@@ -18,6 +18,7 @@ Constellation Objects
 
       Retrieves list of available forums.  Returns an array of the following JSON Objects:
       Sample Response::
+	
 	{"ok":true,
 	 "response":[{"id":"com.galaxy.community.announcements-general",
 	              "type":"channel",
@@ -35,6 +36,7 @@ Constellation Objects
 
       Get a single message with the given id.  Returns a single JSON object.
       Response Sample::
+	
 	{"ok":true,
 	 "response":{"_id":"4b5945928ead0e8501030000",
 	             "title":"Hello World",
@@ -142,6 +144,7 @@ Constellation Objects
 
       Creates a new topic with a give CNMessage model object.
       Sample Response::
+	
 	{"ok":true,
 	 "response":{"topic":{"status":true,"id":"4b5a1e3e8ead0e3104070000"},
 	             "message":{"status":true,"id":"4b5a1e3e8ead0e3104080000"}

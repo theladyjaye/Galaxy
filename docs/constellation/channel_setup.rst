@@ -19,7 +19,9 @@ Similar to the create application action, this will reveal the create channel fo
 .. image:: _static/channel_setup_2.png
 
 - For choose a channel id, e.g., *announcements* or *constellation-announcements*
-.. note:: Channel Id's must be domain name compliant, wildcards: *,  are not allowed. The application id will be automatically prefixed to the channel id so there is no need to include it.
+
+.. note:: 
+   Channel Id's must be domain name compliant, wildcards: ..*,  are not allowed. The application id will be automatically prefixed to the channel id so there is no need to include it._
 
 - Provide a name for this channel.  This name that will be available to users of this forum, e.g., *Galaxy Announcements*
 - As with the channel name, provide a channel description.  Again, this will be available to users of this forum,
