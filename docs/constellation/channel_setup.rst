@@ -56,8 +56,8 @@ Channels you are subscribed to you can only delete.
 .. warning:: If you are the owner of a channel, and choose to delete the channel, all of it's assocaited information will also be deleted.  This operation cannot be undone.
 
 
-Channel Subscriptions
-======================
+Channel Subscriptions (Sharing channels between applications)
+==============================================================
 
 Any channel that has at least a read permission can be subscribed to.
 If you would like to allow someone to subscribe to your channel, providing them the channel id found in the channel detail is all they will need to know.
@@ -67,3 +67,17 @@ you should only allow *delete* permissions to those applications that you trust.
 You can change a subscribed applications permissions to a channel at any time by clicking on the manage subscriptions button for the channel.
 
 .. note:: At this time, we do not allow applications to request extended permissions beyond the default permissions.  This is a feature that will be coming shortly. Additionally, we are exploring implementing an additional permssion *Admin* in addition to Read, Write, Delete.
+
+
+Subscribe to a Channel
+----------------------
+
+From the channel management for your application choose Subscribe to Channel
+
+.. image:: _static/channel_setup_5.png
+
+The channel subscription dialog will appear.
+
+.. image:: _static/channel_setup_6.png
+
+Enter the channel id to which you would like to subscribe and press subscribe to channel.
