@@ -15,7 +15,9 @@ Contents:
    overview.rst
    galaxy_foundry.rst
    standard_responses.rst
+   actionscript.rst
    php.rst
+   objc.rst
 
 Indices and tables
 ==================
