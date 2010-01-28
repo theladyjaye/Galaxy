@@ -46,14 +46,14 @@ class Constellation extends GalaxyApplication
 	*/
 	
 	// local
-	//protected $application_id     = 'com.galaxy.community';
-	//protected $application_key    = '849b35ec4988daa0dc5e77a0b30e8174';
-	//protected $application_secret = 'b86645d35804b4902d31e9c6ed0c989b';
+	protected $application_id     = 'com.galaxy.community';
+	protected $application_key    = '849b35ec4988daa0dc5e77a0b30e8174';
+	protected $application_secret = 'b86645d35804b4902d31e9c6ed0c989b';
 	
 	//staging
-	protected $application_id     = 'com.galaxy.community';
-	protected $application_key    = '03105797f2eae24be6d1ac90500493c0';
-	protected $application_secret = '34c6587fec895845450c4b82b13cae55';
+	//protected $application_id     = 'com.galaxy.community';
+	//protected $application_key    = '03105797f2eae24be6d1ac90500493c0';
+	//protected $application_secret = '34c6587fec895845450c4b82b13cae55';
 	
 	//protected $application_id     = 'com.galaxy.test';
 	//protected $application_key    = 'bbf8b8970943467e372f579924a601ca';

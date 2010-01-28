@@ -12,10 +12,12 @@ The Constellation PHP library is composed of 2 primiary pieces:
 
 To initialize an instance of Constellation is as easy as::
 
+	<?php
 	require 'path/to/Constellation.php';
 	$constellation         = new Constellation();
 	$constellation_handler = new ConstellationHandler(); // ConstellationHandler implements ConstellationDelegate
 	$constellation->setDelegate($constellation_handler);
+	?>
 
 Constellation.php is the core command class that talks to Galaxy to retrieve and send data.
 

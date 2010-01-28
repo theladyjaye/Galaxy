@@ -46,7 +46,7 @@ class GalaxyRequest
 		}
 		else
 		{
-			GalaxyResponse::unauthorized();
+			echo GalaxyResponse::unauthorized();
 		}
 	}
 	
@@ -142,7 +142,7 @@ class GalaxyRequest
 					}
 					else
 					{
-						GalaxyResponse::unauthorized();
+						echo GalaxyResponse::unauthorized();
 					}
 					
 					echo $response;
@@ -151,12 +151,13 @@ class GalaxyRequest
 			}
 			else
 			{
-				GalaxyResponse::unauthorized();
+				echo  GalaxyResponse::unauthorized();
 			}
 		}
 		else
 		{
-			GalaxyResponse::unauthorized();
+			echo "*****";
+			echo GalaxyResponse::unauthorized();
 		}
 	}
 	

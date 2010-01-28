@@ -33,7 +33,8 @@ class GalaxyResponse
 	
 	public static function unauthorized()
 	{
-		//header($_SERVER['SERVER_PROTOCOL'].' 401 Unauthorized');
+		// this is the only response that is directly echo'd
+		// maybe should make this a consistent behavior and return?
 		$response       = new GalaxyResponse();
 		$error          = GalaxyError::errorWithString('unauthorized');
 		$response->data = array('ok'=>false, 'type'=>GalaxyAPIConstants::kTypeError, 'errors'=>array($error->data()));

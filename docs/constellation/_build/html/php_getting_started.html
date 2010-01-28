@@ -60,10 +60,12 @@
 <li><strong>ConstellationDelegate.php</strong> <em>(extends GalaxyDelegate)</em></li>
 </ul>
 <p>To initialize an instance of Constellation is as easy as:</p>
-<div class="highlight-python"><pre>require 'path/to/Constellation.php';
+<div class="highlight-python"><pre>&lt;?php
+require 'path/to/Constellation.php';
 $constellation         = new Constellation();
 $constellation_handler = new ConstellationHandler(); // ConstellationHandler implements ConstellationDelegate
-$constellation-&gt;setDelegate($constellation_handler);</pre>
+$constellation-&gt;setDelegate($constellation_handler);
+?&gt;</pre>
 </div>
 <p>Constellation.php is the core command class that talks to Galaxy to retrieve and send data.</p>
 <p>ConstellationDelegate.php is an interface that is required by all Constellation instances.  ConstellationDelegate.php provides all of your override points for any action Constellation will perform.</p>
