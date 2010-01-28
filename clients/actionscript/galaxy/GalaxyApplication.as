@@ -1,12 +1,13 @@
 package galaxy
 {
+	import flash.events.EventDispatcher;
 	import galaxy.commands.GalaxyCommand;
 	import galaxy.commands.GalaxyChannels;
 	import galaxy.net.GalaxyOperation;
 	import galaxy.models.GalaxyOptions;
 	
 	
-	public class GalaxyApplication
+	public class GalaxyApplication extends EventDispatcher
 	{
 		private var _defaultOptions : GalaxyOptions;
 		

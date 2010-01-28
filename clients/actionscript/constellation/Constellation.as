@@ -4,7 +4,7 @@ package constellation
 	import galaxy.models.GalaxyOptions;
 	import constellation.commands.CNTopicList;
 	import constellation.commands.CNMessages;
-	
+	import constellation.events.ConstellationEvent;
 	public class Constellation extends GalaxyApplication
 	{
 		private var delegate:IConstellationDelegate;
@@ -53,17 +53,23 @@ package constellation
 		
 		private function didReceiveForums(data:String):void
 		{
-			trace(data);
+			var e:ConstellationEvent = new ConstellationEvent(ConstellationEvent.COMPLETE_FORUMS);
+			e.data = data;
+			dispatchEvent(e);
 		}
 		
 		private function didReceiveTopics(data:String):void
 		{
-			trace(data);
+			var e:ConstellationEvent = new ConstellationEvent(ConstellationEvent.COMPLETE_TOPICS);
+			e.data = data;
+			dispatchEvent(e);
 		}
 		
 		private function didReceiveMessages(data:String):void
 		{
-			trace(data);
+			var e:ConstellationEvent = new ConstellationEvent(ConstellationEvent.COMPLETE_MESSAGES);
+			e.data = data;
+			dispatchEvent(e);
 		}
 	}
 }
