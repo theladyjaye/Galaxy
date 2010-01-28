@@ -13,44 +13,44 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		D717A735111222C300CBB013 /* libConstellation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D717A732111222B200CBB013 /* libConstellation.a */; };
+		D717A74F111222E700CBB013 /* libYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D717A749111222D800CBB013 /* libYAJL.a */; };
 		D733361D1110D1F70038F17A /* GalaxyForums.m in Sources */ = {isa = PBXBuildFile; fileRef = D733361B1110D1F70038F17A /* GalaxyForums.m */; };
 		D733361E1110D1F70038F17A /* GalaxyForums.xib in Resources */ = {isa = PBXBuildFile; fileRef = D733361C1110D1F70038F17A /* GalaxyForums.xib */; };
-		D76FA4D4111108B80093B134 /* libYAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D76FA4D3111108AD0093B134 /* libYAJL.a */; };
 		D76FA66E111117710093B134 /* GalaxyTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = D76FA66C111117710093B134 /* GalaxyTopics.m */; };
 		D76FA66F111117710093B134 /* GalaxyTopics.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76FA66D111117710093B134 /* GalaxyTopics.xib */; };
 		D76FA6FE111120E60093B134 /* GalaxyMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = D76FA6FC111120E60093B134 /* GalaxyMessages.m */; };
 		D76FA6FF111120E60093B134 /* GalaxyMessages.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76FA6FD111120E60093B134 /* GalaxyMessages.xib */; };
-		D7F050B2110D60FD00F2C4C4 /* libConstellation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F050AF110D60F300F2C4C4 /* libConstellation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D76FA4D2111108AD0093B134 /* PBXContainerItemProxy */ = {
+		D717A731111222B200CBB013 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D76FA4CE111108AD0093B134 /* YAJL.xcodeproj */;
+			containerPortal = D717A72D111222B200CBB013 /* Constellation.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = YAJL;
-		};
-		D76FA4DB111108DD0093B134 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D76FA4CE111108AD0093B134 /* YAJL.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = YAJL;
-		};
-		D7F050AE110D60F300F2C4C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D7F04F35110D216800F2C4C4 /* Constellation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libConstellation.a */;
 			remoteInfo = Constellation;
 		};
-		D7F050FB110D65D100F2C4C4 /* PBXContainerItemProxy */ = {
+		D717A733111222BA00CBB013 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D7F04F35110D216800F2C4C4 /* Constellation.xcodeproj */;
+			containerPortal = D717A72D111222B200CBB013 /* Constellation.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* Constellation */;
 			remoteInfo = Constellation;
+		};
+		D717A748111222D800CBB013 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D717A744111222D800CBB013 /* YAJL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libYAJL.a */;
+			remoteInfo = YAJL;
+		};
+		D717A750111222EE00CBB013 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D717A744111222D800CBB013 /* YAJL.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* YAJL */;
+			remoteInfo = YAJL;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -65,17 +65,17 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* ConstellationSample_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstellationSample_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ConstellationSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ConstellationSample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		D717A72D111222B200CBB013 /* Constellation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Constellation.xcodeproj; path = ../Constellation/Constellation.xcodeproj; sourceTree = SOURCE_ROOT; };
+		D717A744111222D800CBB013 /* YAJL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YAJL.xcodeproj; path = ../../../../../iPhone_YAJL/YAJL.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D733361A1110D1F70038F17A /* GalaxyForums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyForums.h; sourceTree = "<group>"; };
 		D733361B1110D1F70038F17A /* GalaxyForums.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyForums.m; sourceTree = "<group>"; };
 		D733361C1110D1F70038F17A /* GalaxyForums.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalaxyForums.xib; sourceTree = "<group>"; };
-		D76FA4CE111108AD0093B134 /* YAJL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YAJL.xcodeproj; path = ../../../../iPhone_YAJL/YAJL.xcodeproj; sourceTree = SOURCE_ROOT; };
 		D76FA66B111117710093B134 /* GalaxyTopics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyTopics.h; sourceTree = "<group>"; };
 		D76FA66C111117710093B134 /* GalaxyTopics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyTopics.m; sourceTree = "<group>"; };
 		D76FA66D111117710093B134 /* GalaxyTopics.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalaxyTopics.xib; sourceTree = "<group>"; };
 		D76FA6FB111120E60093B134 /* GalaxyMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyMessages.h; sourceTree = "<group>"; };
 		D76FA6FC111120E60093B134 /* GalaxyMessages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyMessages.m; sourceTree = "<group>"; };
 		D76FA6FD111120E60093B134 /* GalaxyMessages.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalaxyMessages.xib; sourceTree = "<group>"; };
-		D7F04F35110D216800F2C4C4 /* Constellation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Constellation.xcodeproj; sourceTree = CONSTELLATION; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D76FA4D4111108B80093B134 /* libYAJL.a in Frameworks */,
-				D7F050B2110D60FD00F2C4C4 /* libConstellation.a in Frameworks */,
+				D717A74F111222E700CBB013 /* libYAJL.a in Frameworks */,
+				D717A735111222C300CBB013 /* libConstellation.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -123,8 +123,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				D76FA4CE111108AD0093B134 /* YAJL.xcodeproj */,
-				D7F04F35110D216800F2C4C4 /* Constellation.xcodeproj */,
+				D717A744111222D800CBB013 /* YAJL.xcodeproj */,
+				D717A72D111222B200CBB013 /* Constellation.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -162,18 +162,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D76FA4CF111108AD0093B134 /* Products */ = {
+		D717A72E111222B200CBB013 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D76FA4D3111108AD0093B134 /* libYAJL.a */,
+				D717A732111222B200CBB013 /* libConstellation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D7F050AB110D60F300F2C4C4 /* Products */ = {
+		D717A745111222D800CBB013 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7F050AF110D60F300F2C4C4 /* libConstellation.a */,
+				D717A749111222D800CBB013 /* libYAJL.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,8 +192,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				D7F050FC110D65D100F2C4C4 /* PBXTargetDependency */,
-				D76FA4DC111108DD0093B134 /* PBXTargetDependency */,
+				D717A734111222BA00CBB013 /* PBXTargetDependency */,
+				D717A751111222EE00CBB013 /* PBXTargetDependency */,
 			);
 			name = ConstellationSample;
 			productName = ConstellationSample;
@@ -212,12 +212,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D7F050AB110D60F300F2C4C4 /* Products */;
-					ProjectRef = D7F04F35110D216800F2C4C4 /* Constellation.xcodeproj */;
+					ProductGroup = D717A72E111222B200CBB013 /* Products */;
+					ProjectRef = D717A72D111222B200CBB013 /* Constellation.xcodeproj */;
 				},
 				{
-					ProductGroup = D76FA4CF111108AD0093B134 /* Products */;
-					ProjectRef = D76FA4CE111108AD0093B134 /* YAJL.xcodeproj */;
+					ProductGroup = D717A745111222D800CBB013 /* Products */;
+					ProjectRef = D717A744111222D800CBB013 /* YAJL.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -228,18 +228,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D76FA4D3111108AD0093B134 /* libYAJL.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libYAJL.a;
-			remoteRef = D76FA4D2111108AD0093B134 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D7F050AF110D60F300F2C4C4 /* libConstellation.a */ = {
+		D717A732111222B200CBB013 /* libConstellation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libConstellation.a;
-			remoteRef = D7F050AE110D60F300F2C4C4 /* PBXContainerItemProxy */;
+			remoteRef = D717A731111222B200CBB013 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D717A749111222D800CBB013 /* libYAJL.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libYAJL.a;
+			remoteRef = D717A748111222D800CBB013 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -274,15 +274,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D76FA4DC111108DD0093B134 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = YAJL;
-			targetProxy = D76FA4DB111108DD0093B134 /* PBXContainerItemProxy */;
-		};
-		D7F050FC110D65D100F2C4C4 /* PBXTargetDependency */ = {
+		D717A734111222BA00CBB013 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Constellation;
-			targetProxy = D7F050FB110D65D100F2C4C4 /* PBXContainerItemProxy */;
+			targetProxy = D717A733111222BA00CBB013 /* PBXContainerItemProxy */;
+		};
+		D717A751111222EE00CBB013 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YAJL;
+			targetProxy = D717A750111222EE00CBB013 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

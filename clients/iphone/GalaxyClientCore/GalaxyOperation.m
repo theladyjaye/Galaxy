@@ -54,7 +54,7 @@
 		
 		signature.method      = command.method;
 		signature.realm       = [NSString stringWithFormat:@"%@%@", kGalaxyScheme, options.context];
-		signature.absoluteUrl = [NSString stringWithFormat:@"http://%@/%@", kGalaxyHost, command.endpoint];;
+		signature.absoluteUrl = [NSString stringWithFormat:@"http://%@/%@", kGalaxyHost, command.endpoint];
 		
 		if(command.method == kGalaxyMethodGet || command.method == kGalaxyMethodPost)
 		{

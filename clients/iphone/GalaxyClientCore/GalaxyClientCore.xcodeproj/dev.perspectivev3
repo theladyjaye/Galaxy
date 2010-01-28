@@ -250,8 +250,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -298,9 +296,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>15</integer>
-									<integer>14</integer>
-									<integer>12</integer>
+									<integer>19</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -334,12 +330,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>D77D10B3110D1FAF00EE86EE</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GalaxySignatureOAuth.m</string>
+								<string>GalaxyApplication.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -347,11 +345,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>D77D10B4110D1FAF00EE86EE</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GalaxySignatureOAuth.m</string>
+										<string>GalaxyApplication.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>D721927111115434004B9652</string>
+										<string>D717A76F1112267C00CBB013</string>
 										<key>history</key>
 										<array>
 											<string>D74BC0F2110E824E00C6570A</string>
@@ -378,13 +376,13 @@
 											<string>D721926711115434004B9652</string>
 											<string>D721926811115434004B9652</string>
 											<string>D721926911115434004B9652</string>
-											<string>D721926A11115434004B9652</string>
 											<string>D721926B11115434004B9652</string>
 											<string>D721926C11115434004B9652</string>
 											<string>D721926D11115434004B9652</string>
 											<string>D721926E11115434004B9652</string>
 											<string>D721926F11115434004B9652</string>
-											<string>D721927011115434004B9652</string>
+											<string>D717A76E1112267C00CBB013</string>
+											<string>D721926A11115434004B9652</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -398,18 +396,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1195, 459}}</string>
+								<string>{{0, 0}, {1195, 452}}</string>
 								<key>RubberWindowFrame</key>
 								<string>187 228 1402 712 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>459pt</string>
+							<string>452pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>207pt</string>
+							<string>214pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -423,7 +421,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {1195, 180}}</string>
+										<string>{{10, 27}, {1195, 187}}</string>
 										<key>RubberWindowFrame</key>
 										<string>187 228 1402 712 0 0 1680 1028 </string>
 									</dict>
@@ -507,11 +505,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D721925E111145A3004B9652</string>
+				<string>D717A7701112267C00CBB013</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>D721925F111145A3004B9652</string>
+				<string>D717A7711112267C00CBB013</string>
 				<string>D77D10B3110D1FAF00EE86EE</string>
-				<string>D7219260111145A3004B9652</string>
+				<string>D717A7721112267C00CBB013</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -686,7 +684,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>286348340.78723401</real>
+	<real>286402172.26756799</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -703,7 +701,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>/Users/dev/Projects/WWW_Renegade/renegade/iphone/GalaxyClientCore/GalaxyClientCore.xcodeproj</string>
+		<string>/Users/dev/Projects/WWW_Renegade/renegade/clients/iphone/GalaxyClientCore/GalaxyClientCore.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>187 228 1402 712 0 0 1680 1028 </string>

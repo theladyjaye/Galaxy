@@ -10,12 +10,12 @@ package galaxy.security.oauth
 	
 	public class GalaxySignatureOAuth implements IGalaxyAuthorization
 	{
-		public var method               : String
-		public var key                  : String;
-		public var secret               : String;
-		public var realm                : String;
-		public var absoluteUrl          : String;
-		public var additionalParameters : *;
+		public var method                   : String
+		public var key                      : String;
+		public var secret                   : String;
+		public var realm                    : String;
+		public var absoluteUrl              : String;
+		public var additionalParameters     : *;
 		
 		private  var signatureMethod        : String = "HMAC-SHA1";
 		private  var version                : String = "1.0";
@@ -29,11 +29,11 @@ package galaxy.security.oauth
 		public function authorizationSignature():String
 		{
 			var time:int = new Date().getTime()/1000;
-
+			var nonce : String = generateNonce();
 			var baseString : Vector.<GalaxyOAuthField>  = new Vector.<GalaxyOAuthField>();
 			
 			baseString.push(new GalaxyOAuthField("oauth_consumer_key", key));
-			baseString.push(new GalaxyOAuthField("oauth_nonce", generateNonce()));
+			baseString.push(new GalaxyOAuthField("oauth_nonce", nonce));
 			baseString.push(new GalaxyOAuthField("oauth_signature_method", signatureMethod));
 			baseString.push(new GalaxyOAuthField("oauth_timestamp", time.toString()));
 			baseString.push(new GalaxyOAuthField("oauth_token", ""));
@@ -41,7 +41,9 @@ package galaxy.security.oauth
 			
 			if(additionalParameters)
 			{
-				
+				/*
+					TODO Merge Additional GET or POST params into the vector
+				*/
 			}
 			
 			baseString = baseString.sort(function(a:GalaxyOAuthField, b:GalaxyOAuthField):Number
@@ -76,9 +78,11 @@ package galaxy.security.oauth
 			secretBytes.writeUTFBytes(secret);
 			secretBytes.position = 0;
 			
-			var hmac:HMAC = Crypto.getHMAC("sha1");
+			var hmac:HMAC        = Crypto.getHMAC("sha1");
 			var result:ByteArray = hmac.compute(secretBytes, signatureBytes);
-			return encodeURIComponent(Base64.encodeByteArray(result));
+			signature = encodeURIComponent(Base64.encodeByteArray(result));
+			
+			return 'OAuth realm="'+realm+'", oauth_consumer_key="'+key+'", oauth_token="", oauth_signature_method="'+signatureMethod+'", oauth_signature="'+signature+'", oauth_timestamp="'+time.toString()+'", oauth_nonce="'+nonce+'", oauth_version="'+version+'"';
 		}
 		
 		private function generateNonce():String

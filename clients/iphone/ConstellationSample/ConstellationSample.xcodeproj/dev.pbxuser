@@ -78,10 +78,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 286330613;
-			PBXWorkspaceStateSaveDate = 286330613;
+			PBXPerProjectTemplateStateSaveDate = 286401133;
+			PBXWorkspaceStateSaveDate = 286401133;
 		};
 		perUserProjectItems = {
+			D717A75A1112231D00CBB013 /* XCBuildMessageTextBookmark */ = D717A75A1112231D00CBB013 /* XCBuildMessageTextBookmark */;
+			D717A7641112233800CBB013 /* PBXTextBookmark */ = D717A7641112233800CBB013 /* PBXTextBookmark */;
 			D73335FE1110D1500038F17A /* PlistBookmark */ = D73335FE1110D1500038F17A /* PlistBookmark */;
 			D733363F1110D3D10038F17A /* PBXTextBookmark */ = D733363F1110D3D10038F17A /* PBXTextBookmark */;
 			D73336421110D4350038F17A /* PBXTextBookmark */ = D73336421110D4350038F17A /* PBXTextBookmark */;
@@ -93,12 +95,29 @@
 			D76FA712111123890093B134 /* PBXTextBookmark */ = D76FA712111123890093B134 /* PBXTextBookmark */;
 			D76FA71A111124120093B134 /* PBXTextBookmark */ = D76FA71A111124120093B134 /* PBXTextBookmark */;
 			D76FA71D111124650093B134 /* PBXTextBookmark */ = D76FA71D111124650093B134 /* PBXTextBookmark */;
-			D76FA73D111125B40093B134 /* PBXTextBookmark */ = D76FA73D111125B40093B134 /* PBXTextBookmark */;
-			D76FA74F11112DEF0093B134 /* PBXTextBookmark */ = D76FA74F11112DEF0093B134 /* PBXTextBookmark */;
 		};
 		sourceControlManager = D7F04F3B110D216800F2C4C4 /* Source Control */;
 		userBuildSettings = {
 		};
+	};
+	D717A75A1112231D00CBB013 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Request for member 'delegate' in something not a structure or union";
+		fRef = D76FA6FC111120E60093B134 /* GalaxyMessages.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 43;
+		rType = 1;
+	};
+	D717A7641112233800CBB013 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D76FA6FC111120E60093B134 /* GalaxyMessages.m */;
+		name = "GalaxyMessages.m: 42";
+		rLen = 0;
+		rLoc = 832;
+		rType = 0;
+		vrLen = 1046;
+		vrLoc = 508;
 	};
 	D73335FE1110D1500038F17A /* PlistBookmark */ = {
 		isa = PlistBookmark;
@@ -168,11 +187,6 @@
 		name = UITableViewController.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewController.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {943, 632}}";
-			sepNavSelRange = "{858, 0}";
-			sepNavVisRange = "{0, 935}";
-		};
 	};
 	D76FA625111115AB0093B134 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -220,6 +234,7 @@
 	};
 	D76FA6C811111E1F0093B134 /* UITableViewCell.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = UITableViewCell.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITableViewCell.h;
 		sourceTree = "<absolute>";
@@ -243,9 +258,9 @@
 	};
 	D76FA6FC111120E60093B134 /* GalaxyMessages.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1069, 3029}}";
-			sepNavSelRange = "{777, 0}";
-			sepNavVisRange = "{508, 1083}";
+			sepNavIntBoundsRect = "{{0, 0}, {1069, 2990}}";
+			sepNavSelRange = "{832, 0}";
+			sepNavVisRange = "{508, 1046}";
 		};
 	};
 	D76FA712111123890093B134 /* PBXTextBookmark */ = {
@@ -277,26 +292,6 @@
 		rType = 0;
 		vrLen = 1859;
 		vrLoc = 2392;
-	};
-	D76FA73D111125B40093B134 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D76FA6FC111120E60093B134 /* GalaxyMessages.m */;
-		name = "GalaxyMessages.m: 41";
-		rLen = 0;
-		rLoc = 807;
-		rType = 0;
-		vrLen = 544;
-		vrLoc = 709;
-	};
-	D76FA74F11112DEF0093B134 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D76FA6FC111120E60093B134 /* GalaxyMessages.m */;
-		name = "GalaxyMessages.m: 35";
-		rLen = 0;
-		rLoc = 777;
-		rType = 0;
-		vrLen = 1083;
-		vrLoc = 508;
 	};
 	D7F04F2C110D216000F2C4C4 /* ConstellationSample */ = {
 		isa = PBXExecutable;
