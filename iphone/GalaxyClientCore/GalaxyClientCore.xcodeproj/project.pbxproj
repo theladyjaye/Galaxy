@@ -1,0 +1,349 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA747D9F0F9514B9006C5449 /* GalaxyClientCore_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* GalaxyClientCore_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		D74BC104110E82B700C6570A /* GalaxyOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = D74BC102110E82B700C6570A /* GalaxyOperation.h */; };
+		D74BC105110E82B700C6570A /* GalaxyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D74BC103110E82B700C6570A /* GalaxyOperation.m */; };
+		D74BC118110E84FB00C6570A /* GalaxyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = D74BC116110E84FB00C6570A /* GalaxyOptions.h */; };
+		D74BC119110E84FB00C6570A /* GalaxyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = D74BC117110E84FB00C6570A /* GalaxyOptions.m */; };
+		D74BC11D110E854C00C6570A /* GalaxyAuthorization.h in Headers */ = {isa = PBXBuildFile; fileRef = D74BC11B110E854C00C6570A /* GalaxyAuthorization.h */; };
+		D74BC11E110E854C00C6570A /* GalaxyAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = D74BC11C110E854C00C6570A /* GalaxyAuthorization.m */; };
+		D74BC124110E89B200C6570A /* GalaxyOperationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D74BC123110E89B200C6570A /* GalaxyOperationDelegate.h */; };
+		D77D0F5C110CFA7300EE86EE /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = D77D0F56110CFA7300EE86EE /* Base64Transcoder.h */; };
+		D77D0F5D110CFA7300EE86EE /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = D77D0F57110CFA7300EE86EE /* Base64Transcoder.c */; };
+		D77D0F5E110CFA7300EE86EE /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = D77D0F58110CFA7300EE86EE /* hmac.h */; };
+		D77D0F5F110CFA7300EE86EE /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = D77D0F59110CFA7300EE86EE /* hmac.c */; };
+		D77D0F60110CFA7300EE86EE /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = D77D0F5A110CFA7300EE86EE /* sha1.h */; };
+		D77D0F61110CFA7300EE86EE /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = D77D0F5B110CFA7300EE86EE /* sha1.c */; };
+		D77D0F66110CFA9600EE86EE /* GalaxySignatureOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = D77D0F64110CFA9600EE86EE /* GalaxySignatureOAuth.h */; };
+		D77D0F67110CFA9600EE86EE /* GalaxySignatureOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */; };
+		D77D0F6C110CFAC200EE86EE /* GalaxyCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = D77D0F69110CFAC200EE86EE /* GalaxyCommand.h */; };
+		D77D0F6D110CFAC200EE86EE /* GalaxyCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D77D0F6A110CFAC200EE86EE /* GalaxyCommand.m */; };
+		D77D0F6E110CFAC200EE86EE /* GalaxyChannels.m in Sources */ = {isa = PBXBuildFile; fileRef = D77D0F6B110CFAC200EE86EE /* GalaxyChannels.m */; };
+		D77D0FE2110CFE8100EE86EE /* GalaxyApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = D77D0FE0110CFE8100EE86EE /* GalaxyApplication.h */; };
+		D77D0FE3110CFE8100EE86EE /* GalaxyApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */; };
+		D7F04FE4110D2B1B00F2C4C4 /* GalaxyCacheDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F04FE3110D2B1B00F2C4C4 /* GalaxyCacheDelegate.h */; };
+		D7F0508D110D5F7B00F2C4C4 /* GalaxyChannels.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F0508C110D5F7B00F2C4C4 /* GalaxyChannels.h */; };
+		D7FD7565110F9ED000A8949F /* GalaxyAuthorizationSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = D7FD7564110F9ED000A8949F /* GalaxyAuthorizationSignature.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA747D9E0F9514B9006C5449 /* GalaxyClientCore_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyClientCore_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libGalaxyClientCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGalaxyClientCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74BC102110E82B700C6570A /* GalaxyOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyOperation.h; sourceTree = "<group>"; };
+		D74BC103110E82B700C6570A /* GalaxyOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyOperation.m; sourceTree = "<group>"; };
+		D74BC116110E84FB00C6570A /* GalaxyOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyOptions.h; sourceTree = "<group>"; };
+		D74BC117110E84FB00C6570A /* GalaxyOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyOptions.m; sourceTree = "<group>"; };
+		D74BC11B110E854C00C6570A /* GalaxyAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyAuthorization.h; sourceTree = "<group>"; };
+		D74BC11C110E854C00C6570A /* GalaxyAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyAuthorization.m; sourceTree = "<group>"; };
+		D74BC123110E89B200C6570A /* GalaxyOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyOperationDelegate.h; sourceTree = "<group>"; };
+		D77D0F56110CFA7300EE86EE /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		D77D0F57110CFA7300EE86EE /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
+		D77D0F58110CFA7300EE86EE /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		D77D0F59110CFA7300EE86EE /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
+		D77D0F5A110CFA7300EE86EE /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
+		D77D0F5B110CFA7300EE86EE /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
+		D77D0F64110CFA9600EE86EE /* GalaxySignatureOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxySignatureOAuth.h; sourceTree = "<group>"; };
+		D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxySignatureOAuth.m; sourceTree = "<group>"; };
+		D77D0F69110CFAC200EE86EE /* GalaxyCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyCommand.h; sourceTree = "<group>"; };
+		D77D0F6A110CFAC200EE86EE /* GalaxyCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyCommand.m; sourceTree = "<group>"; };
+		D77D0F6B110CFAC200EE86EE /* GalaxyChannels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyChannels.m; sourceTree = "<group>"; };
+		D77D0FE0110CFE8100EE86EE /* GalaxyApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyApplication.h; sourceTree = "<group>"; };
+		D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaxyApplication.m; sourceTree = "<group>"; };
+		D7F04FE3110D2B1B00F2C4C4 /* GalaxyCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyCacheDelegate.h; sourceTree = "<group>"; };
+		D7F0508C110D5F7B00F2C4C4 /* GalaxyChannels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyChannels.h; sourceTree = "<group>"; };
+		D7FD7564110F9ED000A8949F /* GalaxyAuthorizationSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaxyAuthorizationSignature.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libGalaxyClientCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* GalaxyClientCore */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = GalaxyClientCore;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D74BC11A110E850D00C6570A /* Models */,
+				D77D0F68110CFAAB00EE86EE /* Commands */,
+				D77D0F62110CFA8100EE86EE /* Security */,
+				D77D0FE0110CFE8100EE86EE /* GalaxyApplication.h */,
+				D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */,
+				D7F04FE3110D2B1B00F2C4C4 /* GalaxyCacheDelegate.h */,
+				D74BC102110E82B700C6570A /* GalaxyOperation.h */,
+				D74BC103110E82B700C6570A /* GalaxyOperation.m */,
+				D74BC123110E89B200C6570A /* GalaxyOperationDelegate.h */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* GalaxyClientCore_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D74BC11A110E850D00C6570A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D74BC116110E84FB00C6570A /* GalaxyOptions.h */,
+				D74BC117110E84FB00C6570A /* GalaxyOptions.m */,
+				D74BC11B110E854C00C6570A /* GalaxyAuthorization.h */,
+				D74BC11C110E854C00C6570A /* GalaxyAuthorization.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D77D0F55110CFA6100EE86EE /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				D77D0F56110CFA7300EE86EE /* Base64Transcoder.h */,
+				D77D0F57110CFA7300EE86EE /* Base64Transcoder.c */,
+				D77D0F58110CFA7300EE86EE /* hmac.h */,
+				D77D0F59110CFA7300EE86EE /* hmac.c */,
+				D77D0F5A110CFA7300EE86EE /* sha1.h */,
+				D77D0F5B110CFA7300EE86EE /* sha1.c */,
+			);
+			name = Crypto;
+			sourceTree = "<group>";
+		};
+		D77D0F62110CFA8100EE86EE /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				D77D0F55110CFA6100EE86EE /* Crypto */,
+				D77D0F63110CFA8600EE86EE /* OAuth */,
+				D7FD7564110F9ED000A8949F /* GalaxyAuthorizationSignature.h */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		D77D0F63110CFA8600EE86EE /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				D77D0F64110CFA9600EE86EE /* GalaxySignatureOAuth.h */,
+				D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
+		D77D0F68110CFAAB00EE86EE /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				D77D0F69110CFAC200EE86EE /* GalaxyCommand.h */,
+				D77D0F6A110CFAC200EE86EE /* GalaxyCommand.m */,
+				D77D0F6B110CFAC200EE86EE /* GalaxyChannels.m */,
+				D7F0508C110D5F7B00F2C4C4 /* GalaxyChannels.h */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* GalaxyClientCore_Prefix.pch in Headers */,
+				D77D0F5C110CFA7300EE86EE /* Base64Transcoder.h in Headers */,
+				D77D0F5E110CFA7300EE86EE /* hmac.h in Headers */,
+				D77D0F60110CFA7300EE86EE /* sha1.h in Headers */,
+				D77D0F66110CFA9600EE86EE /* GalaxySignatureOAuth.h in Headers */,
+				D77D0F6C110CFAC200EE86EE /* GalaxyCommand.h in Headers */,
+				D77D0FE2110CFE8100EE86EE /* GalaxyApplication.h in Headers */,
+				D7F04FE4110D2B1B00F2C4C4 /* GalaxyCacheDelegate.h in Headers */,
+				D7F0508D110D5F7B00F2C4C4 /* GalaxyChannels.h in Headers */,
+				D74BC104110E82B700C6570A /* GalaxyOperation.h in Headers */,
+				D74BC118110E84FB00C6570A /* GalaxyOptions.h in Headers */,
+				D74BC11D110E854C00C6570A /* GalaxyAuthorization.h in Headers */,
+				D74BC124110E89B200C6570A /* GalaxyOperationDelegate.h in Headers */,
+				D7FD7565110F9ED000A8949F /* GalaxyAuthorizationSignature.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* GalaxyClientCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "GalaxyClientCore" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GalaxyClientCore;
+			productName = GalaxyClientCore;
+			productReference = D2AAC07E0554694100DB518D /* libGalaxyClientCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "GalaxyClientCore" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* GalaxyClientCore */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* GalaxyClientCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D77D0F5D110CFA7300EE86EE /* Base64Transcoder.c in Sources */,
+				D77D0F5F110CFA7300EE86EE /* hmac.c in Sources */,
+				D77D0F61110CFA7300EE86EE /* sha1.c in Sources */,
+				D77D0F67110CFA9600EE86EE /* GalaxySignatureOAuth.m in Sources */,
+				D77D0F6D110CFAC200EE86EE /* GalaxyCommand.m in Sources */,
+				D77D0F6E110CFAC200EE86EE /* GalaxyChannels.m in Sources */,
+				D77D0FE3110CFE8100EE86EE /* GalaxyApplication.m in Sources */,
+				D74BC105110E82B700C6570A /* GalaxyOperation.m in Sources */,
+				D74BC119110E84FB00C6570A /* GalaxyOptions.m in Sources */,
+				D74BC11E110E854C00C6570A /* GalaxyAuthorization.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/GalaxyClientCore.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GalaxyClientCore_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = GalaxyClientCore;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/GalaxyClientCore.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GalaxyClientCore_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = GalaxyClientCore;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "GalaxyClientCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "GalaxyClientCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

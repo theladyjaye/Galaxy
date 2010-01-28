@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'ConstellationSample' target in the 'ConstellationSample' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
