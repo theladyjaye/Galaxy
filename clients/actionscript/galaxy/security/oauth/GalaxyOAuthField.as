@@ -1,11 +1,14 @@
-class GalaxyOAuthField
+package galaxy.security.oauth
 {
-	public var key   : String;
-	public var value : String;
-	
-	public function GalaxyOAuthField(key:String, value:String)
+	public class GalaxyOAuthField
 	{
-		this.key   = key;
-		this.value = value;
+		public var key   : String;
+		public var value : String;
+	
+		public function GalaxyOAuthField(key:String, value:String)
+		{
+			this.key   = key;
+			this.value = value;
+		}
 	}
 }

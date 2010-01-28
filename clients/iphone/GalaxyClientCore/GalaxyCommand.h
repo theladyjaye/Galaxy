@@ -29,6 +29,4 @@ extern NSString * const kGalaxyMethodDelete;
 @property(nonatomic, assign) SEL callback;
 
 - (void) prepareCommand;
-- (void) setContentType:(NSString *)value;
-- (void) setContent:(NSString *)value;
 @end

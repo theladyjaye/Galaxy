@@ -35,6 +35,9 @@
 {
 	NSMutableDictionary * baseString = [NSMutableDictionary dictionary];
 	
+	/*
+	 * TODO : Make Nonce real
+	 */
 	NSString * nonce = @"1234";
 	NSString * time = [NSString stringWithFormat:@"%i", (int)[[NSDate date] timeIntervalSince1970]];
 	NSArray * sortedKeys;

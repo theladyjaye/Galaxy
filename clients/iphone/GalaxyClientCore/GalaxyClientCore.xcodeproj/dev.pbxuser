@@ -32,26 +32,30 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 286310350;
-			PBXWorkspaceStateSaveDate = 286310350;
+			PBXPerProjectTemplateStateSaveDate = 286344606;
+			PBXWorkspaceStateSaveDate = 286344606;
 		};
 		perUserProjectItems = {
+			D721926311115434004B9652 /* PBXTextBookmark */ = D721926311115434004B9652 /* PBXTextBookmark */;
+			D721926411115434004B9652 /* PBXTextBookmark */ = D721926411115434004B9652 /* PBXTextBookmark */;
+			D721926511115434004B9652 /* PBXTextBookmark */ = D721926511115434004B9652 /* PBXTextBookmark */;
+			D721926611115434004B9652 /* PBXTextBookmark */ = D721926611115434004B9652 /* PBXTextBookmark */;
+			D721926711115434004B9652 /* PBXTextBookmark */ = D721926711115434004B9652 /* PBXTextBookmark */;
+			D721926811115434004B9652 /* PBXTextBookmark */ = D721926811115434004B9652 /* PBXTextBookmark */;
+			D721926911115434004B9652 /* PBXTextBookmark */ = D721926911115434004B9652 /* PBXTextBookmark */;
+			D721926A11115434004B9652 /* PBXTextBookmark */ = D721926A11115434004B9652 /* PBXTextBookmark */;
+			D721926B11115434004B9652 /* PBXTextBookmark */ = D721926B11115434004B9652 /* PBXTextBookmark */;
+			D721926C11115434004B9652 /* PBXTextBookmark */ = D721926C11115434004B9652 /* PBXTextBookmark */;
+			D721926D11115434004B9652 /* PBXTextBookmark */ = D721926D11115434004B9652 /* PBXTextBookmark */;
+			D721926E11115434004B9652 /* PBXTextBookmark */ = D721926E11115434004B9652 /* PBXTextBookmark */;
+			D721926F11115434004B9652 /* PBXTextBookmark */ = D721926F11115434004B9652 /* PBXTextBookmark */;
+			D721927011115434004B9652 /* PBXTextBookmark */ = D721927011115434004B9652 /* PBXTextBookmark */;
+			D721927111115434004B9652 /* PBXTextBookmark */ = D721927111115434004B9652 /* PBXTextBookmark */;
 			D72263BB110F4B2300624019 /* PBXTextBookmark */ = D72263BB110F4B2300624019 /* PBXTextBookmark */;
 			D73336681110E1ED0038F17A /* PBXTextBookmark */ = D73336681110E1ED0038F17A /* PBXTextBookmark */;
-			D73336981110F2A30038F17A /* PBXTextBookmark */ = D73336981110F2A30038F17A /* PBXTextBookmark */;
-			D73336991110F2A30038F17A /* PBXTextBookmark */ = D73336991110F2A30038F17A /* PBXTextBookmark */;
-			D733369A1110F2A30038F17A /* PBXTextBookmark */ = D733369A1110F2A30038F17A /* PBXTextBookmark */;
-			D733369B1110F2A30038F17A /* PBXTextBookmark */ = D733369B1110F2A30038F17A /* PBXTextBookmark */;
-			D73336BB1110F3490038F17A /* PBXTextBookmark */ = D73336BB1110F3490038F17A /* PBXTextBookmark */;
-			D7333740111107DB0038F17A /* PBXTextBookmark */ = D7333740111107DB0038F17A /* PBXTextBookmark */;
-			D7333741111107DB0038F17A /* PBXTextBookmark */ = D7333741111107DB0038F17A /* PBXTextBookmark */;
-			D7353038111094610028C6F2 /* PBXTextBookmark */ = D7353038111094610028C6F2 /* PBXTextBookmark */;
 			D74BC0F2110E824E00C6570A /* PBXTextBookmark */ = D74BC0F2110E824E00C6570A /* PBXTextBookmark */;
 			D74BC132110E8C0400C6570A /* PBXTextBookmark */ = D74BC132110E8C0400C6570A /* PBXTextBookmark */;
 			D74BC136110E8C0400C6570A /* PBXTextBookmark */ = D74BC136110E8C0400C6570A /* PBXTextBookmark */;
-			D7F35D48110FFB7F00985843 /* PBXTextBookmark */ = D7F35D48110FFB7F00985843 /* PBXTextBookmark */;
-			D7F35D72110FFC0E00985843 /* PBXTextBookmark */ = D7F35D72110FFC0E00985843 /* PBXTextBookmark */;
-			D7F35E16110FFFA800985843 /* PBXTextBookmark */ = D7F35E16110FFFA800985843 /* PBXTextBookmark */;
 			D7FD7484110F945200A8949F /* PBXTextBookmark */ = D7FD7484110F945200A8949F /* PBXTextBookmark */;
 			D7FD7529110F9A1800A8949F /* PBXTextBookmark */ = D7FD7529110F9A1800A8949F /* PBXTextBookmark */;
 			D7FD75A9110FA6DD00A8949F /* PBXTextBookmark */ = D7FD75A9110FA6DD00A8949F /* PBXTextBookmark */;
@@ -60,13 +64,9 @@
 			D7FD76AD110FCC8700A8949F /* PBXTextBookmark */ = D7FD76AD110FCC8700A8949F /* PBXTextBookmark */;
 			D7FD76AE110FCC8700A8949F /* PBXTextBookmark */ = D7FD76AE110FCC8700A8949F /* PBXTextBookmark */;
 			D7FD76AF110FCC8700A8949F /* PBXTextBookmark */ = D7FD76AF110FCC8700A8949F /* PBXTextBookmark */;
-			D7FD7775110FCFF000A8949F /* PBXTextBookmark */ = D7FD7775110FCFF000A8949F /* PBXTextBookmark */;
-			D7FD7898110FD7D200A8949F /* PBXTextBookmark */ = D7FD7898110FD7D200A8949F /* PBXTextBookmark */;
-			D7FD7944110FDF0A00A8949F /* PBXTextBookmark */ = D7FD7944110FDF0A00A8949F /* PBXTextBookmark */;
 			D7FD7995110FE43E00A8949F /* PBXTextBookmark */ = D7FD7995110FE43E00A8949F /* PBXTextBookmark */;
 			D7FD7996110FE43E00A8949F /* PBXTextBookmark */ = D7FD7996110FE43E00A8949F /* PBXTextBookmark */;
 			D7FD7997110FE43E00A8949F /* PBXTextBookmark */ = D7FD7997110FE43E00A8949F /* PBXTextBookmark */;
-			D7FD7998110FE43E00A8949F /* PBXTextBookmark */ = D7FD7998110FE43E00A8949F /* PBXTextBookmark */;
 			D7FD7999110FE43E00A8949F /* PBXTextBookmark */ = D7FD7999110FE43E00A8949F /* PBXTextBookmark */;
 		};
 		sourceControlManager = D77D0F52110CBB9600EE86EE /* Source Control */;
@@ -75,6 +75,156 @@
 	};
 	D2AAC07D0554694100DB518D /* GalaxyClientCore */ = {
 		activeExec = 0;
+	};
+	D721926311115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D74BC11B110E854C00C6570A /* GalaxyAuthorization.h */;
+		name = "GalaxyAuthorization.h: 19";
+		rLen = 101;
+		rLoc = 334;
+		rType = 0;
+		vrLen = 630;
+		vrLoc = 0;
+	};
+	D721926411115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D74BC11C110E854C00C6570A /* GalaxyAuthorization.m */;
+		name = "GalaxyAuthorization.m: 30";
+		rLen = 0;
+		rLoc = 650;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 158;
+	};
+	D721926511115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D74BC117110E84FB00C6570A /* GalaxyOptions.m */;
+		name = "GalaxyOptions.m: 19";
+		rLen = 105;
+		rLoc = 310;
+		rType = 0;
+		vrLen = 707;
+		vrLoc = 181;
+	};
+	D721926611115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D74BC116110E84FB00C6570A /* GalaxyOptions.h */;
+		name = "GalaxyOptions.h: 18";
+		rLen = 0;
+		rLoc = 402;
+		rType = 0;
+		vrLen = 542;
+		vrLoc = 0;
+	};
+	D721926711115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0F6A110CFAC200EE86EE /* GalaxyCommand.m */;
+		name = "GalaxyCommand.m: 18";
+		rLen = 0;
+		rLoc = 497;
+		rType = 0;
+		vrLen = 579;
+		vrLoc = 186;
+	};
+	D721926811115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0F69110CFAC200EE86EE /* GalaxyCommand.h */;
+		name = "GalaxyCommand.h: 20";
+		rLen = 0;
+		rLoc = 509;
+		rType = 0;
+		vrLen = 803;
+		vrLoc = 0;
+	};
+	D721926911115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0F6B110CFAC200EE86EE /* GalaxyChannels.m */;
+		name = "GalaxyChannels.m: 13";
+		rLen = 0;
+		rLoc = 245;
+		rType = 0;
+		vrLen = 320;
+		vrLoc = 0;
+	};
+	D721926A11115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */;
+		name = "GalaxyApplication.m: 72";
+		rLen = 0;
+		rLoc = 1539;
+		rType = 0;
+		vrLen = 733;
+		vrLoc = 777;
+	};
+	D721926B11115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0FE0110CFE8100EE86EE /* GalaxyApplication.h */;
+		name = "GalaxyApplication.h: 21";
+		rLen = 0;
+		rLoc = 511;
+		rType = 0;
+		vrLen = 894;
+		vrLoc = 0;
+	};
+	D721926C11115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D74BC102110E82B700C6570A /* GalaxyOperation.h */;
+		name = "GalaxyOperation.h: 22";
+		rLen = 0;
+		rLoc = 604;
+		rType = 0;
+		vrLen = 789;
+		vrLoc = 0;
+	};
+	D721926D11115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D74BC103110E82B700C6570A /* GalaxyOperation.m */;
+		name = "GalaxyOperation.m: 20";
+		rLen = 27;
+		rLoc = 476;
+		rType = 0;
+		vrLen = 1283;
+		vrLoc = 1184;
+	};
+	D721926E11115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D7FD7564110F9ED000A8949F /* GalaxyAuthorizationSignature.h */;
+		name = "GalaxyAuthorizationSignature.h: 2";
+		rLen = 22;
+		rLoc = 63;
+		rType = 0;
+		vrLen = 91;
+		vrLoc = 0;
+	};
+	D721926F11115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0F64110CFA9600EE86EE /* GalaxySignatureOAuth.h */;
+		name = "GalaxySignatureOAuth.h: 19";
+		rLen = 0;
+		rLoc = 445;
+		rType = 0;
+		vrLen = 855;
+		vrLoc = 0;
+	};
+	D721927011115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */;
+		name = "GalaxySignatureOAuth.m: 77";
+		rLen = 0;
+		rLoc = 2564;
+		rType = 0;
+		vrLen = 1681;
+		vrLoc = 1624;
+	};
+	D721927111115434004B9652 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */;
+		name = "GalaxySignatureOAuth.m: 53";
+		rLen = 0;
+		rLoc = 1514;
+		rType = 0;
+		vrLen = 1396;
+		vrLoc = 2628;
 	};
 	D72263BB110F4B2300624019 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -96,86 +246,6 @@
 		vrLen = 208;
 		vrLoc = 0;
 	};
-	D73336981110F2A30038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0F6A110CFAC200EE86EE /* GalaxyCommand.m */;
-		name = "GalaxyCommand.m: 18";
-		rLen = 0;
-		rLoc = 497;
-		rType = 0;
-		vrLen = 605;
-		vrLoc = 160;
-	};
-	D73336991110F2A30038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D74BC102110E82B700C6570A /* GalaxyOperation.h */;
-		name = "GalaxyOperation.h: 22";
-		rLen = 0;
-		rLoc = 604;
-		rType = 0;
-		vrLen = 789;
-		vrLoc = 0;
-	};
-	D733369A1110F2A30038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0F69110CFAC200EE86EE /* GalaxyCommand.h */;
-		name = "GalaxyCommand.h: 21";
-		rLen = 0;
-		rLoc = 524;
-		rType = 0;
-		vrLen = 885;
-		vrLoc = 0;
-	};
-	D733369B1110F2A30038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D74BC103110E82B700C6570A /* GalaxyOperation.m */;
-		name = "GalaxyOperation.m: 80";
-		rLen = 0;
-		rLoc = 2503;
-		rType = 0;
-		vrLen = 768;
-		vrLoc = 2112;
-	};
-	D73336BB1110F3490038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0FE0110CFE8100EE86EE /* GalaxyApplication.h */;
-		name = "GalaxyApplication.h: 22";
-		rLen = 0;
-		rLoc = 579;
-		rType = 0;
-		vrLen = 894;
-		vrLoc = 0;
-	};
-	D7333740111107DB0038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */;
-		name = "GalaxyApplication.m: 92";
-		rLen = 0;
-		rLoc = 1979;
-		rType = 0;
-		vrLen = 550;
-		vrLoc = 1526;
-	};
-	D7333741111107DB0038F17A /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */;
-		name = "GalaxyApplication.m: 72";
-		rLen = 0;
-		rLoc = 1539;
-		rType = 0;
-		vrLen = 664;
-		vrLoc = 1022;
-	};
-	D7353038111094610028C6F2 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D74BC117110E84FB00C6570A /* GalaxyOptions.m */;
-		name = "GalaxyOptions.m: 28";
-		rLen = 0;
-		rLoc = 476;
-		rType = 0;
-		vrLen = 707;
-		vrLoc = 181;
-	};
 	D74BC0F2110E824E00C6570A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D77D0F56110CFA7300EE86EE /* Base64Transcoder.h */;
@@ -188,7 +258,7 @@
 	};
 	D74BC102110E82B700C6570A /* GalaxyOperation.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 433}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
 			sepNavSelRange = "{604, 0}";
 			sepNavVisRange = "{0, 789}";
 		};
@@ -196,36 +266,36 @@
 	D74BC103110E82B700C6570A /* GalaxyOperation.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1134, 1313}}";
-			sepNavSelRange = "{2503, 0}";
-			sepNavVisRange = "{2112, 768}";
+			sepNavSelRange = "{476, 27}";
+			sepNavVisRange = "{1184, 1283}";
 		};
 	};
 	D74BC116110E84FB00C6570A /* GalaxyOptions.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 445}}";
-			sepNavSelRange = "{267, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
+			sepNavSelRange = "{402, 0}";
 			sepNavVisRange = "{0, 542}";
 		};
 	};
 	D74BC117110E84FB00C6570A /* GalaxyOptions.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1134, 585}}";
-			sepNavSelRange = "{476, 0}";
+			sepNavSelRange = "{310, 105}";
 			sepNavVisRange = "{181, 707}";
 		};
 	};
 	D74BC11B110E854C00C6570A /* GalaxyAuthorization.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 445}}";
-			sepNavSelRange = "{331, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
+			sepNavSelRange = "{334, 101}";
 			sepNavVisRange = "{0, 630}";
 		};
 	};
 	D74BC11C110E854C00C6570A /* GalaxyAuthorization.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 520}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 533}}";
 			sepNavSelRange = "{650, 0}";
-			sepNavVisRange = "{0, 719}";
+			sepNavVisRange = "{158, 648}";
 		};
 	};
 	D74BC123110E89B200C6570A /* GalaxyOperationDelegate.h */ = {
@@ -334,51 +404,51 @@
 	};
 	D77D0F64110CFA9600EE86EE /* GalaxySignatureOAuth.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 426}}";
-			sepNavSelRange = "{719, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
+			sepNavSelRange = "{445, 0}";
 			sepNavVisRange = "{0, 855}";
 		};
 	};
 	D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1594, 1573}}";
-			sepNavSelRange = "{2528, 0}";
-			sepNavVisRange = "{1624, 1681}";
+			sepNavIntBoundsRect = "{{0, 0}, {1594, 1612}}";
+			sepNavSelRange = "{1514, 0}";
+			sepNavVisRange = "{2628, 1396}";
 		};
 	};
 	D77D0F69110CFAC200EE86EE /* GalaxyCommand.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 455}}";
-			sepNavSelRange = "{524, 0}";
-			sepNavVisRange = "{0, 885}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 429}}";
+			sepNavSelRange = "{509, 0}";
+			sepNavVisRange = "{0, 803}";
 		};
 	};
 	D77D0F6A110CFAC200EE86EE /* GalaxyCommand.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1134, 559}}";
 			sepNavSelRange = "{497, 0}";
-			sepNavVisRange = "{160, 605}";
+			sepNavVisRange = "{186, 579}";
 		};
 	};
 	D77D0F6B110CFAC200EE86EE /* GalaxyChannels.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 426}}";
-			sepNavSelRange = "{220, 92}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
+			sepNavSelRange = "{245, 0}";
 			sepNavVisRange = "{0, 320}";
 		};
 	};
 	D77D0FE0110CFE8100EE86EE /* GalaxyApplication.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 433}}";
-			sepNavSelRange = "{579, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
+			sepNavSelRange = "{511, 0}";
 			sepNavVisRange = "{0, 894}";
 		};
 	};
 	D77D0FE1110CFE8100EE86EE /* GalaxyApplication.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 1326}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 1313}}";
 			sepNavSelRange = "{1539, 0}";
-			sepNavVisRange = "{1022, 664}";
+			sepNavVisRange = "{777, 733}";
 		};
 	};
 	D7F04FE3110D2B1B00F2C4C4 /* GalaxyCacheDelegate.h */ = {
@@ -394,36 +464,6 @@
 			sepNavSelRange = "{116, 0}";
 			sepNavVisRange = "{0, 116}";
 		};
-	};
-	D7F35D48110FFB7F00985843 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D74BC11B110E854C00C6570A /* GalaxyAuthorization.h */;
-		name = "GalaxyAuthorization.h: 18";
-		rLen = 0;
-		rLoc = 331;
-		rType = 0;
-		vrLen = 630;
-		vrLoc = 0;
-	};
-	D7F35D72110FFC0E00985843 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D74BC11C110E854C00C6570A /* GalaxyAuthorization.m */;
-		name = "GalaxyAuthorization.m: 30";
-		rLen = 0;
-		rLoc = 650;
-		rType = 0;
-		vrLen = 719;
-		vrLoc = 0;
-	};
-	D7F35E16110FFFA800985843 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D74BC116110E84FB00C6570A /* GalaxyOptions.h */;
-		name = "GalaxyOptions.h: 12";
-		rLen = 0;
-		rLoc = 267;
-		rType = 0;
-		vrLen = 542;
-		vrLoc = 0;
 	};
 	D7FD7484110F945200A8949F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -461,8 +501,8 @@
 	};
 	D7FD7564110F9ED000A8949F /* GalaxyAuthorizationSignature.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1134, 426}}";
-			sepNavSelRange = "{91, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1134, 427}}";
+			sepNavSelRange = "{63, 22}";
 			sepNavVisRange = "{0, 91}";
 		};
 	};
@@ -547,36 +587,6 @@
 		vrLen = 391;
 		vrLoc = 0;
 	};
-	D7FD7775110FCFF000A8949F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D7FD7564110F9ED000A8949F /* GalaxyAuthorizationSignature.h */;
-		name = "GalaxyAuthorizationSignature.h: 3";
-		rLen = 0;
-		rLoc = 91;
-		rType = 0;
-		vrLen = 91;
-		vrLoc = 0;
-	};
-	D7FD7898110FD7D200A8949F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0F64110CFA9600EE86EE /* GalaxySignatureOAuth.h */;
-		name = "GalaxySignatureOAuth.h: 27";
-		rLen = 0;
-		rLoc = 719;
-		rType = 0;
-		vrLen = 855;
-		vrLoc = 0;
-	};
-	D7FD7944110FDF0A00A8949F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0F65110CFA9600EE86EE /* GalaxySignatureOAuth.m */;
-		name = "GalaxySignatureOAuth.m: 77";
-		rLen = 0;
-		rLoc = 2528;
-		rType = 0;
-		vrLen = 1681;
-		vrLoc = 1624;
-	};
 	D7FD7995110FE43E00A8949F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D77D0F59110CFA7300EE86EE /* hmac.c */;
@@ -606,16 +616,6 @@
 		rType = 0;
 		vrLen = 1079;
 		vrLoc = 4888;
-	};
-	D7FD7998110FE43E00A8949F /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D77D0F6B110CFAC200EE86EE /* GalaxyChannels.m */;
-		name = "GalaxyChannels.m: 12";
-		rLen = 92;
-		rLoc = 220;
-		rType = 0;
-		vrLen = 320;
-		vrLoc = 0;
 	};
 	D7FD7999110FE43E00A8949F /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
