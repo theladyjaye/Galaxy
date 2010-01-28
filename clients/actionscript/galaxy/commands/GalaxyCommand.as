@@ -11,6 +11,7 @@ package galaxy.commands
 		public var contentType : String;
 		public var endpoint    : String;
 		public var method      : String;
+		public var callback    : Function;
 		
 		public function GalaxyCommand()
 		{

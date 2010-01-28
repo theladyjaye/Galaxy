@@ -12,9 +12,10 @@ package galaxy.net
 	
 	public class GalaxyOperation
 	{
-		public var command : GalaxyCommand;
-		public var options : GalaxyOptions;
-		public var result  : String;
+		public var command  : GalaxyCommand;
+		public var options  : GalaxyOptions;
+		public var result   : String;
+		public var callback : Function;
 		
 		private var galaxyHost      : String = "api.galaxyfoundry.com";
 		private var galaxyPort      : int    = 80;
@@ -63,7 +64,8 @@ package galaxy.net
 		
 		private function operationDidComplete(e:Event):void
 		{
-			trace(e.target.data);
+			this.result = e.target.data;
+			callback(this);
 			cleanup();
 		}
 		

@@ -318,7 +318,7 @@
 							<real>259</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>300 -207 1247 873 0 0 1680 1028 </string>
+						<string>494 143 1247 873 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -348,7 +348,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>D717A7661112234000CBB013</string>
+										<string>D717A78111123EDD00CBB013</string>
 										<key>history</key>
 										<array>
 											<string>D77D10C5110D1FAF00EE86EE</string>
@@ -358,7 +358,7 @@
 											<string>D76FA74411112DE50093B134</string>
 											<string>D76FA74511112DE50093B134</string>
 											<string>D76FA74611112DE50093B134</string>
-											<string>D76FA74911112DE80093B134</string>
+											<string>D717A7661112234000CBB013</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -372,18 +372,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {966, 602}}</string>
+								<string>{{0, 0}, {966, 596}}</string>
 								<key>RubberWindowFrame</key>
-								<string>300 -207 1247 873 0 0 1680 1028 </string>
+								<string>494 143 1247 873 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>602pt</string>
+							<string>596pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>225pt</string>
+							<string>231pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
@@ -397,9 +397,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {966, 198}}</string>
+										<string>{{10, 27}, {966, 204}}</string>
 										<key>RubberWindowFrame</key>
-										<string>300 -207 1247 873 0 0 1680 1028 </string>
+										<string>494 143 1247 873 0 0 1680 1028 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -481,11 +481,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D717A72A111222A200CBB013</string>
+				<string>D717A77E111237BD00CBB013</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>D717A72B111222A200CBB013</string>
+				<string>D717A77F111237BD00CBB013</string>
 				<string>D77D10C3110D1FAF00EE86EE</string>
-				<string>D717A72C111222A200CBB013</string>
+				<string>D717A780111237BD00CBB013</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -658,7 +658,7 @@
 	<key>StatusbarIsVisible</key>
 	<true/>
 	<key>TimeStamp</key>
-	<real>286401344.39988101</real>
+	<real>286408413.82918203</real>
 	<key>ToolbarConfigUserDefaultsMinorVersion</key>
 	<string>2</string>
 	<key>ToolbarDisplayMode</key>
@@ -678,7 +678,7 @@
 		<string>/Users/dev/Projects/WWW_Renegade/renegade/clients/iphone/Constellation/Constellation.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>300 -207 1247 873 0 0 1680 1028 </string>
+	<string>494 143 1247 873 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
