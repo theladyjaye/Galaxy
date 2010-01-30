@@ -6,7 +6,10 @@ package
 	import constellation.Constellation;
 	import constellation.IConstellationDelegate;
 	import constellation.events.ConstellationEvent;
+	import constellation.models.CNMessage;
+	import constellation.models.CNAuthor;
 	import com.adobe.serialization.json.JSONDecoder;
+	import com.adobe.serialization.json.JSONEncoder;
 	import sample.views.Forum;
 	import sample.views.Topic;
 	import sample.views.Message;
@@ -45,7 +48,36 @@ package
 			forum.addEventListener(ConstellationEvent.COMPLETE_MESSAGES, messagesReady, false, 0, true);
 			//forum.messages("com.galaxy.community.announcements-general.4b5945928ead0e8501020000");
 			
-			forum.forums();
+			//forum.forums();
+			//sendMessage();
+			updateMessage();
+		}
+		
+		public function updateMessage():void
+		{
+			
+			var message : CNMessage = new CNMessage();
+			var author  : CNAuthor  = new CNAuthor();
+			author.name             = "gotMoose";
+			message.context = "com.galaxy.community.announcements-general.4b6480a28ead0e8b01070000"
+			message.title   = "UPDATE FROM FLASH!!!!";
+			message.author  = author;
+			
+			forum.message_update(message);
+		}
+		
+		public function sendMessage():void
+		{
+			var message : CNMessage = new CNMessage();
+			var author  : CNAuthor  = new CNAuthor();
+			author.name       = "logix812";
+			author.avatar_url = "http://www.gravatar.com/avatar/1a6b4b96e9933a0259babb3a9d02f759.png";
+			message.title     = "Hello World";
+			message.body      = "This is a message from Flash";
+			message.context   = "com.galaxy.community.announcements-general.4b5945928ead0e8501020000"
+			message.author    = author;
+			
+			forum.message_new(message);
 		}
 		
 		public function loadForums(e:MouseEvent):void
@@ -98,6 +130,16 @@ package
 		}
 		
 		public function constellationShouldGetMessagesForTopic(cn:Constellation, topic:String):Boolean
+		{
+			return true;
+		}
+		
+		public function constellationShouldCreateMessage(cn:Constellation, message:CNMessage):Boolean
+		{
+			return true;
+		}
+		
+		public function constellationShouldCreateTopic(cn:Constellation, message:CNMessage):Boolean
 		{
 			return true;
 		}

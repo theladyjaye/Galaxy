@@ -32,7 +32,7 @@
 }
 
 
-- (void)topics:(NSString *)channel page:(NSString *)page limit:(NSString *)limit
+- (void)topics:(NSString *)channel page:(NSUInteger)page limit:(NSUInteger)limit
 {
 	if(delegate && [delegate constellationShouldGetTopics:self forForum:channel])
 	{
@@ -40,7 +40,8 @@
 		command.callback         = @selector(didReceiveTopics:);
 		GalaxyOptions  * options = [self.defaultOptions copy];
 		options.context          = channel;
-		command.content          = [NSDictionary dictionaryWithObjectsAndKeys:page, @"page", limit, @"limit", nil];
+		command.content          = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%u", page], @"page", 
+									                                          [NSString stringWithFormat:@"%u", limit], @"limit", nil];
 		
 		[self execute:command options:options];
 		[options release];
@@ -48,7 +49,7 @@
 	}
 }
 
-- (void)messages:(NSString *)topic page:(NSString *)page limit:(NSString *)limit
+- (void)messages:(NSString *)topic page:(NSUInteger)page limit:(NSUInteger)limit
 {
 	if(delegate && [delegate constellationShouldGetMessages:self forTopic:topic])
 	{
@@ -56,7 +57,8 @@
 		command.callback         = @selector(didReceiveMessages:);
 		GalaxyOptions  * options = [self.defaultOptions copy];
 		options.context          = topic;
-		command.content          = [NSDictionary dictionaryWithObjectsAndKeys:page, @"page", limit, @"limit", nil];
+		command.content          = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%u", page], @"page", 
+									                                          [NSString stringWithFormat:@"%u", limit], @"limit", nil];
 		
 		[self execute:command options:options];
 		[options release];

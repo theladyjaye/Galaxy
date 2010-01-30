@@ -3,6 +3,7 @@ package galaxy.net
 	import galaxy.commands.GalaxyCommand;
 	import galaxy.models.GalaxyOptions;
 	import galaxy.models.GalaxyAuthorization;
+	import galaxy.serialization.HTTPQueryEncoder;
 	import galaxy.security.oauth.GalaxySignatureOAuth;
 	import flash.net.URLRequest;
 	import flash.net.URLRequestHeader;
@@ -31,11 +32,38 @@ package galaxy.net
 		
 		public function execute():void
 		{
-			var request : URLRequest = new URLRequest(this.absoluteUrl(true));
-			var headers : Array      = new Array();
+			var request       : URLRequest = new URLRequest(this.absoluteUrl(true));
+			var headers       : Array      = new Array();
+			var content       : String;
 			
 			request.userAgent = galaxyUserAgent;
 			request.method    = command.method;
+			
+			if(command.method != GalaxyCommand.GALAXY_METHOD_GET && command.content)
+			{
+				
+				if(command.content is String)
+				{
+					headers.push(new URLRequestHeader("Content-Type", command.contentType));
+					content = command.content;
+				}
+				else
+				{
+					headers.push(new URLRequestHeader("Content-Type", "application/x-www-form-urlencoded"));
+					content = httpBuildQuery(command.content);
+					//var queryString : HTTPQueryEncoder = new HTTPQueryEncoder(command.content);
+					var queryString : HTTPQueryEncoder = new HTTPQueryEncoder({title:"Hello World", 
+					                                                           author:{name:"logix812", 
+					                                                                   url:"http://google.com",
+																					   keys:["99", "100", "101", {secret:"lucy", type:"dog"}],
+																				       source:{label:"foo",
+																				               data:{bytes:"abcdef", length:6}}}});
+					trace(queryString);
+				}
+
+				headers.push(new URLRequestHeader("Content-Length", content.length.toString()));
+				request.data = content;
+			}
 			
 			if(options.authorization.authorizationType == GalaxyAuthorization.OAUTH)
 			{
@@ -47,7 +75,10 @@ package galaxy.net
 				
 				if(command.method == GalaxyCommand.GALAXY_METHOD_GET || command.method == GalaxyCommand.GALAXY_METHOD_POST)
 				{
-					//[(GalaxySignatureOAuth *)authorization setAdditionalParameters:command.content];
+					//if(command.content && command.content is Array)
+					//{
+						//[(GalaxySignatureOAuth *)authorization setAdditionalParameters:command.content];
+					//}
 				}
 				
 				headers.push(new URLRequestHeader('Authorization', signature.authorizationSignature()));
@@ -59,7 +90,7 @@ package galaxy.net
 			loader = new URLLoader();
 			loader.addEventListener(Event.COMPLETE, operationDidComplete);
 			loader.addEventListener(IOErrorEvent.IO_ERROR, operationDidFail);
-			loader.load(request);
+			//loader.load(request);
 		}
 		
 		private function operationDidComplete(e:Event):void

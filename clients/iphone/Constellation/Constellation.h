@@ -17,6 +17,6 @@
 @property (nonatomic, assign) id<ConstellationDelegate> delegate;
 + (Constellation *) constellationWithDelegate:(id<ConstellationDelegate>)delegate;
 - (void)forums;
-- (void)topics:(NSString *)channel page:(NSString *)page limit:(NSString *)limit;
-- (void)messages:(NSString *)topic page:(NSString *)page limit:(NSString *)limit;
+- (void)topics:(NSString *)channel page:(NSUInteger)page limit:(NSUInteger)limit;
+- (void)messages:(NSString *)topic page:(NSUInteger)page limit:(NSUInteger)limit;
 @end
