@@ -51,7 +51,7 @@ package
 			forum.forums();
 			//sendMessage();
 			
-			//updateMessage();
+			updateMessage();
 		}
 		
 		public function updateMessage():void
@@ -62,7 +62,7 @@ package
 			
 			// need to fix array sort issue on the API end when sending arrays before we can send both values.
 			author.name             = "got-a-Moose";
-			//author.avatar_url       = "http://www.gravatar.com/avatar/1a6b4b96e9933a0259babb3a9d02f759.png"
+			author.avatar_url       = "http://www.gravatar.com/avatar/1a6b4b96e9933a0259babb3a9d02f759.png"
 			
 			message.context = "com.galaxy.community.announcements-general.4b6480a28ead0e8b01070000"
 			message.title   = "AIR Moderator Tool";
@@ -104,11 +104,10 @@ package
 		
 		public function forumsReady(e:ConstellationEvent):void
 		{
+			
 			var decoder : JSONDecoder = new JSONDecoder(e.data, true);
 			var object  : Object = decoder.getValue();
 			reloadData(object.response, Forum)
-			
-			
 		}
 		
 		public function topicsReady(e:ConstellationEvent):void

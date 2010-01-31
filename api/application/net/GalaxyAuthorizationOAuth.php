@@ -68,6 +68,8 @@ class GalaxyAuthorizationOAuth
 			{
 				// with arrays in the request we might need to iterate over this to ensure
 				// the proper sort order
+				$this->sortRequestParams($_REQUEST);
+				
 				$base_string = array_merge($base_string, $_REQUEST);
 				ksort($base_string);
 			}
@@ -90,6 +92,18 @@ class GalaxyAuthorizationOAuth
 		}
 		
 		return $result;
+	}
+	
+	private function sortRequestParams(&$array)
+	{
+		foreach($array as &$value)
+		{
+			if(is_array($value))
+			{
+				$this->sortRequestParams($value);
+				ksort($value);
+			}
+		}
 	}
 	
 	public function __get($key)

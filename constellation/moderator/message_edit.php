@@ -33,7 +33,7 @@ $details = $details->response;
 <body>
 <div><a href="<?php echo $back ?>">&laquo; Back</a></div>
 <form action="message_edit.php?id=<?php echo $_GET['id'] ?>" method="post" accept-charset="utf-8">
-	<div>Author:<?php echo $details->author_name ?></div>
+	<div>Author:<?php echo $details->author->name ?></div>
 	<div><label for="inputSubject">Subject:</label><input type="text" name="inputSubject" value="<?php echo $details->title ?>" id="inputSubject" size="40"></div>
 	<div><textarea name="inputBody" id="inputBody" cols="90" rows="20"><?php echo $details->body ?></textarea></div>
 	<input type="hidden" name="inputChannel" value="<?php echo $_GET['id'] ?>" id="inputChannel">
