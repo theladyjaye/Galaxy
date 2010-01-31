@@ -66,18 +66,24 @@ class GalaxyAuthorizationOAuth
 			
 			if(count($_REQUEST))
 			{
+				// with arrays in the request we might need to iterate over this to ensure
+				// the proper sort order
 				$base_string = array_merge($base_string, $_REQUEST);
 				ksort($base_string);
 			}
-		
 			
-			$string    = strtoupper($_SERVER['REQUEST_METHOD'])."&http://".$_SERVER['SERVER_NAME'].'/'.GalaxyAPI::endpoint()."&".http_build_query($base_string);
-			$string    = urlencode($string);
+			// we will be sending arrays in this, and http_build_query() builds the right thing for recursive arrays
+			// but it encodes it wrong for our needs, which is why we are decoding it, and then rawurlencoding it afterwards
+			$params = urldecode(http_build_query($base_string));
 			
+			$string    = rawurlencode(strtoupper($_SERVER['REQUEST_METHOD'])."&http://".$_SERVER['SERVER_NAME'].'/'.GalaxyAPI::endpoint()."&".$params);
 			$signature = base64_encode(hash_hmac('sha1', $string, $secret, true));
 			
 
+			// the inbound signature
 			$sig1  = base64_decode(urldecode($this->oauth->oauth_signature));
+			
+			// the rebuilt signature
 			$sig2  = base64_decode($signature);
 			
 			$result = rawurlencode($sig1) == rawurlencode($sig2);

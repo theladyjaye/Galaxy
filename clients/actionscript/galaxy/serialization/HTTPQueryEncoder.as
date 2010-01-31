@@ -5,11 +5,13 @@ package galaxy.serialization
 	
 	public class HTTPQueryEncoder
 	{
-		var variables : URLVariables;
+		public var variables : URLVariables;
+		public var delegate  : Object;
 		
-		public function HTTPQueryEncoder(value:*)
+		public function HTTPQueryEncoder(value:*, delegate:Object=null)
 		{
 			variables = new URLVariables();
+			this.delegate  = delegate;
 			if(value is Array ||
 			   value is String ||
 			   value is Boolean ||
@@ -37,6 +39,7 @@ package galaxy.serialization
 					   value[i] is Boolean)
 					{
 						nextPrefix = prefix+"["+i+"]";
+						if(delegate) delegate['encoderWillAddVariableWithKeyAndValue'](this, nextPrefix, value[i]);
 						variables[nextPrefix] = value[i];
 					}
 					else
@@ -61,6 +64,7 @@ package galaxy.serialization
 						   value[key] is Boolean)
 						{
 							nextPrefix = prefix ? prefix+"["+key+"]" : key;
+							if(delegate) delegate['encoderWillAddVariableWithKeyAndValue'](this, nextPrefix, value[key]);
 							variables[nextPrefix] = value[key];
 						}
 						else
@@ -72,70 +76,41 @@ package galaxy.serialization
 				}
 				else
 				{
-					
-				}
-			}
-		}
-		
-		
-		/*
-		public function httpBuildQuery(value:*):String
-		{
-			var classInfo : XML = describeType( value );
-			var variables = new URLVariables();
-			var 
-			if ( classInfo.@name.toString() == "Object" )
-			{
-				for (var key:String in value)
-				{
-					if ( value is Function )
+					for each ( var v:XML in classInfo..*.( 
+						name() == "variable"
+						||
+						( 
+							name() == "accessor"
+							// Issue #116 - Make sure accessors are readable
+							&& attribute( "access" ).charAt( 0 ) == "r" ) 
+						) )
 					{
-						continue;
-					}
+						if ( v.metadata && v.metadata.( @name == "Transient" ).length() > 0 )
+						{
+							continue;
+						}
 
-					variables[value] = value[key];
-				}
-			}
-			else
-			{
-				for each ( var v:XML in classInfo..*.( 
-					name() == "variable"
-					||
-					( 
-						name() == "accessor"
-						// Issue #116 - Make sure accessors are readable
-						&& attribute( "access" ).charAt( 0 ) == "r" ) 
-					) )
-				{
-					if ( v.metadata && v.metadata.( @name == "Transient" ).length() > 0 )
-					{
-						continue;
-					}
-
-					if(value[v.@name] != null)
-					{
-						var key:String;
-						key = determineKey(value[v.@name])
-						
+						if(value[v.@name] == null) continue;
 						
 						if(value[v.@name] is String ||
 						   value[v.@name] is Number ||
 						   value[v.@name] is Boolean)
 						{
-							variables[v.@name.toString()] = value[v.@name]
-						}
-						else if(value[v.@name] is Object)
-						{
-							
-						}
 
-						//variables.arrayTest = [1,2,3,4];
-						//variables[v.@name.toString()] = convertToString(value[v.@name])
+							nextPrefix = prefix ? prefix+"["+v.@name.toString()+"]" : v.@name.toString();
+							if(delegate) delegate['encoderWillAddVariableWithKeyAndValue'](this, nextPrefix, value[v.@name.toString()]);
+							variables[nextPrefix] = value[v.@name];
+						}
+						else
+						{
+							nextPrefix  =  prefix ? prefix+"["+v.@name.toString()+"]" : v.@name.toString();
+							http_build_query(value[v.@name], nextPrefix);
+						}
 					}
 				}
 			}
 		}
-		*/
+		
 		public function toString():String
 		{
 			return variables.toString();

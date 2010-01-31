@@ -48,9 +48,10 @@ package
 			forum.addEventListener(ConstellationEvent.COMPLETE_MESSAGES, messagesReady, false, 0, true);
 			//forum.messages("com.galaxy.community.announcements-general.4b5945928ead0e8501020000");
 			
-			//forum.forums();
+			forum.forums();
 			//sendMessage();
-			updateMessage();
+			
+			//updateMessage();
 		}
 		
 		public function updateMessage():void
@@ -58,9 +59,14 @@ package
 			
 			var message : CNMessage = new CNMessage();
 			var author  : CNAuthor  = new CNAuthor();
-			author.name             = "gotMoose";
+			
+			// need to fix array sort issue on the API end when sending arrays before we can send both values.
+			author.name             = "got-a-Moose";
+			//author.avatar_url       = "http://www.gravatar.com/avatar/1a6b4b96e9933a0259babb3a9d02f759.png"
+			
 			message.context = "com.galaxy.community.announcements-general.4b6480a28ead0e8b01070000"
-			message.title   = "UPDATE FROM FLASH!!!!";
+			message.title   = "AIR Moderator Tool";
+			message.body    = "Trying a moderator update from within AIR Client"
 			message.author  = author;
 			
 			forum.message_update(message);
@@ -107,6 +113,8 @@ package
 		
 		public function topicsReady(e:ConstellationEvent):void
 		{
+			//trace(e.data);
+			
 			var decoder : JSONDecoder = new JSONDecoder(e.data, true);
 			var object  : Object = decoder.getValue();
 			reloadData(object.response, Topic);

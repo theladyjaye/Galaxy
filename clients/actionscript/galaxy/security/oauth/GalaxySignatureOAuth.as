@@ -2,11 +2,14 @@ package galaxy.security.oauth
 {
 	import galaxy.security.IGalaxyAuthorization;
 	import galaxy.security.oauth.GalaxyOAuthField;
+	import galaxy.serialization.HTTPQueryEncoder;
+	import galaxy.net.URLEncoding;
 	
 	import com.hurlant.crypto.Crypto;
 	import com.hurlant.crypto.hash.HMAC;
 	import com.hurlant.util.Base64;
 	import flash.utils.ByteArray;
+	import flash.net.URLVariables;
 	
 	public class GalaxySignatureOAuth implements IGalaxyAuthorization
 	{
@@ -41,9 +44,12 @@ package galaxy.security.oauth
 			
 			if(additionalParameters)
 			{
-				/*
-					TODO Merge Additional GET or POST params into the vector
-				*/
+				var url
+				var delegate : Object = {encoderWillAddVariableWithKeyAndValue:function(encoder:HTTPQueryEncoder, key, value){
+					baseString.push(new GalaxyOAuthField(key, value));
+				}}
+				
+				var encoder : HTTPQueryEncoder = new HTTPQueryEncoder(additionalParameters, delegate);
 			}
 			
 			baseString = baseString.sort(function(a:GalaxyOAuthField, b:GalaxyOAuthField):Number
@@ -67,8 +73,7 @@ package galaxy.security.oauth
 			})
 			
 			var signature      : String;
-			var signatureInput : String = encodeURIComponent(method+"&"+absoluteUrl+"&"+buildQuery(baseString));
-			
+			var signatureInput : String = URLEncoding.encode(method+"&"+absoluteUrl+"&"+buildQuery(baseString));
 			var secretBytes    : ByteArray = new ByteArray();
 			var signatureBytes : ByteArray = new ByteArray();
 			
@@ -138,10 +143,12 @@ package galaxy.security.oauth
 		
 		private function buildQuery(values:Vector.<GalaxyOAuthField>):String
 		{
-			var parts : Array = new Array();
+			var parts     : Array = new Array();
+			
 			for each(var field : GalaxyOAuthField in values)
 			{
-				parts.push(encodeURIComponent(field.key)+"="+encodeURIComponent(field.value));
+				//parts.push(encodeURIComponent(field.key)+"="+encodeURIComponent(field.value));
+				parts.push(field.key+"="+field.value);
 			}
 			
 			return parts.join('&');

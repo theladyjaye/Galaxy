@@ -35,6 +35,7 @@ package galaxy.net
 			var request       : URLRequest = new URLRequest(this.absoluteUrl(true));
 			var headers       : Array      = new Array();
 			var content       : String;
+			var queryString   : HTTPQueryEncoder;
 			
 			request.userAgent = galaxyUserAgent;
 			request.method    = command.method;
@@ -50,19 +51,36 @@ package galaxy.net
 				else
 				{
 					headers.push(new URLRequestHeader("Content-Type", "application/x-www-form-urlencoded"));
-					content = httpBuildQuery(command.content);
-					//var queryString : HTTPQueryEncoder = new HTTPQueryEncoder(command.content);
-					var queryString : HTTPQueryEncoder = new HTTPQueryEncoder({title:"Hello World", 
+					
+					queryString  = new HTTPQueryEncoder(command.content);
+					content = queryString.toString();
+					
+					/*
+					var queryString : HTTPQueryEncoder = new HTTPQueryEncoder({title:"Hello World",
+					  														   custom: command.content,
 					                                                           author:{name:"logix812", 
 					                                                                   url:"http://google.com",
-																					   keys:["99", "100", "101", {secret:"lucy", type:"dog"}],
+																					   keys:["99", "100", "101", {secret:"lucy", 
+																					                              type:"dog",
+																					                              nest:["pogo", "tucker", "lucy", "ollie", command.content]}],
 																				       source:{label:"foo",
-																				               data:{bytes:"abcdef", length:6}}}});
-					trace(queryString);
+																				               data:{bytes:"abcdef", 
+																				                     length:6
+																				                    }
+																				              }
+																				       }
+																			  });
+																			*/
+					
 				}
 
 				headers.push(new URLRequestHeader("Content-Length", content.length.toString()));
 				request.data = content;
+			}
+			else if(command.method == GalaxyCommand.GALAXY_METHOD_GET && command.content)
+			{
+				queryString = new HTTPQueryEncoder(command.content);
+				request.data = queryString.toString();
 			}
 			
 			if(options.authorization.authorizationType == GalaxyAuthorization.OAUTH)
@@ -75,10 +93,10 @@ package galaxy.net
 				
 				if(command.method == GalaxyCommand.GALAXY_METHOD_GET || command.method == GalaxyCommand.GALAXY_METHOD_POST)
 				{
-					//if(command.content && command.content is Array)
-					//{
-						//[(GalaxySignatureOAuth *)authorization setAdditionalParameters:command.content];
-					//}
+					if(command.content && !(command.content is String))
+					{
+						signature.additionalParameters = command.content;
+					}
 				}
 				
 				headers.push(new URLRequestHeader('Authorization', signature.authorizationSignature()));
@@ -90,7 +108,7 @@ package galaxy.net
 			loader = new URLLoader();
 			loader.addEventListener(Event.COMPLETE, operationDidComplete);
 			loader.addEventListener(IOErrorEvent.IO_ERROR, operationDidFail);
-			//loader.load(request);
+			loader.load(request);
 		}
 		
 		private function operationDidComplete(e:Event):void

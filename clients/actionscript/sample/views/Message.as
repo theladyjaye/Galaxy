@@ -27,15 +27,19 @@ package sample.views
 		{
 			super.dataProvider   = value;
 			
-			avatarLoader         = new Loader();
-			avatar.addChild(avatarLoader);
+			if(value.author.avatar_url)
+			{
+				avatarLoader         = new Loader();
+				avatar.addChild(avatarLoader);
+				avatarLoader.load(new URLRequest(value.author.avatar_url));
+			}
 			
 			txt_title.text       = value.title;
 			txt_by.text          = value.author.name;
 			txt_from.text        = value.source.description;
 			txt_body.text        = value.body;
 		
-			avatarLoader.load(new URLRequest(value.author.avatar_url));
+			
 		}
 	}
 }

@@ -85,12 +85,18 @@ class GalaxyForum extends GalaxyApplication
 	{
 		$valid = array('title'             => true,
 		               'body'              => true,
-		               'author_name'       => true,
-		               'author_avatar_url' => true);
+		               'author'            => true);
 		
 		$input = array_intersect_key($_POST, $valid);
 		if(count($input))
 		{
+			if(isset($input['author']))
+			{
+				// AMForm doesn't understand nested data yet, so we surface it if we need it.
+				if(isset($input['author']['name'])) $input['author_name'] =& $input['author']['name'];
+				if(isset($input['author']['avatar_url'])) $input['author_avatar_url'] =& $input['author']['avatar_url'];
+			}
+			
 			$form_context = array(AMForm::kDataKey => $input);
 			$form = AMForm::formWithContext($form_context);
 			
@@ -98,15 +104,17 @@ class GalaxyForum extends GalaxyApplication
 			$fields = array();
 			foreach($input as $key=>$value)
 			{
-				$fields[$key] = $value;
+				// AMFrom should figure out a way to validate nested keys
+				if($key != 'author_avatar_url' && $key != 'author_name'){
+					$fields[$key] = $value;
+				}
 				
 				// author_avatar_url can be set to null
-				if($key != 'author_avatar_url')
+				if($key != 'author_avatar_url' && !is_array($value))
 				{
 					$label = str_replace('_', ' ', $key);
 					$form->addValidator(new AMInputValidator($key, AMValidator::kRequired, 1, null, $label.' required'));
 				}
-				
 			}
 			
 			if($form->isValid)

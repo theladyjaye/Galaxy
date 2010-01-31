@@ -52,6 +52,7 @@ class GalaxyRequest
 	
 	private function requestWithAuthorizationOAuth()
 	{
+		//print_r($_POST);
 		$authorization = new GalaxyAuthorizationOAuth($this->headers['Authorization']);
 		
 		if($authorization->isAuthorized())

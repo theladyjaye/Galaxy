@@ -103,8 +103,12 @@ class GalaxySignatureOAuth
 			}
 		}
 		
-		$string       = strtoupper($this->method)."&".$this->absolute_url."&".http_build_query($base_string);
-		$string       = urlencode($string);
+		// we will be sending arrays in this, and http_build_query() builds the right thing for recursive arrays
+		// but it encodes it wrong for our needs, which is why we are decoding it, and then rawurlencoding it afterwards
+		$params = urldecode(http_build_query($base_string));
+		
+		$string       = strtoupper($this->method)."&".$this->absolute_url."&".$params;
+		$string       = rawurlencode($string);
 		
 		$signature    = urlencode(base64_encode(hash_hmac('sha1', $string, $this->secret, true)));
 		

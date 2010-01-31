@@ -83,7 +83,7 @@ package constellation
 				
 				command.content             = message;
 				
-				command.callback            = didSendMessage
+				command.callback            = didUpdateMessage
 				options.context             = message.context;
 				
 				execute(command, options);
