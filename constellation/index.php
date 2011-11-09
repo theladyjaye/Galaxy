@@ -6,26 +6,95 @@ $application->initializeConstellation();
 $forums = $application->constellation->forum_list();
 $forums = json_decode($forums);
 $forums = $forums->response;
+$docRoot = getenv("DOCUMENT_ROOT");
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Constellation</title>
+		<?php include($docRoot.'/_head.php') ?>
+	</head>
+	<body>
 
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="/resources/css/global.css" type="text/css" media="screen" charset="utf-8">
-	<title>Forums</title>
-	<!-- Date: 2009-12-31 -->
-</head>
-<body>
-	<h3>Forums</h3>
-	<?php foreach($forums as $forum): ?>
-	<div style="padding-bottom:10px">
-		<div><a href="topics_view.php?id=<?php echo $forum->id ?>"><?php echo $forum->label ?></a></div>
-		<div style="font-size:11px; font-style:italic;"><?php echo $forum->description ?></div>
-		<div style="font-size:11px; font-style:italic;">Views: <?php echo $forum->requests ?></div>
-		<!--<div style="font-size:11px; font-style:italic;">Created On: <a href="http://<?php echo $forum->source->domain ?>"><?php echo $forum->source->description ?></a></div>-->
-	</div>
-	<?php endforeach;?>
-</body>
+		<!-- The top navigation menu -->
+		<?php include($docRoot.'/_header.php') ?>
+
+		<div class="container">
+
+			<!-- Main hero unit for a primary marketing message or call to action -->
+			<div class="hero-unit">
+				<h1>Welcome!</h1>
+				<p>
+					Constellation is very special content aggregator.  We allow you to get the opinion of the people that matter most to you.  Have something to say?  Just install our wordpress plugin and sign up for our API and let your voice be heard!
+				</p>
+				<p>
+					<a class="btn primary large">Learn more &raquo;</a>
+				</p>
+			</div>
+
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="span11">
+					<h2>
+					Channel Listing:
+					<small>
+						go ahead... click one
+					</small>
+					</h2>
+					<table class="zebra-striped" id='channels-table'>
+						<thead>
+							<tr>
+								<th>Show</th>
+								<th>Description</th>
+								<th>Views</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($forums as $forum): ?>
+								<tr data-link='topics_view.php?id=<?php echo $forum->id ?>'>
+									<td><?php echo $forum->label ?></td>
+									<td><?php echo $forum->description ?></td>
+									<td><?php echo $forum->requests ?></td>
+								</tr>
+							<?php endforeach;?>
+							
+						</tbody>
+					</table>
+
+					
+				</div>
+
+				<!-- This begins the second column -->
+				<div class="span5">
+					<h2>Lorem ipsum</h2>
+					<p>
+						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+					</p>
+					<ul class="tabs">
+						<li class="active">
+							<a href="#">Lorem</a>
+						</li>
+						<li>
+							<a href="#">Ipsum</a>
+						</li>
+						<li>
+							<a href="#">Dolor</a>
+						</li>
+					</ul>
+					<p>
+						Aenean tempor vulputate ipsum tempus elementum. Sed sit amet ligula nulla, non molestie lectus. Quisque felis lectus, pharetra dapibus semper id, vulputate sed ipsum. Pellentesque tincidunt pulvinar rhoncus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+					</p>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer>
+				<p>
+					&copy; Constellation 2011
+				</p>
+			</footer>
+
+		</div> <!-- /container -->
+	</body>
 </html>
+	

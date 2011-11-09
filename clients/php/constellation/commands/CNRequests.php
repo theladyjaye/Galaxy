@@ -107,10 +107,8 @@ class CNRequests
 	{
 		$command       = new CNMessageUpdate();
 		$command->setContent($message->data());
-		
 		$options       = $constellation->defaultCommandOptions();
 		$options['id'] = $message->context();
-		
 		$response = $constellation->execute($command, $options);
 		return $response->result;
 	}

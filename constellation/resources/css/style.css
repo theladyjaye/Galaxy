@@ -1,0 +1,42 @@
+body{
+	padding-top: 40px;
+}
+#channels-table tbody tr{
+	cursor: hand;
+}
+.listing{
+	margin-top:20px;
+}
+
+
+.non-cell{
+	text-align: center;
+	width:105px;
+}
+table td{
+	vertical-align: middle;
+}
+.thread-response{
+	font-weight: bold;
+	color: #404040;
+	font-size: 14px;
+	width:720px;
+	margin-top:5px;
+}
+.post h6{
+	line-height:16px;
+}
+.post h1{
+	margin-bottom:0;
+}
+
+.comment h6{
+	line-height:13px;
+}
+.comment .label{
+	margin-bottom:20px;
+}
+#inputSubject{
+	height:28px;
+}
+
