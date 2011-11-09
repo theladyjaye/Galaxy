@@ -18,25 +18,13 @@ if(count($_POST))
 $back     = implode('.', array_slice(explode('.', $_GET['id']), 0, 4));
 $details = json_decode($application->constellation->message($_GET['id']));
 $details = $details->response;
+$docRoot = getenv("DOCUMENT_ROOT");
 ?>
 <html>
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Constellation</title>
-		<link type="text/css" rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="/resources/css/style.css">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
-		<script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-popover.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js"></script>
-		<script type="text/javascript"  src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-buttons.js"></script>
-		<script type="text/javascript"  src="resources/js/app.js"></script>
+		<?php include($docRoot.'/_head.php') ?>
 	</head>
 	<body>
 

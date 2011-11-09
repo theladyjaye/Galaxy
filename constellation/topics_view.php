@@ -6,6 +6,7 @@ $application->initializeConstellation();
 $topics = $application->constellation->topic_list($_GET['id']);
 $topics = json_decode($topics);
 $topics = $topics->response;
+$docRoot = getenv("DOCUMENT_ROOT");
 ?>
 
 
@@ -13,20 +14,7 @@ $topics = $topics->response;
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<title>Constellation</title>
-		<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
-		<link rel="stylesheet" href="/resources/css/style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-modal.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-alerts.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-twipsy.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-popover.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-scrollspy.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-tabs.js"></script>
-		<script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-buttons.js"></script>
-		<script src="resources/js/app.js"></script>
+		<?php include($docRoot.'/_head.php') ?>	
 	</head>
 	<body>
 
